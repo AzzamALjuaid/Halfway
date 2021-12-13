@@ -1,5 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Azzam/AndroidStudioProjects/halfway/app/src/main/res/drawable/button.xml" value="0.3453125" />
+        <entry key="..\:/Users/Azzam/AndroidStudioProjects/halfway/app/src/main/res/drawable/buttonshapewhitebg.xml" value="0.3453125" />
+        <entry key="..\:/Users/Azzam/AndroidStudioProjects/halfway/app/src/main/res/drawable/ic_baseline_email_24.xml" value="0.287962962962963" />
+        <entry key="..\:/Users/Azzam/AndroidStudioProjects/halfway/app/src/main/res/drawable/ic_baseline_lock_24.xml" value="0.287962962962963" />
+        <entry key="..\:/Users/Azzam/AndroidStudioProjects/halfway/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
+        <entry key="..\:/Users/Azzam/AndroidStudioProjects/halfway/app/src/main/res/drawable/input.xml" value="0.17777777777777778" />
+        <entry key="..\:/Users/Azzam/AndroidStudioProjects/halfway/app/src/main/res/layout/activity_login.xml" value="0.19572816258877365" />
+        <entry key="..\:/Users/Azzam/AndroidStudioProjects/halfway/app/src/main/res/layout/activity_main.xml" value="0.32916666666666666" />
+        <entry key="..\:/Users/Azzam/AndroidStudioProjects/halfway/app/src/main/res/layout/activity_secend.xml" value="0.30757282692521576" />
+      </map>
+    </option>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>

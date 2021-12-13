@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "13046290657",
+    "project_id": "halfway-7f6ca",
+    "storage_bucket": "halfway-7f6ca.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:13046290657:android:1d60293138e7abcf743fa0",
+        "android_client_info": {
+          "package_name": "com.tuwaiq.halfway"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "13046290657-ivgprn6legngh9q12un0rbo5jf9odmei.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAQMeDpAc_c2i2BM0rIFaK1OKypfg7ooFY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "13046290657-ivgprn6legngh9q12un0rbo5jf9odmei.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
