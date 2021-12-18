@@ -16,32 +16,31 @@ class LoginActivity : AppCompatActivity() {
 
         val loginButton = findViewById<Button>(R.id.logoutbtn)
 
-        loginButton.setOnClickListener {
-            loginUser()
-        }
+//        loginButton.setOnClickListener {
+//            loginUser()
+//        }
     }
 
-    private fun loginUser()  {
-        val email = findViewById<EditText>(R.id.etEmailLogin).text.toString()
-        val password = findViewById<EditText>(R.id.etPasswordLogin).text.toString()
-
-        if (email.isNotEmpty() && password.isNotEmpty()){
-            FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener { task ->
-                    if (task.isSuccessful){
-                        val firebaseUser : FirebaseUser = task.result!!.user!!
-                        Toast.makeText(this@LoginActivity, "Logged in" , Toast.LENGTH_LONG).show()
-                        val intent = Intent(this@LoginActivity , SecendActivity::class.java)
-                        intent.putExtra("user_id", firebaseUser.uid)
-                        intent.putExtra("email_id", email)
-                        startActivity(intent)
-                        finish()
-                    }else{
-
-                        Toast.makeText(this@LoginActivity , "Error" , Toast.LENGTH_LONG).show()
-                    }
-                }
-        }
+//    private fun loginUser()  {
+//        val email = findViewById<EditText>(R.id.etEmailLogin).text.toString()
+//        val password = findViewById<EditText>(R.id.etPasswordLogin).text.toString()
+//
+//        if (email.isNotEmpty() && password.isNotEmpty()){
+//            FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
+//                .addOnCompleteListener { task ->
+//                    if (task.isSuccessful){
+//                        val firebaseUser : FirebaseUser = task.result!!.user!!
+//                        Toast.makeText(this@LoginActivity, "Logged in" , Toast.LENGTH_LONG).show()
+//                        val intent = Intent(this@LoginActivity , SecendActivity::class.java)
+//                        intent.putExtra("user_id", firebaseUser.uid)
+//                        intent.putExtra("email_id", email)
+//                        startActivity(intent)
+//                        finish()
+//                    }else{
+//
+//                        Toast.makeText(this@LoginActivity , "Error" , Toast.LENGTH_LONG).show()
+//                    }
+//                }
+//        }
 
     }
-}

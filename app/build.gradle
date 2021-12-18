@@ -32,6 +32,9 @@ android {
 }
 
 dependencies {
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.4.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0'
     dependencies {
         // Import the BoM for the Firebase platform
         implementation platform('com.google.firebase:firebase-bom:29.0.2')
