@@ -1,7 +1,6 @@
 package com.tuwaiq.halfway
 
 import android.content.Intent
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -14,11 +13,13 @@ import android.widget.TextView
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.tuwaiq.halfway.signup.RegistrationFragment
 
 private const val TAG = "LoginFragment"
 class LoginFragment : Fragment() {
 
     private lateinit var viewModel: LoginViewModel
+    private lateinit var signBTN:Button
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -26,16 +27,20 @@ class LoginFragment : Fragment() {
     ): View? {
         Log.d(TAG,"onCreat ok")
         val view = inflater.inflate(R.layout.login_fragment, container, false)
-        val registerButton = view.findViewById<Button>(R.id.register_btn)
 
-        val loginLink = view.findViewById<TextView>(R.id.tvLoginLink)
+        signBTN=view.findViewById(R.id.login_btn)
 
-        registerButton.setOnClickListener {
+        val sighUpLink = view.findViewById<TextView>(R.id.tvsighUpLink)
+
+        signBTN.setOnClickListener {
             LoginUser()
         }
 
-        loginLink.setOnClickListener {
-            startActivity(Intent(context, LoginActivity::class.java))
+        sighUpLink.setOnClickListener {
+            val fragment=RegistrationFragment()
+            activity?.supportFragmentManager
+                ?.beginTransaction()?.replace(R.id.fragmentContainerView,fragment)
+                ?.addToBackStack(null)?.commit()
         }
         return view }
 
@@ -52,7 +57,7 @@ class LoginFragment : Fragment() {
                             Log.d(TAG,"fragment ok")
                             val firebaseUser: FirebaseUser = task.result!!.user!!
                             Toast.makeText(context, "Logged in", Toast.LENGTH_LONG).show()
-                            val intent = Intent(context, SecendActivity::class.java)
+                            val intent = Intent(context, HalfwayActivity::class.java)
                             intent.putExtra("user_id", firebaseUser.uid)
                             intent.putExtra("email_id", email)
                             startActivity(intent)
