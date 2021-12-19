@@ -98,7 +98,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerView"
-        android:name="com.tuwaiq.halfway.signup.RegistrationFragment"
+        android:name="com.tuwaiq.halfway.LoginFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"

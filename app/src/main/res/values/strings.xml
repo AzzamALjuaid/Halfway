@@ -5,4 +5,8 @@
     <string name="password">Enter Your Password</string>
     <string name="signup">Sign-Up</string>
     <string name="signup_msg">Don\'t Have an account? Sign up now</string>
+    <string name="title_activity_halfway">HalfwayActivity</string>
+    <string name="title_map">Map</string>
+    <string name="title_chat">Chat</string>
+    <string name="title_profile">Profile</string>
 </resources>

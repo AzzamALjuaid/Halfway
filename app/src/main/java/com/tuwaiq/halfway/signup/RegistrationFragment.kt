@@ -55,6 +55,9 @@ class RegistrationFragment : Fragment() {
                         Toast.makeText(context, "Error", Toast.LENGTH_LONG).show()
                     }
                 }
+                .addOnFailureListener {
+                    println(it.message)
+                }
         }
     }
 }

@@ -31,14 +31,16 @@ class LoginFragment : Fragment() {
         val loginLink = view.findViewById<TextView>(R.id.tvLoginLink)
 
         registerButton.setOnClickListener {
-            registerUser()
+            LoginUser()
         }
 
         loginLink.setOnClickListener {
             startActivity(Intent(context, LoginActivity::class.java))
         }
         return view }
-    fun registerUser() {
+
+
+    fun LoginUser() {
             val email = view?.findViewById<EditText>(R.id.etRegisterEmail)?.text.toString()
             val password = view?.findViewById<EditText>(R.id.etRegisterPass)?.text.toString()
 
