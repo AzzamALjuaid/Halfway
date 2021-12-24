@@ -10,10 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Halfway">
         <activity
+            android:name=".LoginActivity"
+            android:exported="false" />
+        <activity
             android:name=".HalfwayActivity"
             android:exported="false"
-            android:label="@string/title_activity_halfway" />
-        <!-- <activity -->
+            android:label="@string/title_activity_halfway" /> <!-- <activity -->
         <!-- android:name=".LoginActivity" -->
         <!-- android:exported="false" /> -->
         <!-- <activity -->

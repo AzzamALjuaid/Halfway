@@ -20,6 +20,7 @@ class RegistrationFragment : Fragment() {
     private lateinit var viewModel: RegistrationViewModel
     private lateinit var regBTN:Button
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -37,20 +38,16 @@ class RegistrationFragment : Fragment() {
         val email = view?.findViewById<EditText>(R.id.etRegisterEmail)?.text.toString()
         val password = view?.findViewById<EditText>(R.id.etRegisterPass)?.text.toString()
 
-        Log.d(TAG,"reg fun")
         if (email.isNotEmpty() && password.isNotEmpty()) {
             FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
-                        Log.d(TAG,"if frag")
                         Toast.makeText(context, "Logged in", Toast.LENGTH_LONG).show()
                         val fragment=LoginFragment()
                         activity?.supportFragmentManager
                             ?.beginTransaction()?.replace(R.id.fragmentContainerView,fragment)
                             ?.addToBackStack(null)?.commit()
                     } else {
-
-                        Log.d(TAG,"else frag")
                         Toast.makeText(context, "Error", Toast.LENGTH_LONG).show()
                     }
                 }

@@ -25,7 +25,6 @@ class LoginFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        Log.d(TAG,"onCreat ok")
         val view = inflater.inflate(R.layout.login_fragment, container, false)
 
         signBTN=view.findViewById(R.id.login_btn)
@@ -35,7 +34,6 @@ class LoginFragment : Fragment() {
         signBTN.setOnClickListener {
             LoginUser()
         }
-
         sighUpLink.setOnClickListener {
             val fragment=RegistrationFragment()
             activity?.supportFragmentManager
@@ -44,8 +42,8 @@ class LoginFragment : Fragment() {
         }
         return view }
 
-
     fun LoginUser() {
+        val test:String
             val email = view?.findViewById<EditText>(R.id.etRegisterEmail)?.text.toString()
             val password = view?.findViewById<EditText>(R.id.etRegisterPass)?.text.toString()
 
@@ -69,5 +67,4 @@ class LoginFragment : Fragment() {
             }
 
         }
-
 }

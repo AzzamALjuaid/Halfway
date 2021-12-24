@@ -1,6 +1,7 @@
 package com.tuwaiq.halfway
 
 import android.os.Bundle
+import android.util.Log
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
@@ -9,6 +10,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.tuwaiq.halfway.databinding.ActivityHalfwayBinding
 
+private const val TAG = "HalfwayActivity"
 class HalfwayActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityHalfwayBinding
@@ -29,6 +31,7 @@ class HalfwayActivity : AppCompatActivity() {
                 R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications
             )
         )
+
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
     }
