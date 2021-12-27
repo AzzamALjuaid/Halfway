@@ -1,6 +1,9 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'kotlin-parcelize'
+
 }
 
 android {
@@ -35,6 +38,9 @@ android {
 }
 
 dependencies {
+    //stream chat
+//    implementation "io.getstream:stream-chat-android-ui-components:4.23.0"
+
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.4.0'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0'

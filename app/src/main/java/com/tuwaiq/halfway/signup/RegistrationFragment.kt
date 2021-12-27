@@ -1,8 +1,6 @@
 package com.tuwaiq.halfway.signup
 
-import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -33,10 +31,9 @@ class RegistrationFragment : Fragment() {
         }
         return view
     }
-
     private fun registerUser() {
-        val email = view?.findViewById<EditText>(R.id.etRegisterEmail)?.text.toString()
-        val password = view?.findViewById<EditText>(R.id.etRegisterPass)?.text.toString()
+        val email = view?.findViewById<EditText>(R.id.etLoginEmail)?.text.toString()
+        val password = view?.findViewById<EditText>(R.id.etLoginPass)?.text.toString()
 
         if (email.isNotEmpty() && password.isNotEmpty()) {
             FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)

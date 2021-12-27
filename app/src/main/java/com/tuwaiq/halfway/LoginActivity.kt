@@ -16,11 +16,11 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-
-        tabLayout
         tabLayout = findViewById(R.id.tap_layout)
         viewPager = findViewById(R.id.view_pager)
         var googleBTN = findViewById<FloatingActionButton>(R.id.fab_google)
+
+
 
         tabLayout.addTab(tabLayout.newTab().setText("tab"))
         tabLayout.addTab(tabLayout.newTab().setText("Login"))
