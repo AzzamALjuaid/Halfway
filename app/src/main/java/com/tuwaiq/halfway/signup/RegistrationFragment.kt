@@ -32,8 +32,8 @@ class RegistrationFragment : Fragment() {
         return view
     }
     private fun registerUser() {
-        val email = view?.findViewById<EditText>(R.id.etLoginEmail)?.text.toString()
-        val password = view?.findViewById<EditText>(R.id.etLoginPass)?.text.toString()
+        val email = view?.findViewById<EditText>(R.id.etRegEmail)?.text.toString()
+        val password = view?.findViewById<EditText>(R.id.etRegPass)?.text.toString()
 
         if (email.isNotEmpty() && password.isNotEmpty()) {
             FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)
