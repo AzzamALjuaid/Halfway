@@ -17,6 +17,7 @@ class RegistrationFragment : Fragment() {
 
     private lateinit var viewModel: RegistrationViewModel
     private lateinit var regBTN:Button
+    private lateinit var press:Button
 
 
     override fun onCreateView(

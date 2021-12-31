@@ -5,6 +5,8 @@ import android.location.Location
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.ActionMode
+import android.view.MenuItem
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -19,7 +21,13 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 return
     }
+
+    override fun onActionModeFinished(mode: ActionMode?) {
+        super.onActionModeFinished(mode)
+    }
 }
+
+
 
 //        val registerButton = findViewById<Button>(R.id.register_btn)
 //
@@ -58,3 +66,4 @@ return
 //        }
 //
 //    }
+

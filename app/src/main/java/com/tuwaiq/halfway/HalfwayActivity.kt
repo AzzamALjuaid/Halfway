@@ -1,7 +1,9 @@
 package com.tuwaiq.halfway
 
+import android.content.res.Configuration
 import android.os.Bundle
 import android.util.Log
+import android.view.ActionMode
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
@@ -20,8 +22,8 @@ class HalfwayActivity : AppCompatActivity() {
 //    private lateinit var navController: NavController//chatSDK
 //    private val client = ChatClient.instance()//chatSDK
 
-
     private lateinit var binding: ActivityHalfwayBinding
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {

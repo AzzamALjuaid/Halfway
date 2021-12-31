@@ -1,15 +1,22 @@
 package com.tuwaiq.halfway
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
+import android.content.res.Configuration
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.webkit.WebView
 import android.widget.*
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.tuwaiq.halfway.signup.RegistrationFragment
+import java.security.acl.LastOwnerException
+import java.util.concurrent.CountDownLatch
 
 private const val TAG = "LoginFragment"
 class LoginFragment : Fragment() {
@@ -18,16 +25,17 @@ class LoginFragment : Fragment() {
     private lateinit var signBTN:Button
     private lateinit var progressBar:ProgressBar
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.login_fragment, container, false)
 
-
         progressBar=view.findViewById(R.id.progressBar)
         progressBar.visibility = View.INVISIBLE
         signBTN=view.findViewById(R.id.login_btn)
+
 
         val sighUpLink = view.findViewById<TextView>(R.id.tvsighUpLink)
 
@@ -47,6 +55,7 @@ class LoginFragment : Fragment() {
         super.onStop()
         progressBar.visibility = View.INVISIBLE
     }
+
 
     fun LoginUser() {
             val email = view?.findViewById<EditText>(R.id.etLoginEmail)?.text.toString()
