@@ -10,6 +10,7 @@ import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.Animation
 import android.webkit.WebView
 import android.widget.*
 import com.google.firebase.auth.FirebaseAuth
@@ -51,6 +52,9 @@ class LoginFragment : Fragment() {
                 ?.addToBackStack(null)?.commit()
         }
         return view }
+
+
+
 
     override fun onStop() {
         super.onStop()

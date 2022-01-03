@@ -1,7 +1,4 @@
 <resources>
-    <string name="google_maps_key">AIzaSyDXyWFwcejSDiYyPC2YYSU5yx6-O-Xclus</string>
-    <string name="chat_api_key">y9hszb8yrdm2</string>
-
 
     <string name="app_name">Halfway</string>
     <string name="login_text">Login</string>
