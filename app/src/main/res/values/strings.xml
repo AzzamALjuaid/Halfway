@@ -1,4 +1,5 @@
 <resources>
+    <string name="google_maps_key">AIzaSyDXyWFwcejSDiYyPC2YYSU5yx6-O-Xclus</string>
     <string name="chat_api_key">y9hszb8yrdm2</string>
 
 
@@ -13,4 +14,5 @@
     <string name="title_chat">Chat</string>
     <string name="title_profile">Profile</string>
     <string name="Required">Required</string>
+    <string name="title_activity_main2">MainActivity2</string>
 </resources>

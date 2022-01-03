@@ -17,6 +17,7 @@ import com.google.firebase.auth.FirebaseUser
 import com.tuwaiq.halfway.signup.RegistrationFragment
 import java.security.acl.LastOwnerException
 import java.util.concurrent.CountDownLatch
+import java.util.concurrent.PriorityBlockingQueue
 
 private const val TAG = "LoginFragment"
 class LoginFragment : Fragment() {
@@ -24,7 +25,6 @@ class LoginFragment : Fragment() {
     private lateinit var viewModel: LoginViewModel
     private lateinit var signBTN:Button
     private lateinit var progressBar:ProgressBar
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,6 +38,7 @@ class LoginFragment : Fragment() {
 
 
         val sighUpLink = view.findViewById<TextView>(R.id.tvsighUpLink)
+
 
         signBTN.setOnClickListener {
             progressBar.visibility = View.VISIBLE

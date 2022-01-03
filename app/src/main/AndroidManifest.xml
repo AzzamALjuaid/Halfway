@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.tuwaiq.halfway">
+    package="com.tuwaiq.halfway" >
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -8,8 +12,11 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Halfway">
-
+        android:theme="@style/Theme.Halfway" >
+        <activity
+            android:name=".MainActivity2"
+            android:exported="false"
+            android:label="@string/title_activity_main2" />
         <activity
             android:name=".HalfwayActivity"
             android:exported="false"
@@ -21,7 +28,11 @@
         <!-- android:exported="false" /> -->
         <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true" >
+            <meta-data
+                android:name="com.google.android.geo.API_KEY"
+                android:value="@string/google_maps_key" />
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

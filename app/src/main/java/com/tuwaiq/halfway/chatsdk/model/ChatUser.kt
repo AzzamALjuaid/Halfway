@@ -11,5 +11,4 @@ import kotlinx.parcelize.Parcelize
 data class ChatUser(
     val firstName:String,
     val username:String,
-    val email:String,
 ):Parcelable

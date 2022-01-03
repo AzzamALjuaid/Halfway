@@ -11,13 +11,13 @@ import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.tuwaiq.halfway.LoginFragment
 import com.tuwaiq.halfway.R
+import java.io.BufferedReader
 
 private const val TAG = "RegistrationFragment"
 class RegistrationFragment : Fragment() {
 
     private lateinit var viewModel: RegistrationViewModel
     private lateinit var regBTN:Button
-    private lateinit var press:Button
 
 
     override fun onCreateView(

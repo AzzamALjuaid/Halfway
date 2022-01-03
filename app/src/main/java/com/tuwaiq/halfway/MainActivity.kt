@@ -1,9 +1,12 @@
 package com.tuwaiq.halfway
 
+import android.app.Activity
 import android.content.Intent
+import android.content.res.Configuration
 import android.location.Location
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.PersistableBundle
 import android.util.Log
 import android.view.ActionMode
 import android.view.MenuItem
@@ -22,9 +25,7 @@ class MainActivity : AppCompatActivity() {
 return
     }
 
-    override fun onActionModeFinished(mode: ActionMode?) {
-        super.onActionModeFinished(mode)
-    }
+
 }
 
 
