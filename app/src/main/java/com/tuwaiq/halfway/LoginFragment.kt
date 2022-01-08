@@ -13,9 +13,12 @@ import android.view.ViewGroup
 import android.view.animation.Animation
 import android.webkit.WebView
 import android.widget.*
+import androidx.core.content.res.ResourcesCompat
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.tuwaiq.halfway.signup.RegistrationFragment
+import www.sanju.motiontoast.MotionToast
+import www.sanju.motiontoast.MotionToastStyle
 import java.security.acl.LastOwnerException
 import java.util.concurrent.CountDownLatch
 import java.util.concurrent.PriorityBlockingQueue
@@ -53,9 +56,6 @@ class LoginFragment : Fragment() {
         }
         return view }
 
-
-
-
     override fun onStop() {
         super.onStop()
         progressBar.visibility = View.INVISIBLE
@@ -72,13 +72,27 @@ class LoginFragment : Fragment() {
                         if (task.isSuccessful) {
 
                             val firebaseUser: FirebaseUser = task.result!!.user!!
-                            Toast.makeText(context, "Logged in", Toast.LENGTH_LONG).show()
+                            MotionToast.darkColorToast(requireActivity(),
+                                "Successful",
+                                "Login successfully!",
+                                MotionToastStyle.SUCCESS,
+                                MotionToast.GRAVITY_BOTTOM,
+                                MotionToast.LONG_DURATION,
+                                ResourcesCompat.getFont(requireContext(),R.font.helvetica_regular))
+
                             val intent = Intent(context, HalfwayActivity::class.java)
                             intent.putExtra("user_id", firebaseUser.uid)
                             intent.putExtra("email_id", email)
                             startActivity(intent)
                         } else {
-                            Toast.makeText(context, "Error", Toast.LENGTH_LONG).show()
+                            MotionToast.darkColorToast(requireActivity(),
+                                "Error",
+                                "Failed to Login",
+                                MotionToastStyle.ERROR,
+                                MotionToast.GRAVITY_BOTTOM,
+                                MotionToast.LONG_DURATION,
+                                ResourcesCompat.getFont(requireContext(),R.font.helvetica_regular))
+                            progressBar.visibility = View.INVISIBLE
                         }
                     }
             }

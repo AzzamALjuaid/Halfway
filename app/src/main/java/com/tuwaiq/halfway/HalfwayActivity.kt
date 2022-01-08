@@ -10,30 +10,18 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.tuwaiq.halfway.databinding.ActivityHalfwayBinding
 
-//import io.getstream.chat.android.client.ChatClient
 
 private const val TAG = "HalfwayActivity"
 class HalfwayActivity : AppCompatActivity() {
 
-    private lateinit var navController: NavController//chatSDK
-//    private val client = ChatClient.instance()//chatSDK
-
     private lateinit var binding: ActivityHalfwayBinding
+
+
+    private lateinit var test:SplashActivity
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        navController = findNavController(R.id.fragmentContainerView)
-
-        if(navController.currentDestination?.label.toString().contains("login")){
-//            val currentUser = client.getCurrentUser()
-//            if (currentUser != null){
-//                val user = ChatUser(currentUser.name,currentUser.id)
-//                val action = LoginFragmentDirections.actionLoginFragmentToChannelFragment(user)
-//            }
-//        }
-
 
         binding = ActivityHalfwayBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -47,8 +35,7 @@ class HalfwayActivity : AppCompatActivity() {
                 R.id.navigation_map, R.id.navigation_chat, R.id.navigation_profile
             )
         )
-
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
     }
-}}
+}

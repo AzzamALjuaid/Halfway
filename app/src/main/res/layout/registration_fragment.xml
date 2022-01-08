@@ -45,6 +45,7 @@
         app:layout_constraintVertical_bias="0.045" />
 
     <EditText
+        android:id="@+id/etRegRePass"
         android:layout_width="360dp"
         android:layout_height="64dp"
         android:layout_alignParentLeft="true"
@@ -53,7 +54,7 @@
         android:clipToOutline="true"
         android:drawableStart="@drawable/ic_baseline_lock_24"
         android:drawablePadding="10dp"
-        android:hint="Repet Your Password"
+        android:hint="@string/conform_password"
         android:inputType="textPassword"
         android:paddingStart="15dp"
         app:layout_constraintBottom_toBottomOf="parent"

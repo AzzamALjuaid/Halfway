@@ -4,6 +4,7 @@
     <string name="login_text">Login</string>
     <string name="email">Enter Your Email</string>
     <string name="password">Enter Your Password</string>
+    <string name="conform_password">Confirm Your Password</string>
     <string name="signup">Sign-Up</string>
     <string name="signup_msg">Don\'t Have an account? Sign up now</string>
     <string name="title_activity_halfway">HalfwayActivity</string>
@@ -11,5 +12,4 @@
     <string name="title_chat">Chat</string>
     <string name="title_profile">Profile</string>
     <string name="Required">Required</string>
-    <string name="title_activity_main2">MainActivity2</string>
 </resources>
