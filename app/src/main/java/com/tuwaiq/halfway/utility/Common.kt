@@ -14,13 +14,14 @@ import java.util.regex.Pattern
 
 object Common {
 
-    fun showInternetMessage(activity: Context) {
+    fun showNoInternetMessage(activity: Context) {
         val builder = android.app.AlertDialog.Builder(activity)
         builder.setMessage("Please check your internet connection.")
-        builder.setPositiveButton("OK") { dialog, id -> }.show()
+        builder.setPositiveButton("Ok") { dialog, id -> }.show()
+
     }
 
-    fun hideKeybord(activity: Activity) {
+    fun hideKeyboard(activity: Activity) {
         val imm = activity.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
         //Find the currently focused view, so we can grab the correct window token from it.
         var view = activity.currentFocus
@@ -28,7 +29,18 @@ object Common {
         if (view == null) {
             view = View(activity)
         }
-        imm.hideSoftInputFromWindow(view.windowToken,0)
+        imm.hideSoftInputFromWindow(view.windowToken, 0)
+    }
+
+    fun startNewActivity(
+        activity: Activity,
+        className: Class<*>,
+        clearStack: Boolean
+    ) {
+        val intent = Intent(activity, className)
+        if (clearStack)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        activity.startActivity(intent)
     }
 
     fun startNewActivity(
@@ -43,6 +55,7 @@ object Common {
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         activity.startActivity(intent)
     }
+
     fun showToast(activity: Activity, message: String) {
         Toast.makeText(activity, message, Toast.LENGTH_LONG).show()
     }

@@ -1,0 +1,291 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    xmlns:tools="http://schemas.android.com/tools"
+4    package="org.chat21.android" >
+5
+6    <uses-sdk
+7        android:minSdkVersion="19"
+7-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml
+8        android:targetSdkVersion="26" />
+8-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml
+9
+10    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+10-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:5:5-81
+10-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:5:22-78
+11    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+11-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:6:5-80
+11-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:6:22-77
+12    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+12-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:7:5-81
+12-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:7:22-78
+13
+14    <application
+14-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:8:5-138:19
+15        android:allowBackup="true"
+15-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:9:9-35
+16        android:requestLegacyExternalStorage="true"
+16-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:10:9-52
+17        android:theme="@style/AppTheme" >
+17-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:11:9-40
+18        <activity
+18-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:13:9-153
+19            android:name="org.chat21.android.ui.login.activities.ChatLoginActivity"
+19-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:13:44-97
+20            android:exported="true"
+20-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:13:19-42
+21            android:screenOrientation="portrait" />
+21-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:13:105-141
+22        <activity
+22-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:15:9-155
+23            android:name="org.chat21.android.ui.login.activities.ChatSignUpActivity"
+23-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:15:44-98
+24            android:exported="true"
+24-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:15:19-42
+25            android:screenOrientation="portrait" />
+25-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:15:107-143
+26
+27        <!-- display the contact list -->
+28        <activity
+28-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:18:9-36:20
+29            android:name="org.chat21.android.ui.contacts.activites.ContactListActivity"
+29-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:19:13-70
+30            android:exported="true"
+30-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:18:19-42
+31            android:label="@string/string_contact_list_activity_title"
+31-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:21:13-71
+32            android:screenOrientation="portrait" >
+32-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:20:13-49
+33            <meta-data
+33-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:23:13-25:63
+34                android:name="android.app.searchable"
+34-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:24:17-54
+35                android:resource="@xml/searchable_contacts" />
+35-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:25:17-60
+36
+37            <intent-filter>
+37-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:27:13-29:29
+38                <action android:name="android.intent.action.SEARCH" />
+38-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:28:17-71
+38-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:28:25-68
+39            </intent-filter>
+40
+41            <!-- <intent-filter> -->
+42            <!-- <action android:name="android.intent.action.MAIN" /> -->
+43
+44
+45            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+46            <!-- </intent-filter> -->
+47        </activity>
+48
+49        <!-- display the list of all active conversation -->
+50        <activity
+50-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:39:9-42:79
+51            android:name="org.chat21.android.ui.conversations.activities.ConversationListActivity"
+51-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:40:13-81
+52            android:exported="true"
+52-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:39:19-42
+53            android:label="@string/string_conversation_list_activity_title"
+53-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:42:13-76
+54            android:screenOrientation="portrait" />
+54-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:41:13-49
+55
+56        <!-- display the list of all archived conversation -->
+57        <activity
+57-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:45:9-48:81
+58            android:name="org.chat21.android.ui.archived_conversations.activities.ArchivedConversationListActivity"
+58-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:46:13-98
+59            android:exported="true"
+59-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:45:19-42
+60            android:label="@string/activity_archived_conversation_list_title"
+60-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:48:13-78
+61            android:screenOrientation="portrait" />
+61-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:47:13-49
+62
+63        <!-- display the list of all messages into a specific conversation -->
+64        <activity
+64-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:51:9-60:20
+65            android:name="org.chat21.android.ui.messages.activities.MessageListActivity"
+65-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:51:44-102
+66            android:exported="true"
+66-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:51:19-42
+67            android:screenOrientation="portrait" >
+67-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:51:106-142
+68
+69            <!--
+70             http://stackoverflow.com/questions/39663601/open-a-specific-activity-from-firebase-notification
+71             from notification
+72             bugfix Issue #39
+73            -->
+74            <intent-filter>
+74-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:56:13-59:29
+75                <action android:name="ACTION_DEFAULT_CHAT_INTENT" />
+75-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:57:17-69
+75-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:57:25-66
+76
+77                <category android:name="android.intent.category.DEFAULT" />
+77-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:58:17-76
+77-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:58:27-73
+78            </intent-filter>
+79        </activity>
+80        <activity
+80-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:62:9-146
+81            android:name="org.chat21.android.ui.messages.activities.ImageDetailsActivity"
+81-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:62:44-103
+82            android:exported="true"
+82-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:62:19-42
+83            android:screenOrientation="portrait" />
+83-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:62:107-143
+84        <activity
+84-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:64:9-67:83
+85            android:name="org.chat21.android.ui.chat_groups.activities.NewGroupActivity"
+85-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:65:13-71
+86            android:exported="true"
+86-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:64:19-42
+87            android:label="@string/string_create_group_activity_title"
+87-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:67:13-71
+88            android:screenOrientation="portrait" />
+88-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:66:13-49
+89        <activity
+89-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:69:9-72:82
+90            android:name="org.chat21.android.ui.chat_groups.activities.AddMemberToChatGroupActivity"
+90-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:70:13-83
+91            android:exported="true"
+91-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:69:19-42
+92            android:label="@string/string_add_members_activity_title"
+92-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:72:13-70
+93            android:screenOrientation="portrait" />
+93-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:71:13-49
+94        <activity
+94-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:75:9-76:61
+95            android:name="org.chat21.android.ui.chat_groups.activities.GroupAdminPanelActivity"
+95-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:75:45-110
+96            android:exported="true"
+96-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:75:20-43
+97            android:screenOrientation="portrait" />
+97-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:76:13-49
+98
+99        <!-- display the user profile -->
+100        <activity
+100-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:79:9-148
+101            android:name="org.chat21.android.ui.users.activities.PublicProfileActivity"
+101-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:79:44-101
+102            android:exported="true"
+102-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:79:19-42
+103            android:screenOrientation="portrait" />
+103-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:79:110-146
+104        <activity
+104-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:81:9-83:83
+105            android:name="org.chat21.android.ui.chat_groups.activities.ChatGroupsListActivity"
+105-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:82:13-77
+106            android:exported="true"
+106-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:81:19-42
+107            android:label="@string/activity_group_list_activity_title" />
+107-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:83:13-71
+108
+109        <!-- https://firebase.google.com/docs/notifications/android/console-audience -->
+110        <service
+110-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:87:9-91:19
+111            android:name="org.chat21.android.notifications.ChatFirebaseMessagingService"
+111-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:87:43-101
+112            android:exported="true" >
+112-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:87:18-41
+113            <intent-filter>
+113-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:88:13-90:29
+114                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+114-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:89:17-78
+114-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:89:25-75
+115            </intent-filter>
+116        </service>
+117
+118        <!--
+119        Set custom default icon. This is used when no icon is set for incoming notification messages.
+120        See README(https://goo.gl/l4GJaQ) for more.
+121        -->
+122        <meta-data
+122-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:95:9-97:66
+123            android:name="com.google.firebase.messaging.default_notification_icon"
+123-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:96:13-83
+124            android:resource="@drawable/ic_notification_small" />
+124-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:97:13-63
+125        <!--
+126        Set color used with incoming notification messages. This is used when no color is set for the incoming
+127        notification message. See README(https://goo.gl/6BKBk7) for more.
+128        -->
+129        <meta-data
+129-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:100:9-102:50
+130            android:name="com.google.firebase.messaging.default_notification_color"
+130-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:101:13-84
+131            android:resource="@color/blue_500" />
+131-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:102:13-47
+132
+133        <!--
+134        A service that extends FirebaseInstanceIdService to handle the creation, rotation,
+135        and updating of registration tokens.
+136         This is required for sending to specific devices or for creating device groups.
+137        -->
+138        <service
+138-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:107:9-113:19
+139            android:name="org.chat21.android.instanceid.service.SaveFirebaseInstanceIdService"
+139-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:108:13-77
+140            android:exported="true"
+140-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:107:18-41
+141            tools:ignore="ExportedService" >
+141-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:109:13-43
+142            <intent-filter>
+142-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:110:13-112:29
+143                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+143-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:111:17-80
+143-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:111:25-77
+144            </intent-filter>
+145        </service>
+146
+147        <receiver
+147-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:115:9-119:20
+148            android:name="org.chat21.android.connectivity.NetworkReceiver"
+148-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:115:44-88
+149            android:exported="true" >
+149-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:115:19-42
+150            <intent-filter>
+150-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:116:13-118:29
+151                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+151-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:117:17-79
+151-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:117:25-76
+152            </intent-filter>
+153        </receiver>
+154        <receiver
+154-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:121:9-126:20
+155            android:name="org.chat21.android.core.receivers.ShutdownReceiver"
+155-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:121:44-91
+156            android:exported="true" >
+156-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:121:19-42
+157            <intent-filter>
+157-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:122:13-125:29
+158                <action android:name="android.intent.action.ACTION_SHUTDOWN" />
+158-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:123:17-80
+158-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:123:25-77
+159                <action android:name="android.intent.action.QUICKBOOT_POWEROFF" />
+159-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:124:17-83
+159-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:124:25-80
+160            </intent-filter>
+161        </receiver>
+162
+163        <provider
+163-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:128:9-136:20
+164            android:name="androidx.core.content.FileProvider"
+164-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:129:13-62
+165            android:authorities="${applicationId}.provider"
+165-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:130:13-60
+166            android:exported="false"
+166-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:131:13-37
+167            android:grantUriPermissions="true" >
+167-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:132:13-47
+168            <meta-data
+168-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:133:13-135:49
+169                android:name="android.support.FILE_PROVIDER_PATHS"
+169-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:134:17-67
+170                android:resource="@xml/paths" />
+170-->C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:135:17-46
+171        </provider>
+172    </application>
+173
+174</manifest>

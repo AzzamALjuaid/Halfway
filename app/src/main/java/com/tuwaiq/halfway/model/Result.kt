@@ -1,15 +1,10 @@
 package com.tuwaiq.halfway.model
 
-import com.google.maps.model.Geometry
-import com.google.maps.model.OpeningHours
-import com.google.maps.model.PlusCode
-
-data class Result (
-
+data class Result(
     val business_status: String,
     val geometry: Geometry,
     val icon: String,
-    val icon_background_color:String,
+    val icon_background_color: String,
     val icon_mask_base_uri: String,
     val name: String,
     val opening_hours: OpeningHours?,

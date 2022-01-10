@@ -26,12 +26,11 @@ object Test {
         val centralSquareRoot = Math.sqrt(
             x * x + y * y
         )
-
-        val centralLatitude = Math.atan2(z,centralSquareRoot)
-        var latitude = Location.convert(centralLatitude * (180 / Math.PI), Location.FORMAT_DEGREES)
+        val centralLatitude = Math.atan2(z, centralSquareRoot)
+        var latitude = Location.convert(centralLatitude * (180 / Math.PI),Location.FORMAT_DEGREES)
         var longitude = Location.convert(centralLongitude * (180 / Math.PI),Location.FORMAT_DEGREES)
         println("===*****====>" + latitude)
         println("===*****====>" + longitude)
         return LatLng(centralLatitude * (180 / Math.PI),centralLongitude * (180 / Math.PI))
     }
-    }
+}

@@ -1,5 +1,6 @@
 package com.tuwaiq.halfway.utility
 
+
 interface IPreferencesHelper {
 
     fun getAll(): MutableMap<String, *>
@@ -21,4 +22,5 @@ interface IPreferencesHelper {
     fun putLong(key: String, value: Long)
 
     fun clearPreferences()
+
 }

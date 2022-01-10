@@ -4,23 +4,40 @@ import android.Manifest
 import android.content.pm.PackageManager
 import android.location.Location
 import android.os.Bundle
-import android.os.Looper
-import android.text.TextUtils
-import android.view.View
-import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
+import com.tuwaiq.halfway.utility.Constant.SharedPref.Companion.PERMISSION_REQUEST_ACCESS_FINE_LOCATION
+import android.os.Looper
+import android.text.TextUtils
+
+import android.view.View
+import android.widget.*
 import androidx.core.content.ContextCompat
 import com.google.android.gms.location.LocationCallback
 import com.google.android.gms.location.LocationRequest
 import com.google.android.gms.location.LocationResult
 import com.google.android.gms.location.LocationServices
-import com.google.firebase.database.*
+import com.tuwaiq.halfway.utility.Common
+import com.tuwaiq.halfway.utility.Constant.SharedPref.Companion.USER_EMAIL
+import com.tuwaiq.halfway.utility.PreferencesHelper
+import com.google.firebase.database.DatabaseReference
+
+import com.google.firebase.database.FirebaseDatabase
+import android.widget.Toast
+
+import com.google.firebase.database.DatabaseError
+
+import com.google.firebase.database.DataSnapshot
+
+import com.google.firebase.database.ValueEventListener
 import com.tuwaiq.halfway.R
 import com.tuwaiq.halfway.model.UserDetailModal
-import com.tuwaiq.halfway.utility.Common
-import com.tuwaiq.halfway.utility.Constant
-import com.tuwaiq.halfway.utility.PreferencesHelper
+import com.tuwaiq.halfway.utility.Constant.SharedPref.Companion.USER_AGE
+import com.tuwaiq.halfway.utility.Constant.SharedPref.Companion.USER_GENDER
+import com.tuwaiq.halfway.utility.Constant.SharedPref.Companion.USER_ID
+import com.tuwaiq.halfway.utility.Constant.SharedPref.Companion.USER_LATITUDE
+import com.tuwaiq.halfway.utility.Constant.SharedPref.Companion.USER_LONGITUDE
+import com.tuwaiq.halfway.utility.Constant.SharedPref.Companion.USER_NAME
 
 class AddDetailActivity : AppCompatActivity() {
     private var loading: ProgressBar? = null
@@ -44,22 +61,22 @@ class AddDetailActivity : AppCompatActivity() {
         var et_age = findViewById<EditText>(R.id.et_age)
         var rb_male = findViewById<RadioButton>(R.id.rb_male)
         var rb_female = findViewById<RadioButton>(R.id.rb_female)
-        et_email.setText(PreferencesHelper(this@AddDetailActivity).getString(Constant.SharedPref.USER_EMAIL))
+        et_email.setText(PreferencesHelper(this@AddDetailActivity).getString(USER_EMAIL))
         if (!TextUtils.isEmpty(PreferencesHelper(this@AddDetailActivity).getString(USER_NAME)))
             et_name.setText(PreferencesHelper(this@AddDetailActivity).getString(USER_NAME))
-        if (!TextUtils.isEmpty(PreferencesHelper(this@AddDetailActivity).getString(Constant.SharedPref.USER_AGE)))
-            et_age.setText(PreferencesHelper(this@AddDetailActivity).getString(Constant.SharedPref.USER_AGE))
-        if (!TextUtils.isEmpty(PreferencesHelper(this@AddDetailActivity).getString(Constant.SharedPref.USER_GENDER))) {
-            gender = PreferencesHelper(this@AddDetailActivity).getString(Constant.SharedPref.USER_GENDER)
+        if (!TextUtils.isEmpty(PreferencesHelper(this@AddDetailActivity).getString(USER_AGE)))
+            et_age.setText(PreferencesHelper(this@AddDetailActivity).getString(USER_AGE))
+        if (!TextUtils.isEmpty(PreferencesHelper(this@AddDetailActivity).getString(USER_GENDER))) {
+            gender = PreferencesHelper(this@AddDetailActivity).getString(USER_GENDER)
             if ( gender.equals("male", true)) {
                 rb_male.isChecked = true
             } else {
                 rb_female.isChecked = true
             }
         }
-        if (!TextUtils.isEmpty(PreferencesHelper(this@AddDetailActivity).getString(Constant.SharedPref.USER_LATITUDE))) {
-            latitude = PreferencesHelper(this@AddDetailActivity).getString(Constant.SharedPref.USER_LATITUDE)
-            longitude = PreferencesHelper(this@AddDetailActivity).getString(Constant.SharedPref.USER_LONGITUDE)
+        if (!TextUtils.isEmpty(PreferencesHelper(this@AddDetailActivity).getString(USER_LATITUDE))) {
+            latitude = PreferencesHelper(this@AddDetailActivity).getString(USER_LATITUDE)
+            longitude = PreferencesHelper(this@AddDetailActivity).getString(USER_LONGITUDE)
         }
 
         val btn_location = findViewById<Button>(R.id.btn_location)
@@ -88,7 +105,7 @@ class AddDetailActivity : AppCompatActivity() {
                 ActivityCompat.requestPermissions(
                     this,
                     arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
-                    Constant.SharedPref.PERMISSION_REQUEST_ACCESS_FINE_LOCATION
+                    PERMISSION_REQUEST_ACCESS_FINE_LOCATION
                 )
             } else {
                 getCurrentLocation();
@@ -135,7 +152,7 @@ class AddDetailActivity : AppCompatActivity() {
 
     //saving the data to the firebase db
     private fun saveData() {
-        val id = PreferencesHelper(this@AddDetailActivity).getString(Constant.SharedPref.USER_ID)
+        val id = PreferencesHelper(this@AddDetailActivity).getString(USER_ID)
         val et_name = findViewById<EditText>(R.id.et_name).text.toString()
         val et_age = findViewById<EditText>(R.id.et_age).text.toString()
         val et_email = findViewById<EditText>(R.id.et_email).text.toString()
@@ -148,16 +165,16 @@ class AddDetailActivity : AppCompatActivity() {
             et_email
         )
         PreferencesHelper(this@AddDetailActivity).putString(
-            Constant.SharedPref.USER_LATITUDE,
+            USER_LATITUDE,
             latitude!!
         )
         PreferencesHelper(this@AddDetailActivity).putString(
-            Constant.SharedPref.USER_LONGITUDE,
+            USER_LONGITUDE,
             longitude!!
         )
         PreferencesHelper(this@AddDetailActivity).putString(USER_NAME, et_name)
-        PreferencesHelper(this@AddDetailActivity).putString(Constant.SharedPref.USER_AGE, et_age)
-        PreferencesHelper(this@AddDetailActivity).putString(Constant.SharedPref.USER_GENDER, gender!!)
+        PreferencesHelper(this@AddDetailActivity).putString(USER_AGE, et_age)
+        PreferencesHelper(this@AddDetailActivity).putString(USER_GENDER, gender!!)
         //on below line we are calling a add value event to pass data to firebase database.
         //on below line we are calling a add value event to pass data to firebase database.
         databaseReference!!.addValueEventListener(object : ValueEventListener {
@@ -189,7 +206,7 @@ class AddDetailActivity : AppCompatActivity() {
         grantResults: IntArray
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        if (requestCode == Constant.SharedPref.PERMISSION_REQUEST_ACCESS_FINE_LOCATION && grantResults.isNotEmpty()) {
+        if (requestCode == PERMISSION_REQUEST_ACCESS_FINE_LOCATION && grantResults.isNotEmpty()) {
             if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 getCurrentLocation()
             } else {

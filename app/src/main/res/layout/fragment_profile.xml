@@ -1,92 +1,155 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:layout_gravity="center"
-    android:background="@drawable/background01"
-    tools:context=".HalfwayActivity">
-    <LinearLayout
+    tools:context=".screens.AddDetailActivity">
+
+    <ImageView
+        android:id="@+id/iv_top"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-        <LinearLayout
-            android:padding="8dp"
-            android:orientation="vertical"
+        android:layout_height="200dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/half3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent=".27"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/iv_top"
+        android:layout_marginTop="-30dp"
+        android:background="@drawable/view_bg"
+        android:gravity="center_horizontal"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp">
+
+        <TextView
+            android:id="@+id/tv_title"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize">
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:padding="5dp"
-                    android:layout_alignParentStart="true"
-                    android:src="@drawable/ic_arrow"/>
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="@string/user_detail"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
 
-                <ImageView
-                    android:layout_width="45dp"
-                    android:layout_height="45dp"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginEnd="41dp"
-                    android:layout_marginBottom="5dp"
-                    android:padding="1dp"
-                    android:src="@android:drawable/ic_menu_edit"/>
-                <ImageView
-                    android:layout_width="42dp"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginEnd="5dp"
-                    android:padding="1dp"
-                    android:src="@drawable/ic_notifications_black_24dp"/>
-            </RelativeLayout>
-        </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
+
+        <EditText
+            android:id="@+id/et_name"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:layout_below="@+id/tv_title"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/input"
+            android:clipToOutline="true"
+            android:drawableStart="@drawable/ic_person"
+            android:drawablePadding="10dp"
+            android:hint="@string/name"
+            android:inputType="textPersonName|textCapWords"
+            android:paddingStart="15dp"
+            tools:ignore="MissingConstraints" />
+
+        <EditText
+            android:id="@+id/et_email"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:layout_below="@+id/et_name"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/input"
+            android:clipToOutline="true"
+            android:drawableStart="@drawable/ic_baseline_email_24"
+            android:drawablePadding="10dp"
+            android:enabled="false"
+            android:hint="@string/name"
+            android:inputType="textPersonName|textCapWords"
+            android:paddingStart="15dp"
+            tools:ignore="MissingConstraints" />
+
+        <LinearLayout
+            android:id="@+id/ll1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/et_email"
+            android:layout_marginTop="15dp"
+            android:gravity="center|center_vertical"
+            android:orientation="horizontal">
+
+            <RadioGroup
+                android:id="@+id/rg_gender"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
-                <TextView
-                    android:layout_width="match_parent"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/rb_male"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Profile"
-                    android:textStyle="bold"
-                    android:textColor="@color/white"
-                    android:textSize="33sp"
-                    android:layout_marginStart="15dp"/>
+                    android:text="@string/male" />
 
-            </LinearLayout>
-
-            </LinearLayout>
-
-            <include
-                android:layout_gravity="center"
-                layout="@layout/item_image"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_width="match_parent"/>
-            <ScrollView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <RadioButton
+                    android:id="@+id/rb_female"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:text="@string/female" />
+            </RadioGroup>
 
-                    <include layout="@layout/item_add"/>
-                    <include layout="@layout/item_info"/>
-                    <include layout="@layout/item_email"/>
-
-                </LinearLayout>
-            </ScrollView>
+            <EditText
+                android:id="@+id/et_age"
+                android:layout_width="wrap_content"
+                android:layout_height="64dp"
+                android:layout_below="@+id/et_name"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="20dp"
+                android:background="@drawable/input"
+                android:clipToOutline="true"
+                android:drawableStart="@drawable/ic_age"
+                android:drawablePadding="10dp"
+                android:hint="@string/enter_your_age"
+                android:inputType="number"
+                android:paddingStart="15dp"
+                tools:ignore="MissingConstraints" />
 
         </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_location"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_below="@+id/ll1"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/button"
+            android:drawableLeft="@drawable/ic_location"
+            android:drawableTint="@color/white"
+            android:text="@string/get_current_location" />
+
+        <Button
+            android:id="@+id/btn_save"
+            android:layout_width="250dp"
+            android:layout_height="60dp"
+            android:layout_below="@+id/btn_location"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/button"
+            android:text="@string/save" />
+
+    </RelativeLayout>
+
+    <ProgressBar
+        android:id="@+id/idPBLoading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:indeterminate="true"
+        android:indeterminateDrawable="@drawable/progress"
+        android:visibility="gone" />
+
+</RelativeLayout>

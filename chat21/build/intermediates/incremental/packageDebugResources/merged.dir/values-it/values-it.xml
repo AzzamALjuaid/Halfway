@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="current_user_location">Current user location</string>
+    <string name="do_you_want_share_your_location">Do you want share your location?</string>
+    <string name="share_location">Share Location</string>
+</resources>

@@ -9,3 +9,4 @@ dependencyResolutionManagement {
 }
 rootProject.name = "halfway"
 include ':app'
+include ':chat21'

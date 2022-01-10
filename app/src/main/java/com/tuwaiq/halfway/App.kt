@@ -9,6 +9,7 @@ class App : Application() {
 
     private lateinit var repository: ReminderRepository
 
+
     override fun onCreate() {
         super.onCreate()
 
@@ -16,10 +17,9 @@ class App : Application() {
 
         FirebaseDatabase.getInstance().setPersistenceEnabled(true);
         repository = ReminderRepository(this)
+
+
     }
-
     fun getRepository() = repository
-
-
 
 }

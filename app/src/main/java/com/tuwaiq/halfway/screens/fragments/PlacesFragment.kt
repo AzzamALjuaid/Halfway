@@ -8,37 +8,48 @@ import android.location.Criteria
 import android.location.LocationManager
 import android.net.Uri
 import android.os.Bundle
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.fragment.app.Fragment
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.gms.maps.model.LatLng
 import com.google.maps.model.PlaceType
 import com.tuwaiq.halfway.R
 import com.tuwaiq.halfway.adapter.PlaceAdapter
 import com.tuwaiq.halfway.adapter.TabsAdapter
+import com.tuwaiq.halfway.databinding.ActivityPlaceBinding
+import com.tuwaiq.halfway.databinding.FragmentPlacesBinding
 import com.tuwaiq.halfway.model.NearByLocation
+import com.tuwaiq.halfway.model.Result
+import com.tuwaiq.halfway.model.UserDetailModal
+import com.tuwaiq.halfway.screens.MapsActivity
 import com.tuwaiq.halfway.service.APIClient
 import com.tuwaiq.halfway.service.GoogleMapAPI
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-
+// TODO: Rename parameter arguments, choose names that match
+// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
+
 /**
  * A simple [Fragment] subclass.
  * Use the [PlacesFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
 class PlacesFragment : Fragment() {
-
     private lateinit var binding: FragmentPlacesBinding
     private var adapter: PlaceAdapter? = null
     private var locationList = ArrayList<Result>()
+
+
 
     private var param1: String? = null
     private var param2: String? = null
@@ -51,10 +62,18 @@ class PlacesFragment : Fragment() {
         }
     }
 
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_places, container, false)
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding=FragmentPlacesBinding.bind(view)
-        getData
+        getData()
     }
 
     //setting up the data to show details of the nearby places
@@ -95,12 +114,12 @@ class PlacesFragment : Fragment() {
             }catch (ex:Exception){
 
             }
-            /* startActivity(Intent(context, MapsActivity::class.java).apply {
-                 putExtra("locationLat",it.geometry.location.lat)
-                 putExtra("locationLng",it.geometry.location.lng)
-                 putExtra("locationName",it.name)
+           /* startActivity(Intent(context, MapsActivity::class.java).apply {
+                putExtra("locationLat",it.geometry.location.lat)
+                putExtra("locationLng",it.geometry.location.lng)
+                putExtra("locationName",it.name)
 
-             })*/
+            })*/
         })
 
         var linearLayoutManager = LinearLayoutManager(
@@ -144,7 +163,7 @@ class PlacesFragment : Fragment() {
                 ) {
                     if (response.isSuccessful) {
                         println("===========>" + response.body()?.results.toString())
-                        locationList.addAll(response.body()?.results as ArrayList<com.tuwaiq.halfway.model.Result>)
+                        locationList.addAll(response.body()?.results as ArrayList<Result>)
                         adapter?.notifyDataSetChanged()
                         binding.idPBLoading.visibility = View.GONE
                         binding.tvEmpty.visibility = View.GONE
@@ -251,7 +270,4 @@ class PlacesFragment : Fragment() {
             PlacesFragment().apply {
             }
     }
-
-
-
 }

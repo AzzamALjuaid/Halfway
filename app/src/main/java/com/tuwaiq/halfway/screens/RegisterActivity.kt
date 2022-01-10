@@ -22,7 +22,7 @@ import org.chat21.android.core.authentication.ChatAuthentication.OnUserCreatedOn
 import java.lang.Exception
 import java.util.*
 
-class RegisterActivity : AppCompatActivity(){
+class RegisterActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
@@ -30,8 +30,8 @@ class RegisterActivity : AppCompatActivity(){
     }
 
     private fun initView() {
-
         val tv_login = findViewById<TextView>(R.id.tv_login)
+
 
         val btn_register = findViewById<Button>(R.id.btn_register)
 
@@ -42,7 +42,6 @@ class RegisterActivity : AppCompatActivity(){
         tv_login.setOnClickListener {
             startActivity(Intent(this@RegisterActivity, LoginActivity::class.java))
         }
-
     }
 
     //register the user process is done below
@@ -81,59 +80,59 @@ class RegisterActivity : AppCompatActivity(){
         } else {//if the details are entered correctly then user is able to register into the application
 
 
-            ChatAuthentication.getInstance().createUserOnFirebaseAuthentication(
-                this,
-                email,
-                password,
-                object : OnUserCreatedOnFirebaseCallback {
-                    override fun onUserCreatedSuccess(userUID: String) {
-                        val userMap: MutableMap<String, Any> = HashMap()
-                        userMap["email"] = email
-                        userMap["firstname"] = firstName
-                        userMap["imageurl"] = ""
-                        userMap["lastname"] = lastName
-                        userMap["timestamp"] = Date().time
-                        userMap["timestamp"] = Date().time
-                        userMap["uid"] = userUID
-                        Chat21Manager.start(this@RegisterActivity)
+                ChatAuthentication.getInstance().createUserOnFirebaseAuthentication(
+                    this,
+                    email,
+                    password,
+                    object : OnUserCreatedOnFirebaseCallback {
+                        override fun onUserCreatedSuccess(userUID: String) {
+                            val userMap: MutableMap<String, Any> = HashMap()
+                            userMap["email"] = email
+                            userMap["firstname"] = firstName
+                            userMap["imageurl"] = ""
+                            userMap["lastname"] = lastName
+                            userMap["timestamp"] = Date().time
+                            userMap["timestamp"] = Date().time
+                            userMap["uid"] = userUID
+                            Chat21Manager.start(this@RegisterActivity)
 
 
 
-                        ChatAuthentication.getInstance().createUserOnContacts(
-                            userUID,
-                            userMap,
-                            object : OnUserCreatedOnContactsCallback {
-                                override fun onUserCreatedSuccess() {
-                                    val firebaseUser: FirebaseUser = FirebaseAuth.getInstance()!!.currentUser!!
-                                    Toast.makeText(this@RegisterActivity, "Logged in", Toast.LENGTH_LONG).show()
-                                    val intent = Intent(this@RegisterActivity, HomeActivity::class.java)
-                                    intent.putExtra("user_id", firebaseUser.uid)
-                                    intent.putExtra("email_id", email)
-                                    PreferencesHelper(this@RegisterActivity).putString(Constant.SharedPref.USER_ID, firebaseUser.uid)
-                                    PreferencesHelper(this@RegisterActivity).putString(Constant.SharedPref.USER_EMAIL, email)
-                                    startActivity(intent)
-                                    finish()
-                                }
+                            ChatAuthentication.getInstance().createUserOnContacts(
+                                userUID,
+                                userMap,
+                                object : OnUserCreatedOnContactsCallback {
+                                    override fun onUserCreatedSuccess() {
+                                        val firebaseUser: FirebaseUser = FirebaseAuth.getInstance()!!.currentUser!!
+                                        Toast.makeText(this@RegisterActivity, "Logged in", Toast.LENGTH_LONG).show()
+                                        val intent = Intent(this@RegisterActivity, HomeActivity::class.java)
+                                        intent.putExtra("user_id", firebaseUser.uid)
+                                        intent.putExtra("email_id", email)
+                                        PreferencesHelper(this@RegisterActivity).putString(Constant.SharedPref.USER_ID, firebaseUser.uid)
+                                        PreferencesHelper(this@RegisterActivity).putString(Constant.SharedPref.USER_EMAIL, email)
+                                        startActivity(intent)
+                                        finish()
+                                    }
 
-                                override fun onUserCreatedError(e: Exception) {
-                                    // TODO: 04/01/18
-                                    Toast.makeText(
-                                        this@RegisterActivity,
-                                        "Saving user on contacts failed.$e",
-                                        Toast.LENGTH_SHORT
-                                    ).show()
-                                }
-                            })
-                    }
+                                    override fun onUserCreatedError(e: Exception) {
+                                        // TODO: 04/01/18
+                                        Toast.makeText(
+                                            this@RegisterActivity,
+                                            "Saving user on contacts failed.$e",
+                                            Toast.LENGTH_SHORT
+                                        ).show()
+                                    }
+                                })
+                        }
 
-                    override fun onUserCreatedError(e: Exception) {
-                        // TODO: 04/01/18  string
-                        Toast.makeText(
-                            this@RegisterActivity,"Authentication failed.$e",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    }
-                })
+                        override fun onUserCreatedError(e: Exception) {
+                            // TODO: 04/01/18  string
+                            Toast.makeText(
+                                this@RegisterActivity,"Authentication failed.$e",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                    })
 /*
             FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener { task ->
@@ -147,5 +146,4 @@ class RegisterActivity : AppCompatActivity(){
         }
 
     }
-
 }

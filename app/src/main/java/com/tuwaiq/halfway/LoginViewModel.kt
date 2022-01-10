@@ -1,8 +1,0 @@
-package com.tuwaiq.halfway
-
-import androidx.lifecycle.ViewModel
-
-class LoginViewModel : ViewModel() {
-//    val viewModel:ViewModel
-
-}

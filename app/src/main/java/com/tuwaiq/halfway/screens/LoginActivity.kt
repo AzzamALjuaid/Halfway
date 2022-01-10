@@ -1,21 +1,22 @@
 package com.tuwaiq.halfway.screens
 
 import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.text.TextUtils
 import android.util.Log
 import android.view.View
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ProgressBar
-import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
+import android.widget.*
 import com.google.firebase.auth.FirebaseAuth
+import com.tuwaiq.halfway.utility.Chat21Manager
 import com.tuwaiq.halfway.R
 import com.tuwaiq.halfway.utility.Common
-import com.tuwaiq.halfway.utility.Constant
+import com.tuwaiq.halfway.utility.Constant.SharedPref.Companion.USER_EMAIL
+import com.tuwaiq.halfway.utility.Constant.SharedPref.Companion.USER_ID
 import com.tuwaiq.halfway.utility.PreferencesHelper
+import org.chat21.android.core.ChatManager
+import org.chat21.android.core.authentication.ChatAuthentication
+import org.chat21.android.core.users.models.IChatUser
 import java.lang.Exception
 
 class LoginActivity : AppCompatActivity() {
@@ -27,7 +28,6 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
         initView()
     }
-
 
     private fun initView() {
         mAuth = FirebaseAuth.getInstance()
@@ -44,6 +44,7 @@ class LoginActivity : AppCompatActivity() {
             startActivity(Intent(this@LoginActivity, RegisterActivity::class.java))
         }
     }
+    private  val TAG = "LoginActivity"
     //login into the firebase database for the access
     private fun loginUser() {
         val email = findViewById<EditText>(R.id.etRegisterEmail).text.toString()
@@ -83,8 +84,8 @@ class LoginActivity : AppCompatActivity() {
 
                         val intent = Intent(this@LoginActivity, HomeActivity::class.java)
                         //on below line we are opening our mainactivity.
-                        PreferencesHelper(this@LoginActivity).putString(Constant.SharedPref.USER_ID, currentUser!!.id)
-                        PreferencesHelper(this@LoginActivity).putString(Constant.SharedPref.USER_EMAIL, email)
+                        PreferencesHelper(this@LoginActivity).putString(USER_ID, currentUser!!.id)
+                        PreferencesHelper(this@LoginActivity).putString(USER_EMAIL, email)
                         startActivity(intent)
                         finish()
                     }
@@ -100,7 +101,7 @@ class LoginActivity : AppCompatActivity() {
 
                     }
                 }
-            );
+                );
 
             /*
                ChatManager.getInstance().createContactFor(currentUser.getId(), currentUser.getEmail(),

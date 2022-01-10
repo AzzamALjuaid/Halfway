@@ -5,31 +5,43 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Criteria
+import android.location.Location
 import android.location.LocationManager
 import android.net.Uri
-import android.os.Bundle
-import android.os.PersistableBundle
-import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+
+import android.os.Bundle
+
+import com.tuwaiq.halfway.service.GoogleMapAPI
+import android.view.View
+import android.widget.*
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.model.LatLng
 import com.google.maps.model.PlaceType
+import com.tuwaiq.halfway.Geofence.Reminder
 import com.tuwaiq.halfway.R
 import com.tuwaiq.halfway.adapter.PlaceAdapter
 import com.tuwaiq.halfway.adapter.TabsAdapter
-import com.tuwaiq.halfway.model.NearByLocation
-import com.tuwaiq.halfway.model.UserDetailModal
-import com.tuwaiq.halfway.service.APIClient
-import com.tuwaiq.halfway.service.GoogleMapAPI
+import com.tuwaiq.halfway.databinding.ActivityPlaceBinding
+
+import com.tuwaiq.halfway.service.APIClient.client
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import com.tuwaiq.halfway.model.Result
+import com.tuwaiq.halfway.model.UserDetailModal
+import com.tuwaiq.halfway.utility.Common
+import com.tuwaiq.halfway.utility.Constant
+import com.tuwaiq.halfway.utility.PreferencesHelper
+import com.tuwaiq.halfway.model.NearByLocation
+import org.chat21.android.core.messages.models.LocationMessage
+
 
 class PlaceActivity : AppCompatActivity() {
-    private var mid: LatLng? = null
+    private  var mid: LatLng?=null
     private lateinit var binding: ActivityPlaceBinding
     private var userDetailModal = UserDetailModal()
     private var adapter: PlaceAdapter? = null
@@ -94,9 +106,8 @@ class PlaceActivity : AppCompatActivity() {
         binding!!.rvPlace.adapter = adapter
 
         binding.tabs.apply {
-            layoutManager=
-                LinearLayoutManager(this@PlaceActivity, LinearLayoutManager.HORIZONTAL,false)
-            adapter= TabsAdapter(this@PlaceActivity, tabs = listOf(
+            layoutManager=LinearLayoutManager(this@PlaceActivity,LinearLayoutManager.HORIZONTAL,false)
+            adapter=TabsAdapter(this@PlaceActivity, tabs = listOf(
                 PlaceType.RESTAURANT.toString(),
                 PlaceType.CAFE.toString(),
                 PlaceType.MOVIE_THEATER.toString(),
@@ -116,7 +127,7 @@ class PlaceActivity : AppCompatActivity() {
         locationList.clear()
         val key = getText(R.string.google_maps_key).toString()
         val radius = 2000
-        val googleMapAPI = APIClient.client!!.create(GoogleMapAPI::class.java)
+        val googleMapAPI = client!!.create(GoogleMapAPI::class.java)
         googleMapAPI.getNearBy(location, radius, type, key)!!
             .enqueue(object : Callback<NearByLocation?> {
                 override fun onResponse(
@@ -125,7 +136,7 @@ class PlaceActivity : AppCompatActivity() {
                 ) {
                     if (response.isSuccessful) {
                         println("===========>" + response.body()?.results.toString())
-                        locationList.addAll(response.body()?.results as ArrayList<com.tuwaiq.halfway.model.Result>)
+                        locationList.addAll(response.body()?.results as ArrayList<Result>)
                         adapter?.notifyDataSetChanged()
                         binding.idPBLoading.visibility = View.GONE
                         binding.tvEmpty.visibility = View.GONE
@@ -201,10 +212,12 @@ class PlaceActivity : AppCompatActivity() {
             }
 
 
+            }
+
+
+
         }
 
 
-
-    }
 
 }

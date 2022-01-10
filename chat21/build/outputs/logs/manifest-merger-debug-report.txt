@@ -1,0 +1,257 @@
+-- Merging decision tree log ---
+manifest
+ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:1:1-139:12
+INJECTED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:1:1-139:12
+INJECTED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:1:1-139:12
+	package
+		ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:3:5-33
+		INJECTED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml
+	xmlns:tools
+		ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:2:5-51
+	xmlns:android
+		ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:1:11-69
+uses-permission#android.permission.ACCESS_COARSE_LOCATION
+ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:5:5-81
+	android:name
+		ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:5:22-78
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:6:5-80
+	android:name
+		ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:6:22-77
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:7:5-81
+	android:name
+		ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:7:22-78
+application
+ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:8:5-138:19
+	android:requestLegacyExternalStorage
+		ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:10:9-52
+	android:allowBackup
+		ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:9:9-35
+	android:theme
+		ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:11:9-40
+activity#org.chat21.android.ui.login.activities.ChatLoginActivity
+ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:13:9-153
+	android:screenOrientation
+		ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:13:105-141
+	android:exported
+		ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:13:19-42
+	android:name
+		ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:13:44-97
+activity#org.chat21.android.ui.login.activities.ChatSignUpActivity
+ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:15:9-155
+	android:screenOrientation
+		ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:15:107-143
+	android:exported
+		ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:15:19-42
+	android:name
+		ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:15:44-98
+activity#org.chat21.android.ui.contacts.activites.ContactListActivity
+ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:18:9-36:20
+	android:screenOrientation
+		ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:20:13-49
+	android:label
+		ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:21:13-71
+	android:exported
+		ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:18:19-42
+	android:name
+		ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:19:13-70
+meta-data#android.app.searchable
+ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:23:13-25:63
+	android:resource
+		ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:25:17-60
+	android:name
+		ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:24:17-54
+intent-filter#action:name:android.intent.action.SEARCH
+ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:27:13-29:29
+action#android.intent.action.SEARCH
+ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:28:17-71
+	android:name
+		ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:28:25-68
+activity#org.chat21.android.ui.conversations.activities.ConversationListActivity
+ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:39:9-42:79
+	android:screenOrientation
+		ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:41:13-49
+	android:label
+		ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:42:13-76
+	android:exported
+		ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:39:19-42
+	android:name
+		ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:40:13-81
+activity#org.chat21.android.ui.archived_conversations.activities.ArchivedConversationListActivity
+ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:45:9-48:81
+	android:screenOrientation
+		ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:47:13-49
+	android:label
+		ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:48:13-78
+	android:exported
+		ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:45:19-42
+	android:name
+		ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:46:13-98
+activity#org.chat21.android.ui.messages.activities.MessageListActivity
+ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:51:9-60:20
+	android:screenOrientation
+		ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:51:106-142
+	android:exported
+		ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:51:19-42
+	android:name
+		ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:51:44-102
+intent-filter#action:name:ACTION_DEFAULT_CHAT_INTENT+category:name:android.intent.category.DEFAULT
+ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:56:13-59:29
+action#ACTION_DEFAULT_CHAT_INTENT
+ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:57:17-69
+	android:name
+		ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:57:25-66
+category#android.intent.category.DEFAULT
+ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:58:17-76
+	android:name
+		ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:58:27-73
+activity#org.chat21.android.ui.messages.activities.ImageDetailsActivity
+ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:62:9-146
+	android:screenOrientation
+		ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:62:107-143
+	android:exported
+		ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:62:19-42
+	android:name
+		ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:62:44-103
+activity#org.chat21.android.ui.chat_groups.activities.NewGroupActivity
+ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:64:9-67:83
+	android:screenOrientation
+		ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:66:13-49
+	android:label
+		ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:67:13-71
+	android:exported
+		ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:64:19-42
+	android:name
+		ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:65:13-71
+activity#org.chat21.android.ui.chat_groups.activities.AddMemberToChatGroupActivity
+ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:69:9-72:82
+	android:screenOrientation
+		ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:71:13-49
+	android:label
+		ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:72:13-70
+	android:exported
+		ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:69:19-42
+	android:name
+		ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:70:13-83
+activity#org.chat21.android.ui.chat_groups.activities.GroupAdminPanelActivity
+ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:75:9-76:61
+	android:screenOrientation
+		ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:76:13-49
+	android:exported
+		ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:75:20-43
+	android:name
+		ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:75:45-110
+activity#org.chat21.android.ui.users.activities.PublicProfileActivity
+ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:79:9-148
+	android:screenOrientation
+		ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:79:110-146
+	android:exported
+		ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:79:19-42
+	android:name
+		ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:79:44-101
+activity#org.chat21.android.ui.chat_groups.activities.ChatGroupsListActivity
+ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:81:9-83:83
+	android:label
+		ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:83:13-71
+	android:exported
+		ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:81:19-42
+	android:name
+		ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:82:13-77
+service#org.chat21.android.notifications.ChatFirebaseMessagingService
+ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:87:9-91:19
+	android:exported
+		ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:87:18-41
+	android:name
+		ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:87:43-101
+intent-filter#action:name:com.google.firebase.MESSAGING_EVENT
+ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:88:13-90:29
+action#com.google.firebase.MESSAGING_EVENT
+ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:89:17-78
+	android:name
+		ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:89:25-75
+meta-data#com.google.firebase.messaging.default_notification_icon
+ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:95:9-97:66
+	android:resource
+		ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:97:13-63
+	android:name
+		ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:96:13-83
+meta-data#com.google.firebase.messaging.default_notification_color
+ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:100:9-102:50
+	android:resource
+		ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:102:13-47
+	android:name
+		ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:101:13-84
+service#org.chat21.android.instanceid.service.SaveFirebaseInstanceIdService
+ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:107:9-113:19
+	android:exported
+		ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:107:18-41
+	tools:ignore
+		ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:109:13-43
+	android:name
+		ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:108:13-77
+intent-filter#action:name:com.google.firebase.INSTANCE_ID_EVENT
+ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:110:13-112:29
+action#com.google.firebase.INSTANCE_ID_EVENT
+ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:111:17-80
+	android:name
+		ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:111:25-77
+receiver#org.chat21.android.connectivity.NetworkReceiver
+ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:115:9-119:20
+	android:exported
+		ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:115:19-42
+	android:name
+		ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:115:44-88
+intent-filter#action:name:android.net.conn.CONNECTIVITY_CHANGE
+ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:116:13-118:29
+action#android.net.conn.CONNECTIVITY_CHANGE
+ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:117:17-79
+	android:name
+		ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:117:25-76
+receiver#org.chat21.android.core.receivers.ShutdownReceiver
+ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:121:9-126:20
+	android:exported
+		ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:121:19-42
+	android:name
+		ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:121:44-91
+intent-filter#action:name:android.intent.action.ACTION_SHUTDOWN+action:name:android.intent.action.QUICKBOOT_POWEROFF
+ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:122:13-125:29
+action#android.intent.action.ACTION_SHUTDOWN
+ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:123:17-80
+	android:name
+		ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:123:25-77
+action#android.intent.action.QUICKBOOT_POWEROFF
+ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:124:17-83
+	android:name
+		ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:124:25-80
+provider#androidx.core.content.FileProvider
+ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:128:9-136:20
+	android:grantUriPermissions
+		ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:132:13-47
+	android:authorities
+		ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:130:13-60
+	android:exported
+		ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:131:13-37
+	android:name
+		ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:129:13-62
+meta-data#android.support.FILE_PROVIDER_PATHS
+ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:133:13-135:49
+	android:resource
+		ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:135:17-46
+	android:name
+		ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml:134:17-67
+uses-sdk
+INJECTED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml
+INJECTED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml
+INJECTED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml
+INJECTED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml
+		ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml
+		ADDED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Azzam\AndroidStudioProjects\halfway\chat21\src\main\AndroidManifest.xml

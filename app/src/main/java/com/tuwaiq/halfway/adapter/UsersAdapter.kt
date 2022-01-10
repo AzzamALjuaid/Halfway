@@ -10,16 +10,19 @@ import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.tuwaiq.halfway.R
-import java.util.ArrayList
+import com.tuwaiq.halfway.model.UserDetailModal
+import java.util.*
 
-class UsersAdapter (
+class UsersAdapter     //creating a constructor.
+    (
     private val userDetailModalArrayList: ArrayList<UserDetailModal>,
     private val context: Context,
     private val courseClickInterface: UserClickInterface
 ) : RecyclerView.Adapter<UsersAdapter.ViewHolder>() {
     var lastPos = -1
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UsersAdapter.ViewHolder {
-        val view = LayoutInflater.from(context).inflate(R.layout.item_user , parent , false)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        //inflating our layout file on below line.
+        val view = LayoutInflater.from(context).inflate(R.layout.item_user, parent, false)
         return ViewHolder(view)
     }
 
@@ -34,9 +37,10 @@ class UsersAdapter (
         holder.cv_row.setOnClickListener { courseClickInterface.onClick(position) }
     }
 
-    private fun setAnimation(itemView: View , position: Int) {
+    private fun setAnimation(itemView: View, position: Int) {
         if (position > lastPos) {
-            val animation = AnimationUtils.loadAnimation(context , android.R.anim.slide_in_left)
+            //on below line we are setting animation.
+            val animation = AnimationUtils.loadAnimation(context, android.R.anim.slide_in_left)
             itemView.animation = animation
             lastPos = position
         }
@@ -54,15 +58,14 @@ class UsersAdapter (
 
         init {
             cv_row = itemView.findViewById(R.id.cv_row)
-            tv_name = itemView.findViewById(R.id.tb_name)
+            tv_name = itemView.findViewById(R.id.tv_name)
             tv_gender = itemView.findViewById(R.id.tv_gender)
             tv_age = itemView.findViewById(R.id.tv_age)
-
         }
     }
 
-    interface UserClickInterface{
+    //creating a interface for on click
+    interface UserClickInterface {
         fun onClick(position: Int)
     }
-
 }

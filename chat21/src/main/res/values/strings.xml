@@ -1,0 +1,162 @@
+<resources>
+
+    <!--dates-->
+    <string name="today">اليوم</string>
+    <string name="yesterday">الامس</string>
+
+    <string name="string_contact_list_activity_title">جهات التواصل</string>
+    <string name="string_conversation_list_activity_title">المحادثات</string>
+    <string name="string_create_group_activity_title">مجموعة جديدة</string>
+    <string name="string_add_members_activity_title">إضافة أعضاء</string>
+
+    <string name="label_no_conversation_error_title">لا توجد محادثات !</string>
+    <string name="label_no_conversation_error_subtitle">اضغط على الزر أدناه لبدء محادثة جديدة
+!</string>
+
+    <string name="action_create_group">إنشاء مجموعة</string>
+
+    <!--create_group_activity-->
+    <string name="activity_new_group_icon_label">إضافة\nصورة</string>
+    <string name="activity_new_group_group_name_hint_label">حدد اسم المجموعة
+</string>
+    <string name="menu_activity_new_group_action_next">التالي</string>
+
+    <!--add_members_activity-->
+    <string name="add_members_activity_searchview_query_hint">بحث عن جهة اتصال
+</string>
+    <string name="add_members_activity_contact_already_added_label">تمت إضافته بالفعل إلى المجموعة
+</string>
+    <string name="add_members_activity_contact_not_added_label">جهة الاتصال غير موجودة في القائمة
+</string>
+    <string name="activity_add_member_to_chat_group_selected_contacts_title">جهات الاتصال المحددة
+ </string>
+    <string name="add_members_activity_contacts_title">قائمة الإتصال
+</string>
+    <string name="menu_add_members_action_create">إنشاء</string>
+    <string name="menu_add_members_action_add_member">@string/activity_group_admin_panel_add_member_title</string>
+    <string name="menu_add_members_action_next">التالي</string>
+
+    <!--activity contact list -->
+    <string name="label_no_contacts_error_title">لم يتم العثور على جهة اتصال
+</string>
+    <string name="label_no_contacts_error_subtitle">قم بتغيير معلمات البحث
+</string>
+    <string name="activity_contact_list_error_cannot_create_group_offline_label">لا يمكنك إنشاء المجموعة إذا كنت غير متصل
+</string>
+
+    <!--activity_group_admin_panel-->
+    <string name="activity_group_admin_panel_members_label">أفراد
+</string>
+    <string name="activity_group_admin_panel_group_admin_label">المشرف مجموعة
+</string>
+    <string name="activity_group_admin_panel_created_by_label">انشأ من قبل
+</string>
+    <string name="activity_group_admin_panel_created_on_label">تم الإنشاء في  </string>
+    <string name="activity_group_admin_panel_group_id_label">تم إنشاؤها على
+ </string>
+    <string name="activity_group_admin_panel_not_available_members_label">المعلومات حول الأعضاء غير متوفرة الآن
+</string>
+    <string name="activity_group_admin_panel_add_member_title">إضافة عضو
+</string>
+    <string name="menu_activity_group_admin_panel_activity_cannot_add_member_offline">لا يمكن إضافة عضو إذا كنت غير متصل
+</string>
+
+    <!--bottom_sheet_group_admin_panel_member-->
+    <string name="bottom_sheet_group_admin_panel_member_remove_member_btn_label">حذف العضو </string>
+    <string name="bottom_sheet_group_admin_panel_member_leave_group_btn_label">مغادرة المجموعة</string>
+    <string name="bottom_sheet_group_admin_panel_member_see_profile_btn_label">مشاهدة الملف الشخصي</string>
+    <string name="bottom_sheet_group_admin_panel_member_send_message_btn_label">إرسال رسالة</string>
+    <string name="bottom_sheet_group_admin_panel_member_btn_cancel_label">إلفاء</string>
+
+    <!--activity_conversation_list-->
+    <string name="activity_conversation_list_adapter_you_label">انت</string>
+
+    <!--fragment_conversation_list-->
+    <string name="fragment_conversation_list_my_group_label">المجموعات</string>
+
+    <!--bottom_sheet_group_admin_panel_member-->
+    <string name="bottom_sheet_group_admin_panel_member_remove_member_alert_title">إزالة العضو
+</string>
+    <string name="bottom_sheet_group_admin_panel_member_remove_member_alert_message">هل تريد حقًا إزالة <b>٪ 1 $ s </b> من المجموعة؟
+</string>
+    <string name="bottom_sheet_group_admin_panel_member_leave_group_alert_message">هل تريد حقًا مغادرة المجموعة
+</string>
+    <string name="bottom_sheet_group_admin_panel_member_remove_member_alert_positive_click">حذف</string>
+    <string name="bottom_sheet_group_admin_panel_member_leave_group_alert_positive_click">مغادرة</string>
+    <string name="bottom_sheet_group_admin_panel_member_remove_member_alert_negative_click">إلفاء</string>
+
+    <!--activity_message_list-->
+    <string name="activity_message_list_group_info_you_label">انت</string>
+    <string name="activity_message_list_convers_with_presence_online">متصل</string>
+    <string name="activity_message_list_convers_with_presence_offline">غير متصل</string>
+    <string name="activity_message_list_progress_dialog_upload">التحميل قيد التقدم ..
+</string>
+    <string name="activity_message_list_progress_dialog_upload_failed">لا يمكن إتمام التحميل
+</string>
+    <string name="activity_message_list_no_message_error_title_label">لقد تم إزالتك من المجموعة
+</string>
+    <string name="activity_message_list_no_message_error_subtitle_label">اتصل بالمسؤول لمزيد من التفاصيل
+</string>
+    <string name="activity_message_list_confirm_dialog_upload_title_label">إرسال صورة
+</string>
+    <string name="activity_message_list_confirm_dialog_upload_message_label">هل تريد إرسال هذه الصورة؟
+</string>
+    <string name="activity_message_list_type_image_label">صورة</string>
+    <string name="activity_message_list_type_file_label">ملف</string>
+
+    <!--bottom_sheet_attach-->
+    <string name="bottom_sheet_attach_images_label">الصور</string>
+    <string name="bottom_sheet_attach_documents_label">مستندات
+</string>
+
+    <!--activity_public_profile-->
+    <string name="activity_public_profile_presence_online"> متصل </string>
+    <string name="activity_public_profile_presence_not_available">غير متصل </string>
+    <string name="activity_public_profile_presence_offline">غير متصل
+</string>
+
+    <!--activity_group_list-->
+    <string name="activity_group_list_activity_title">لا مجموعات
+</string>
+    <string name="activity_my_groups_list_error_title">لا مجموعات
+</string>
+    <string name="activity_my_groups_list_error_subtitle">أنت لست عضوا في أي مجموعة
+</string>
+
+    <!--bottom_sheet_conversation_list-->
+    <string name="bottom_sheet_conversation_list_confirm_delete_conversation_alert_title">حذف الدردشة</string>
+    <string name="bottom_sheet_conversation_list_confirm_delete_conversation_alert_message">هل تريد حقًا حذف الدردشة؟ \ n لا يمكن إلغاء العملية.</string>
+    <string name="bottom_sheet_conversation_list_confirm_delete_conversation_button_label">حذف الدردشة
+</string>
+    <string name="bottom_sheet_conversation_list_confirm_delete_conversation_alert_positive_button_label">حذف الدردشة
+</string>
+    <string name="bottom_sheet_conversation_list_confirm_delete_conversation_alert_positive_button_negative">إلغاء</string>
+
+    <!--activity_chat_login-->
+    <string name="activity_chat_login_no_account_label">لا حساب؟
+</string>
+    <string name="activity_chat_login_signup_label">سجل
+</string>
+
+    <!--activity_choose_chat_group_activity-->
+    <string name="activity_choose_chat_group_activity_activity_title">مجموعات</string>
+
+    <!--menu_fragment_conversations_list-->
+    <string name="menu_fragment_conversations_list_action_archived">مؤرشف</string>
+
+    <!--activity_archived_conversation_list_title-->
+    <string name="activity_archived_conversation_list_title">مؤرشف</string>
+
+    <!--row_archived_conversations-->
+    <string name="row_archived_conversations_textview_reopen">أعد فتح
+</string>
+    <string name="row_archived_conversations_closed_label">مغلق
+</string>
+    <string name="close">أغلق</string>
+    <string name="unread">غير مقروء</string>
+    <string name="read" translatable="false"> مقروء</string>
+    <string name="chats">دردشات</string>
+    <string name="current_user_location">Current user location</string>
+    <string name="do_you_want_share_your_location">Do you want share your location?</string>
+    <string name="share_location">Share Location</string>
+</resources>

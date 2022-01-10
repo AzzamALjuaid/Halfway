@@ -16,7 +16,6 @@ class NearbySearch {
         val context: GeoApiContext = GeoApiContext.Builder()
             .apiKey("AIzaSyDDDjqOOpgZ--gcRwPRW0NIbpK_ulX2EkM")
             .build()
-
         try {
             var mid = LatLng(centerPoint.latitude, centerPoint.longitude)
             request = PlacesApi.nearbySearchQuery(context, mid)
@@ -26,7 +25,7 @@ class NearbySearch {
                 .language("en")
                 .type(PlaceType.AMUSEMENT_PARK)
                 .await()
-        } catch (e:ApiException) {
+        } catch (e: ApiException) {
             e.printStackTrace()
         } catch (e: IOException) {
             e.printStackTrace()
@@ -35,7 +34,5 @@ class NearbySearch {
         } finally {
             return request
         }
-
     }
-
 }

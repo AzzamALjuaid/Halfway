@@ -2,43 +2,63 @@ package com.tuwaiq.halfway.screens
 
 import android.content.Context
 import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
-import android.widget.ProgressBar
-import androidx.annotation.Nullable
-import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.google.android.gms.maps.model.LatLng
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.*
-import com.tuwaiq.halfway.R
+import android.widget.ProgressBar
+
+import androidx.recyclerview.widget.RecyclerView
 import com.tuwaiq.halfway.adapter.UsersAdapter
-import com.tuwaiq.halfway.databinding.FragmentProfileBinding
 import com.tuwaiq.halfway.model.UserDetailModal
+import com.google.firebase.database.DatabaseReference
+
+import com.google.firebase.database.FirebaseDatabase
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.firebase.database.DatabaseError
+
+import androidx.annotation.Nullable
+import com.google.android.gms.maps.model.LatLng
+
+import com.google.firebase.database.DataSnapshot
+
+import com.google.firebase.database.ChildEventListener
+import com.tuwaiq.halfway.utility.Chat21Manager
+import com.tuwaiq.halfway.R
+import com.tuwaiq.halfway.adapter.UsersAdapter.UserClickInterface
+import com.tuwaiq.halfway.databinding.ActivityHomeBinding
 import com.tuwaiq.halfway.screens.fragments.PlacesFragment
+import com.tuwaiq.halfway.screens.fragments.UserMapFragment
 import com.tuwaiq.halfway.screens.fragments.ProfileFragment
 import com.tuwaiq.halfway.utility.Common
-import com.tuwaiq.halfway.utility.Constant
+import com.tuwaiq.halfway.utility.Constant.SharedPref.Companion.USER_AGE
+import com.tuwaiq.halfway.utility.Constant.SharedPref.Companion.USER_EMAIL
+import com.tuwaiq.halfway.utility.Constant.SharedPref.Companion.USER_GENDER
+import com.tuwaiq.halfway.utility.Constant.SharedPref.Companion.USER_LATITUDE
+import com.tuwaiq.halfway.utility.Constant.SharedPref.Companion.USER_LONGITUDE
+import com.tuwaiq.halfway.utility.Constant.SharedPref.Companion.USER_NAME
 import com.tuwaiq.halfway.utility.PreferencesHelper
+import org.chat21.android.ui.ChatUI
+
 
 class HomeActivity : AppCompatActivity() {
-    private var fb_logut: FloatingActionButton? = null
-    var firebaseDatabase : FirebaseDatabase? = null
+    private var fb_logout: FloatingActionButton? = null
+    var firebaseDatabase: FirebaseDatabase? = null
     var databaseReference: DatabaseReference? = null
     private var rv_user: RecyclerView? = null
     private var mAuth: FirebaseAuth? = null
     private var loading: ProgressBar? = null
     private var userDetailModal: ArrayList<UserDetailModal>? = null
     private var tempUserDetailModal: ArrayList<UserDetailModal>? = null
-    private var userAdapter: UsersAdapter? = null
+    private var usersAdapter: UsersAdapter? = null
     private var isMyAccountUpdated: Boolean = false
     private lateinit var binding: ActivityHomeBinding
 
-    companion object {
 
+    companion object {
         private const val MY_LOCATION_REQUEST_CODE = 329
         private const val NEW_REMINDER_REQUEST_CODE = 330
         private const val EXTRA_LAT_LNG = "EXTRA_LAT_LNG"
@@ -49,6 +69,8 @@ class HomeActivity : AppCompatActivity() {
             return intent
         }
     }
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -101,17 +123,17 @@ class HomeActivity : AppCompatActivity() {
         loading = findViewById(R.id.idPBLoading)
         fb_logout = findViewById(R.id.fb_logout)
         binding.btnChat.setOnClickListener {
-            ChatUI.getInstance().openConversationsListActivity()
+          ChatUI.getInstance().openConversationsListActivity()
 
         }
         binding.btnPlaces.setOnClickListener {
             Common.startNewActivity(this@HomeActivity, PlaceActivity::class.java, false)
         }
-        firebaseDatabase = FirebaseDatabase.getInstance()
+       firebaseDatabase = FirebaseDatabase.getInstance()
         mAuth = FirebaseAuth.getInstance()
         userDetailModal = ArrayList()
         tempUserDetailModal = ArrayList()
-        databaseReference = firebaseDatabase!!.getReference("account")
+       databaseReference = firebaseDatabase!!.getReference("account")
         val btn_account = findViewById<Button>(R.id.btn_account)
 
         btn_account.setOnClickListener {
@@ -121,7 +143,7 @@ class HomeActivity : AppCompatActivity() {
         }
         usersAdapter = UsersAdapter(
             userDetailModal!!, this,
-            object : UsersAdapter.UserClickInterface {
+            object : UserClickInterface {
                 override fun onClick(position: Int) {
                     var bundle = Bundle()
                     bundle.putParcelable("friend", userDetailModal?.get(position))
@@ -163,25 +185,25 @@ class HomeActivity : AppCompatActivity() {
                 tempUserDetailModal?.add(snapshot.getValue(UserDetailModal::class.java)!!)
                 for (item in tempUserDetailModal!!) {
                     if (!item.email.equals(
-                            PreferencesHelper(this@HomeActivity).getString(Constant.SharedPref.USER_EMAIL),
+                            PreferencesHelper(this@HomeActivity).getString(USER_EMAIL),
                             true
                         )//filtering the data from duplicate
                         && userDetailModal?.contains(item) == false
                     )
                         userDetailModal?.add(item)
                     if (item.email.equals(
-                            PreferencesHelper(this@HomeActivity).getString(Constant.SharedPref.USER_EMAIL),
+                            PreferencesHelper(this@HomeActivity).getString(USER_EMAIL),
                             true
                         )//avoiding the self name from getting reflected into the user list for confusion
                     ) {
                         println("=========>else")
                         isMyAccountUpdated = true
-                        PreferencesHelper(this@HomeActivity).putString(Constant.SharedPref.USER_LATITUDE, item.latitude)
+                        PreferencesHelper(this@HomeActivity).putString(USER_LATITUDE, item.latitude)
                         PreferencesHelper(this@HomeActivity).putString(USER_NAME, item.name)
-                        PreferencesHelper(this@HomeActivity).putString(Constant.SharedPref.USER_GENDER, item.gender)
-                        PreferencesHelper(this@HomeActivity).putString(Constant.SharedPref.USER_AGE, item.age)
+                        PreferencesHelper(this@HomeActivity).putString(USER_GENDER, item.gender)
+                        PreferencesHelper(this@HomeActivity).putString(USER_AGE, item.age)
                         PreferencesHelper(this@HomeActivity).putString(
-                            Constant.SharedPref.USER_LONGITUDE,
+                            USER_LONGITUDE,
                             item.longitude
                         )
                     }
@@ -233,5 +255,4 @@ class HomeActivity : AppCompatActivity() {
         FirebaseAuth.getInstance().signOut()
         startActivity(Intent(this@HomeActivity, LoginActivity::class.java))
     }
-
 }

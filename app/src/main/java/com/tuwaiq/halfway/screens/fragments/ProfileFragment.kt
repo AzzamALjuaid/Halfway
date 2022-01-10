@@ -6,14 +6,13 @@ import android.location.Location
 import android.os.Bundle
 import android.os.Looper
 import android.text.TextUtils
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ProgressBar
-import android.widget.Toast
+import android.widget.*
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.fragment.app.Fragment
 import com.google.android.gms.location.LocationCallback
 import com.google.android.gms.location.LocationRequest
 import com.google.android.gms.location.LocationResult
@@ -36,7 +35,6 @@ private const val ARG_PARAM2 = "param2"
  * Use the [ProfileFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-
 class ProfileFragment : Fragment() {
     private var loading: ProgressBar? = null
     private var latitude: String? = null
@@ -47,26 +45,27 @@ class ProfileFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
+        inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_profile, container, false)
     }
 
-    lateinit var mView: FragmentProfileBinding;
+    lateinit var mView:FragmentProfileBinding;
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         mView = FragmentProfileBinding.bind(view);
-        iniView()
+        initView()
     }
 
-    private fun iniView(){
+
+    private fun initView() {
 
         mView.etEmail.setText(PreferencesHelper(requireContext()).getString(Constant.SharedPref.USER_EMAIL))
         if (!TextUtils.isEmpty(PreferencesHelper(requireContext()).getString(Constant.SharedPref.USER_NAME)))

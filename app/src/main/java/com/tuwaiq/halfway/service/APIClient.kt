@@ -1,12 +1,15 @@
 package com.tuwaiq.halfway.service
 
-import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
-import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-object APIClient {
+import retrofit2.Retrofit
 
+import okhttp3.OkHttpClient
+
+import okhttp3.logging.HttpLoggingInterceptor
+
+
+object APIClient {
     private var retrofit: Retrofit? = null
     val client: Retrofit?
         get() {
@@ -19,6 +22,5 @@ object APIClient {
                 .client(client)
                 .build()
             return retrofit
-    }
-
+        }
 }
