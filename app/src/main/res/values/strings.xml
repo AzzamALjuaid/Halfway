@@ -17,4 +17,69 @@
     <string name="geofence_not_available"><![CDATA[Geofence service is not available now. Go to Settings>Location>Mode and choose High accuracy.]]></string>
     <string name="geofence_too_many_geofences">" Your app has registered too many geofences."</string>
     <string name="geofence_too_many_pending_intents">You have provided too many PendingIntents to the addGeofences() call.</string>
+
+    /*--------------------------------------------------------------------------------------------------------------*/
+
+    <string name="app_name">Halfway</string>
+    <string name="login_text">Login</string>
+    <string name="email">Enter Your Email</string>
+    <string name="name">Enter Your Name</string>
+    <string name="password">Enter Your Password</string>
+    <string name="signup">Sign-Up</string>
+    <string name="signup_msg">Don\'t Have an account? Sign up now</string>
+    <string name="login_msg">Already registered? Login now</string>
+    <string name="user_detail">User Detail</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="enter_your_age">Enter your age</string>
+    <string name="my_account">My Account</string>
+    <string name="save">save</string>
+    <string name="get_current_location">Get Current location</string>
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="title_activity_place">PlaceActivity</string>
+    <string name="tab_restro">Restaurant</string>
+    <string name="tab_cafe">Cafe</string>
+    <string name="tab_amusement">Amusement Park</string>
+
+
+    <!-- Error strings -->
+    <string name="instruction_where_description">Where do you want to be reminded?</string>
+    <string name="instruction_where_subtitle_description">Drag the map to set the location</string>
+    <string name="instruction_radius_description">Choose the radius</string>
+    <string name="instruction_message_description">Enter the message</string>
+    <string name="continue_description">Continue</string>
+    <string name="error_required">Required</string>
+    <string name="message_hint">We arrived! :]</string>
+    <string name="radius_description">%1$s meters</string>
+
+    <string name="reminder_removal_alert">Remove reminder?</string>
+    <string name="reminder_removal_alert_positive">OK</string>
+    <string name="reminder_removal_alert_negative">Cancel</string>
+
+    <string name="reminder_added_success">Reminder added!</string>
+    <string name="reminder_removed_success">Reminder removed!</string>
+
+    <string name="marker_content_description">Marker</string>
+
+    <string name="geofence_unknown_error">
+    Unknown error: the Geofence service is not available now.
+  </string>
+    <string name="geofence_not_available">
+    Geofence service is not available now. Go to Settings>Location>Mode and choose High accuracy.
+  </string>
+    <string name="geofence_too_many_geofences">
+    Your app has registered too many geofences.
+  </string>
+    <string name="geofence_too_many_pending_intents">
+    You have provided too many PendingIntents to the addGeofences() call.
+  </string>
+
+    <string name="title_map">Map</string>
+    <string name="title_chat">Chat</string>
+    <string name="title_profile">Profile</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+
 </resources>

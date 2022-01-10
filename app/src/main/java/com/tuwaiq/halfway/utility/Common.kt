@@ -1,4 +1,4 @@
-package com.tuwaiq.halfway.adapter.utility
+package com.tuwaiq.halfway.utility
 
 import android.app.Activity
 import android.content.Context
@@ -8,7 +8,6 @@ import android.util.Patterns
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
-import androidx.core.content.getSystemService
 import com.google.android.gms.maps.model.LatLng
 import java.util.regex.Matcher
 import java.util.regex.Pattern
