@@ -87,11 +87,11 @@ fun showReminderInMap(context: Context,
     val latLng = reminder.latLng as LatLng
     val vectorToBitmap = vectorToBitmap(context.resources, R.drawable.ic_twotone_location_on_48px)
     val marker = map.addMarker(MarkerOptions().position(latLng).icon(vectorToBitmap))
-    marker.tag = reminder.id
+    marker!!.tag = reminder.id
     if (reminder.radius != null) {
       val radius = reminder.radius as Double
       map.addCircle(CircleOptions()
-          .center(reminder.latLng)
+          .center(reminder.latLng!!)
           .radius(radius)
           .strokeColor(ContextCompat.getColor(context, R.color.colorAccent))
           .fillColor(ContextCompat.getColor(context, R.color.colorReminderFill)))

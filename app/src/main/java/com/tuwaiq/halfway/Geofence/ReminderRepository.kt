@@ -60,7 +60,7 @@ class ReminderRepository(private val context: Context) {
               // 2
               val buildGeofencingRequest = buildGeofencingRequest(geofence)
               geofencingClient
-                  .addGeofences(buildGeofencingRequest, getGeofencePendingIntent()).addOnCompleteListener {
+                  .addGeofences(buildGeofencingRequest, getGeofencePendingIntent()!!).addOnCompleteListener {
 
                       if(it.isSuccessful){
                           saveAll(getAll() + reminder)

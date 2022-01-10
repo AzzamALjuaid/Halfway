@@ -241,11 +241,11 @@ class AddDetailActivity : AppCompatActivity() {
         }
         LocationServices.getFusedLocationProviderClient(this@AddDetailActivity)
             .requestLocationUpdates(locationRequest, object : LocationCallback() {
-                override fun onLocationResult(locationResult: LocationResult?) {
+                override fun onLocationResult(locationResult: LocationResult) {
                     super.onLocationResult(locationResult)
                     LocationServices.getFusedLocationProviderClient(applicationContext)
                         .removeLocationUpdates(this)
-                    if (locationResult != null && locationResult.getLocations().size > 0) {
+                    if ( locationResult.getLocations().size > 0) {
                         val latestlocIndex: Int = locationResult.getLocations().size - 1
                         val lati: Double =
                             locationResult.getLocations().get(latestlocIndex).getLatitude()
