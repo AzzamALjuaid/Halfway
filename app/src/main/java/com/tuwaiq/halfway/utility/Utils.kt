@@ -51,7 +51,7 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.model.*
 import com.tuwaiq.halfway.BuildConfig
 import com.tuwaiq.halfway.Geofence.Reminder
-import com.tuwaiq.halfway.screens.HomeActivity
+import com.tuwaiq.halfway.screens.HalfwayActivity
 import com.tuwaiq.halfway.R
 
 fun EditText.requestFocusWithKeyboard() {
@@ -115,10 +115,10 @@ fun sendNotification(context: Context, message: String, latLng: LatLng) {
     notificationManager.createNotificationChannel(channel)
   }
 
-  val intent = HomeActivity.newIntent(context.applicationContext, latLng)
+  val intent = HalfwayActivity.newIntent(context.applicationContext, latLng)
 
   val stackBuilder = TaskStackBuilder.create(context)
-      .addParentStack(HomeActivity::class.java)
+      .addParentStack(HalfwayActivity::class.java)
       .addNextIntent(intent)
   val notificationPendingIntent = stackBuilder
       .getPendingIntent(getUniqueId(), PendingIntent.FLAG_UPDATE_CURRENT)

@@ -31,7 +31,6 @@ import com.tuwaiq.halfway.R
 import com.tuwaiq.halfway.adapter.UsersAdapter.UserClickInterface
 import com.tuwaiq.halfway.databinding.ActivityHomeBinding
 import com.tuwaiq.halfway.screens.fragments.PlacesFragment
-import com.tuwaiq.halfway.screens.fragments.UserMapFragment
 import com.tuwaiq.halfway.screens.fragments.ProfileFragment
 import com.tuwaiq.halfway.utility.Common
 import com.tuwaiq.halfway.utility.Constant.SharedPref.Companion.USER_AGE
@@ -44,7 +43,7 @@ import com.tuwaiq.halfway.utility.PreferencesHelper
 import org.chat21.android.ui.ChatUI
 
 
-class HomeActivity : AppCompatActivity() {
+class HalfwayActivity : AppCompatActivity() {
     private var fb_logout: FloatingActionButton? = null
     var firebaseDatabase: FirebaseDatabase? = null
     var databaseReference: DatabaseReference? = null
@@ -64,7 +63,7 @@ class HomeActivity : AppCompatActivity() {
         private const val EXTRA_LAT_LNG = "EXTRA_LAT_LNG"
 
         fun newIntent(context: Context, latLng: LatLng): Intent {
-            val intent = Intent(context, HomeActivity::class.java)
+            val intent = Intent(context, HalfwayActivity::class.java)
             intent.putExtra(EXTRA_LAT_LNG, latLng)
             return intent
         }
@@ -127,7 +126,7 @@ class HomeActivity : AppCompatActivity() {
 
         }
         binding.btnPlaces.setOnClickListener {
-            Common.startNewActivity(this@HomeActivity, PlaceActivity::class.java, false)
+            Common.startNewActivity(this@HalfwayActivity, PlaceActivity::class.java, false)
         }
        firebaseDatabase = FirebaseDatabase.getInstance()
         mAuth = FirebaseAuth.getInstance()
@@ -138,7 +137,7 @@ class HomeActivity : AppCompatActivity() {
 
         btn_account.setOnClickListener {
 
-            Common.startNewActivity(this@HomeActivity, AddDetailActivity::class.java, false)
+            Common.startNewActivity(this@HalfwayActivity, AddDetailActivity::class.java, false)
 //            startActivity(Intent(this@HomeActivity, AddDetailActivity::class.java))
         }
         usersAdapter = UsersAdapter(
@@ -148,7 +147,7 @@ class HomeActivity : AppCompatActivity() {
                     var bundle = Bundle()
                     bundle.putParcelable("friend", userDetailModal?.get(position))
                     Common.startNewActivity(
-                        this@HomeActivity,
+                        this@HalfwayActivity,
                         PlaceActivity::class.java,
                         bundle,
                         false
@@ -185,24 +184,24 @@ class HomeActivity : AppCompatActivity() {
                 tempUserDetailModal?.add(snapshot.getValue(UserDetailModal::class.java)!!)
                 for (item in tempUserDetailModal!!) {
                     if (!item.email.equals(
-                            PreferencesHelper(this@HomeActivity).getString(USER_EMAIL),
+                            PreferencesHelper(this@HalfwayActivity).getString(USER_EMAIL),
                             true
                         )//filtering the data from duplicate
                         && userDetailModal?.contains(item) == false
                     )
                         userDetailModal?.add(item)
                     if (item.email.equals(
-                            PreferencesHelper(this@HomeActivity).getString(USER_EMAIL),
+                            PreferencesHelper(this@HalfwayActivity).getString(USER_EMAIL),
                             true
                         )//avoiding the self name from getting reflected into the user list for confusion
                     ) {
                         println("=========>else")
                         isMyAccountUpdated = true
-                        PreferencesHelper(this@HomeActivity).putString(USER_LATITUDE, item.latitude)
-                        PreferencesHelper(this@HomeActivity).putString(USER_NAME, item.name)
-                        PreferencesHelper(this@HomeActivity).putString(USER_GENDER, item.gender)
-                        PreferencesHelper(this@HomeActivity).putString(USER_AGE, item.age)
-                        PreferencesHelper(this@HomeActivity).putString(
+                        PreferencesHelper(this@HalfwayActivity).putString(USER_LATITUDE, item.latitude)
+                        PreferencesHelper(this@HalfwayActivity).putString(USER_NAME, item.name)
+                        PreferencesHelper(this@HalfwayActivity).putString(USER_GENDER, item.gender)
+                        PreferencesHelper(this@HalfwayActivity).putString(USER_AGE, item.age)
+                        PreferencesHelper(this@HalfwayActivity).putString(
                             USER_LONGITUDE,
                             item.longitude
                         )
@@ -244,7 +243,7 @@ class HomeActivity : AppCompatActivity() {
 
             override fun onCancelled(error: DatabaseError) {
                 loading?.setVisibility(View.GONE)
-                Common.showToast(this@HomeActivity, error.message)
+                Common.showToast(this@HalfwayActivity, error.message)
             }
         })
     }
@@ -253,6 +252,6 @@ class HomeActivity : AppCompatActivity() {
     fun onSignOut(v: View) {
         PreferencesHelper(this).clearPreferences()
         FirebaseAuth.getInstance().signOut()
-        startActivity(Intent(this@HomeActivity, LoginActivity::class.java))
+        startActivity(Intent(this@HalfwayActivity, LoginActivity::class.java))
     }
 }

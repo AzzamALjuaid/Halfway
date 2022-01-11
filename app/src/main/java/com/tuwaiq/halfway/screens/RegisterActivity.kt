@@ -11,7 +11,6 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 
 import android.text.TextUtils
-import com.google.firebase.auth.UserProfileChangeRequest
 import com.tuwaiq.halfway.utility.Chat21Manager
 import com.tuwaiq.halfway.R
 import com.tuwaiq.halfway.utility.Constant
@@ -105,7 +104,7 @@ class RegisterActivity : AppCompatActivity() {
                                     override fun onUserCreatedSuccess() {
                                         val firebaseUser: FirebaseUser = FirebaseAuth.getInstance()!!.currentUser!!
                                         Toast.makeText(this@RegisterActivity, "Logged in", Toast.LENGTH_LONG).show()
-                                        val intent = Intent(this@RegisterActivity, HomeActivity::class.java)
+                                        val intent = Intent(this@RegisterActivity, HalfwayActivity::class.java)
                                         intent.putExtra("user_id", firebaseUser.uid)
                                         intent.putExtra("email_id", email)
                                         PreferencesHelper(this@RegisterActivity).putString(Constant.SharedPref.USER_ID, firebaseUser.uid)

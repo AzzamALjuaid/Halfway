@@ -27,6 +27,7 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
         initView()
+        loading?.visibility = View.GONE
     }
 
     private fun initView() {
@@ -66,7 +67,7 @@ class LoginActivity : AppCompatActivity() {
                 "Please enter the password"
             )
         } else {//it goes here when all the require condition matches
-            loading?.visibility = View.VISIBLE
+            loading?.visibility = View.GONE
 
 
 
@@ -82,7 +83,7 @@ class LoginActivity : AppCompatActivity() {
 
 
 
-                        val intent = Intent(this@LoginActivity, HomeActivity::class.java)
+                        val intent = Intent(this@LoginActivity, HalfwayActivity::class.java)
                         //on below line we are opening our mainactivity.
                         PreferencesHelper(this@LoginActivity).putString(USER_ID, currentUser!!.id)
                         PreferencesHelper(this@LoginActivity).putString(USER_EMAIL, email)
@@ -111,7 +112,7 @@ class LoginActivity : AppCompatActivity() {
                                 if (exception == null) {
                                     ChatUI.getInstance().openConversationsListActivity();
                                 } else {
-                                    // TODO: handle the exception
+                                    //
                                 }
                             }
                         });

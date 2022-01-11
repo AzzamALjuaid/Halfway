@@ -67,7 +67,7 @@ open class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         intent.getParcelableExtra<UserDetailModal>("friend")?.let {
             userDetailModal=it
         }
-        binding.tvFriendName.text = userDetailModal?.name + " Location"
+//        binding.tvFriendName.text = userDetailModal?.name + " Location"
 
         binding.btnPlaces.setOnClickListener {
 
@@ -119,7 +119,7 @@ open class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                 intent.getDoubleExtra("locationLng",0.0)),17f))
             binding.apply {
                 btnPlaces.isVisible=false
-                llTop.isVisible=false
+//                llTop.isVisible=false
                 btnSetReminder.isVisible=false
                 idPBLoading.isVisible=false
             }

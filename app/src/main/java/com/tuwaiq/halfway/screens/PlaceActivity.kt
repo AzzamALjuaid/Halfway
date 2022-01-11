@@ -170,6 +170,7 @@ class PlaceActivity : AppCompatActivity() {
             })
     }
 
+
     private lateinit var locationManager: LocationManager
     private  val MY_LOCATION_REQUEST_CODE = 329
     fun checkPermessation(){
