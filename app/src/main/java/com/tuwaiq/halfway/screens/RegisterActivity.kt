@@ -11,6 +11,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 
 import android.text.TextUtils
+import androidx.core.content.res.ResourcesCompat
 import com.tuwaiq.halfway.utility.Chat21Manager
 import com.tuwaiq.halfway.R
 import com.tuwaiq.halfway.utility.Constant
@@ -18,6 +19,8 @@ import com.tuwaiq.halfway.utility.PreferencesHelper
 import org.chat21.android.core.authentication.ChatAuthentication
 import org.chat21.android.core.authentication.ChatAuthentication.OnUserCreatedOnContactsCallback
 import org.chat21.android.core.authentication.ChatAuthentication.OnUserCreatedOnFirebaseCallback
+import www.sanju.motiontoast.MotionToast
+import www.sanju.motiontoast.MotionToastStyle
 import java.lang.Exception
 import java.util.*
 
@@ -27,6 +30,8 @@ class RegisterActivity : AppCompatActivity() {
         setContentView(R.layout.activity_register)
         initView()
     }
+
+
 
     private fun initView() {
         val tv_login = findViewById<TextView>(R.id.tv_login)
@@ -54,28 +59,45 @@ class RegisterActivity : AppCompatActivity() {
         val lastName = findViewById<EditText>(R.id.etFirstName).text.toString()
         //here detail enter by the user is validated
         if (!password.equals(cnfPwd)) {
-            Toast.makeText(
-                this@RegisterActivity,
-                "Please check both having same password..",
-                Toast.LENGTH_SHORT
-            ).show();
+
+            MotionToast.darkColorToast(this,
+                getString(R.string.warning),
+                getString(R.string.password_same),
+                MotionToastStyle.WARNING,
+                MotionToast.GRAVITY_BOTTOM,
+                MotionToast.LONG_DURATION,
+                ResourcesCompat.getFont(this,R.font.helvetica_regular))
+
+
         } else if (TextUtils.isEmpty(firstName) || TextUtils.isEmpty(lastName) ) {
             //checking if the text fields are empty or not.
-            Toast.makeText(
-                this@RegisterActivity,
-                "Please enter your  name",
-                Toast.LENGTH_SHORT
-            ).show();
+
+            MotionToast.darkColorToast(this,
+                getString(R.string.warning),
+                getString(R.string.enter_name),
+                MotionToastStyle.WARNING,
+                MotionToast.GRAVITY_BOTTOM,
+                MotionToast.LONG_DURATION,
+                ResourcesCompat.getFont(this,R.font.helvetica_regular))
+
+
+
         } else if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password) || TextUtils.isEmpty(
                 cnfPwd
             )
         ) {
             //checking if the text fields are empty or not.
-            Toast.makeText(
-                this@RegisterActivity,
-                "Please enter your credentials..",
-                Toast.LENGTH_SHORT
-            ).show();
+
+            MotionToast.darkColorToast(this,
+                getString(R.string.warning),
+                getString(R.string.user_credentials),
+                MotionToastStyle.WARNING,
+                MotionToast.GRAVITY_BOTTOM,
+                MotionToast.LONG_DURATION,
+                ResourcesCompat.getFont(this,R.font.helvetica_regular))
+
+
+
         } else {//if the details are entered correctly then user is able to register into the application
 
 
@@ -103,7 +125,16 @@ class RegisterActivity : AppCompatActivity() {
                                 object : OnUserCreatedOnContactsCallback {
                                     override fun onUserCreatedSuccess() {
                                         val firebaseUser: FirebaseUser = FirebaseAuth.getInstance()!!.currentUser!!
-                                        Toast.makeText(this@RegisterActivity, "Logged in", Toast.LENGTH_LONG).show()
+//                                        Toast.makeText(this@RegisterActivity, "Logged in", Toast.LENGTH_LONG).show()
+
+                                        MotionToast.darkColorToast(this@RegisterActivity,
+                                            getString(R.string.successful),
+                                            getString(R.string.reg_success),
+                                            MotionToastStyle.SUCCESS,
+                                            MotionToast.GRAVITY_BOTTOM,
+                                            MotionToast.LONG_DURATION,
+                                            ResourcesCompat.getFont(this@RegisterActivity,R.font.helvetica_regular))
+
                                         val intent = Intent(this@RegisterActivity, HalfwayActivity::class.java)
                                         intent.putExtra("user_id", firebaseUser.uid)
                                         intent.putExtra("email_id", email)

@@ -10,8 +10,6 @@ import com.airbnb.lottie.LottieAnimationView
 import com.google.firebase.auth.FirebaseAuth
 import com.tuwaiq.halfway.screens.HalfwayActivity
 import com.tuwaiq.halfway.screens.LoginActivity
-import com.tuwaiq.halfway.screens.MainActivity
-import com.tuwaiq.halfway.utility.Constant
 import com.tuwaiq.halfway.utility.Constant.SharedPref.Companion.USER_ID
 import com.tuwaiq.halfway.utility.PreferencesHelper
 
@@ -34,7 +32,7 @@ class SplashActivity : AppCompatActivity() {
 
                 } else {//user is logged in
 
-                    startActivity(Intent(this,MainActivity::class.java))
+                    startActivity(Intent(this,LoginActivity::class.java))
 
                 }
                 finish()

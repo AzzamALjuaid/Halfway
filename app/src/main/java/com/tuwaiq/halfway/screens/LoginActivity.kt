@@ -7,6 +7,7 @@ import android.text.TextUtils
 import android.util.Log
 import android.view.View
 import android.widget.*
+import androidx.core.content.res.ResourcesCompat
 import com.google.firebase.auth.FirebaseAuth
 import com.tuwaiq.halfway.utility.Chat21Manager
 import com.tuwaiq.halfway.R
@@ -17,6 +18,8 @@ import com.tuwaiq.halfway.utility.PreferencesHelper
 import org.chat21.android.core.ChatManager
 import org.chat21.android.core.authentication.ChatAuthentication
 import org.chat21.android.core.users.models.IChatUser
+import www.sanju.motiontoast.MotionToast
+import www.sanju.motiontoast.MotionToastStyle
 import java.lang.Exception
 
 class LoginActivity : AppCompatActivity() {
@@ -52,20 +55,33 @@ class LoginActivity : AppCompatActivity() {
         val password = findViewById<EditText>(R.id.etRegisterPass).text.toString()
         //below is the validation of the credential enter by the uer
         if (TextUtils.isEmpty(email)) {
-            Common.showToast(
-                this@LoginActivity,
-                "Please enter the email"
-            )
+            MotionToast.darkColorToast(this,
+                getString(R.string.warning),
+                getString(R.string.enter_email),
+                MotionToastStyle.WARNING,
+                MotionToast.GRAVITY_BOTTOM,
+                MotionToast.LONG_DURATION,
+                ResourcesCompat.getFont(this,R.font.helvetica_regular))
+
         } else if (!Common.isValidEmail(email)) {
-            Common.showToast(
-                this@LoginActivity,
-                "Please enter a valid email"
-            )
+            MotionToast.darkColorToast(this,
+                getString(R.string.warning),
+                getString(R.string.enter_valid_email),
+                MotionToastStyle.WARNING,
+                MotionToast.GRAVITY_BOTTOM,
+                MotionToast.LONG_DURATION,
+                ResourcesCompat.getFont(this,R.font.helvetica_regular))
+
         } else if (TextUtils.isEmpty(password)) {
-            Common.showToast(
-                this@LoginActivity,
-                "Please enter the password"
-            )
+
+            MotionToast.darkColorToast(this,
+                getString(R.string.warning),
+                getString(R.string.enter_password),
+                MotionToastStyle.WARNING,
+                MotionToast.GRAVITY_BOTTOM,
+                MotionToast.LONG_DURATION,
+                ResourcesCompat.getFont(this,R.font.helvetica_regular))
+
         } else {//it goes here when all the require condition matches
             loading?.visibility = View.GONE
 
@@ -75,12 +91,15 @@ class LoginActivity : AppCompatActivity() {
                 email,password, object : ChatAuthentication.OnChatLoginCallback {
                     override fun onChatLoginSuccess(currentUser: IChatUser?) {
                         loading?.visibility = View.GONE
-                        //on below line we are hiding our progress bar.
-                        Common.showToast(
-                            this@LoginActivity,
-                            "Login Successful.."
-                        )
 
+
+                        MotionToast.darkColorToast(this@LoginActivity,
+                            getString(R.string.successful),
+                            getString(R.string.login_success),
+                            MotionToastStyle.SUCCESS,
+                            MotionToast.GRAVITY_BOTTOM,
+                            MotionToast.LONG_DURATION,
+                            ResourcesCompat.getFont(this@LoginActivity,R.font.helvetica_regular))
 
 
                         val intent = Intent(this@LoginActivity, HalfwayActivity::class.java)
@@ -95,10 +114,14 @@ class LoginActivity : AppCompatActivity() {
                         loading?.visibility = View.GONE
                         //hiding our progress bar and displaying a toast message.
                         Log.d(TAG, "loginUser: ${e?.message}")
-                        Common.showToast(
-                            this@LoginActivity,
-                            "Please enter valid user credentials.."
-                        )
+
+                        MotionToast.darkColorToast(this@LoginActivity,
+                            getString(R.string.warning),
+                            getString(R.string.user_credentials),
+                            MotionToastStyle.WARNING,
+                            MotionToast.GRAVITY_BOTTOM,
+                            MotionToast.LONG_DURATION,
+                            ResourcesCompat.getFont(this@LoginActivity,R.font.helvetica_regular))
 
                     }
                 }

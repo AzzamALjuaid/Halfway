@@ -87,8 +87,13 @@ org/chat21/android/ui/decorations/ItemDecoration.java
  org.chat21.android.ui.decorations.ItemDecoration
 org/chat21/android/core/conversations/listeners/UnreadConversationsListener.java
  org.chat21.android.core.conversations.listeners.UnreadConversationsListener
-org/chat21/android/connectivity/ObservableNetwork.java
- org.chat21.android.connectivity.ObservableNetwork
+org/chat21/android/ui/messages/adapters/RecipientViewHolder.java
+ org.chat21.android.ui.messages.adapters.RecipientViewHolder
+ org.chat21.android.ui.messages.adapters.RecipientViewHolder$1
+ org.chat21.android.ui.messages.adapters.RecipientViewHolder$2
+ org.chat21.android.ui.messages.adapters.RecipientViewHolder$3
+ org.chat21.android.ui.messages.adapters.RecipientViewHolder$4
+ org.chat21.android.ui.messages.adapters.RecipientViewHolder$5
 org/chat21/android/core/chat_groups/listeners/ChatGroupsListener.java
  org.chat21.android.core.chat_groups.listeners.ChatGroupsListener
 org/chat21/android/ui/contacts/adapters/ContactListAdapter.java
@@ -229,8 +234,8 @@ org/chat21/android/core/messages/models/Message.java
  org.chat21.android.core.messages.models.Message
 org/chat21/android/utils/TimeUtils.java
  org.chat21.android.utils.TimeUtils
-org/chat21/android/ui/conversations/listeners/OnConversationLongClickListener.java
- org.chat21.android.ui.conversations.listeners.OnConversationLongClickListener
+org/chat21/android/ui/messages/adapters/MessageListAdapter.java
+ org.chat21.android.ui.messages.adapters.MessageListAdapter
 org/chat21/android/utils/http_manager/HttpPUTTask.java
  org.chat21.android.utils.http_manager.HttpPUTTask
 org/chat21/android/core/exception/ChatRuntimeException.java
@@ -375,12 +380,7 @@ org/chat21/android/ui/conversations/adapters/ConversationsListAdapter.java
  org.chat21.android.ui.conversations.adapters.ConversationsListAdapter$3
  org.chat21.android.ui.conversations.adapters.ConversationsListAdapter$4
  org.chat21.android.ui.conversations.adapters.ConversationsListAdapter$ViewHolder
-org/chat21/android/ui/messages/adapters/RecipientViewHolder.java
- org.chat21.android.ui.messages.adapters.RecipientViewHolder
- org.chat21.android.ui.messages.adapters.RecipientViewHolder$1
- org.chat21.android.ui.messages.adapters.RecipientViewHolder$2
- org.chat21.android.ui.messages.adapters.RecipientViewHolder$3
- org.chat21.android.ui.messages.adapters.RecipientViewHolder$4
- org.chat21.android.ui.messages.adapters.RecipientViewHolder$5
-org/chat21/android/ui/messages/adapters/MessageListAdapter.java
- org.chat21.android.ui.messages.adapters.MessageListAdapter
+org/chat21/android/ui/conversations/listeners/OnConversationLongClickListener.java
+ org.chat21.android.ui.conversations.listeners.OnConversationLongClickListener
+org/chat21/android/connectivity/ObservableNetwork.java
+ org.chat21.android.connectivity.ObservableNetwork

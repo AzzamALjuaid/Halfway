@@ -26,6 +26,7 @@
         android:layout_below="@+id/iv_top"
         android:layout_marginTop="-30dp"
         android:background="@drawable/view_bg"
+        android:backgroundTint="@color/blue_grey_100"
         android:gravity="center_horizontal"
         android:paddingLeft="20dp"
         android:paddingRight="20dp">
@@ -73,73 +74,36 @@
             android:paddingStart="15dp"
             tools:ignore="MissingConstraints" />
 
-        <LinearLayout
-            android:id="@+id/ll1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/et_email"
-            android:layout_marginTop="15dp"
-            android:gravity="center|center_vertical"
-            android:orientation="horizontal">
-
-            <RadioGroup
-                android:id="@+id/rg_gender"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <RadioButton
-                    android:id="@+id/rb_male"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/male" />
-
-                <RadioButton
-                    android:id="@+id/rb_female"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/female" />
-            </RadioGroup>
-
-            <EditText
-                android:id="@+id/et_age"
-                android:layout_width="wrap_content"
-                android:layout_height="64dp"
-                android:layout_below="@+id/et_name"
-                android:layout_centerHorizontal="true"
-                android:layout_marginLeft="20dp"
-                android:background="@drawable/input"
-                android:clipToOutline="true"
-                android:drawableStart="@drawable/ic_age"
-                android:drawablePadding="10dp"
-                android:hint="@string/enter_your_age"
-                android:inputType="number"
-                android:paddingStart="15dp"
-                tools:ignore="MissingConstraints" />
-
-        </LinearLayout>
-
-        <Button
-            android:id="@+id/btn_location"
-            android:layout_width="wrap_content"
-            android:layout_height="60dp"
-            android:layout_below="@+id/ll1"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="30dp"
-            android:background="@drawable/button"
-            android:drawableLeft="@drawable/ic_location"
-            android:drawableTint="@color/white"
-            android:text="@string/get_current_location" />
-
         <Button
             android:id="@+id/btn_save"
-            android:layout_width="250dp"
-            android:layout_height="60dp"
-            android:layout_below="@+id/btn_location"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/et_email"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="30dp"
-            android:background="@drawable/button"
+            android:background="@drawable/bg_rounded_green"
             android:text="@string/save" />
+
+        <ImageButton
+            android:id="@+id/logout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btn_save"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="32dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/logout" />
+
+        <ImageButton
+            android:id="@+id/delete_account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/logout"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="32dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/delete_user" />
+
 
     </RelativeLayout>
 

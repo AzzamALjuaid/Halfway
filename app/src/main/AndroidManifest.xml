@@ -17,10 +17,10 @@
     <application
         android:name=".App"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/halfway_icon"
         android:label="@string/app_name"
         android:requestLegacyExternalStorage="true"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/halfway_icon"
         android:supportsRtl="true"
         android:theme="@style/Theme.Halfway"
         tools:replace="android:theme,android:label, android:icon">

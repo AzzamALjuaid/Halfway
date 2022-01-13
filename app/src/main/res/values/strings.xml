@@ -63,5 +63,15 @@
     <string name="success">Success</string>
     <string name="reg_success">Register successfully</string>
     <string name="faild_reg">Failed to Register</string>
+    <string name="successful">Successful</string>
+    <string name="login_success">Login successfully!</string>
+    <string name="login_failed">Failed to Login</string>
+    <string name="warning">Warning</string>
+    <string name="enter_email">Please enter the email</string>
+    <string name="enter_valid_email">Please enter a valid email</string>
+    <string name="enter_password">Please enter the password</string>
+    <string name="user_credentials">Please enter valid user credentials..</string>
+    <string name="password_same">Please check both having same password..</string>
+    <string name="enter_name">Please enter your  name</string>
 
 </resources>
