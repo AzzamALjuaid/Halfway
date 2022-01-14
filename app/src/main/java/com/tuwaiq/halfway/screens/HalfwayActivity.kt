@@ -122,17 +122,17 @@ class HalfwayActivity : AppCompatActivity() {
         loading = findViewById(R.id.idPBLoading)
         fb_logout = findViewById(R.id.fb_logout)
         binding.btnChat.setOnClickListener {
-          ChatUI.getInstance().openConversationsListActivity()
+            ChatUI.getInstance().openConversationsListActivity()
 
         }
         binding.btnPlaces.setOnClickListener {
             Common.startNewActivity(this@HalfwayActivity, PlaceActivity::class.java, false)
         }
-       firebaseDatabase = FirebaseDatabase.getInstance()
+        firebaseDatabase = FirebaseDatabase.getInstance()
         mAuth = FirebaseAuth.getInstance()
         userDetailModal = ArrayList()
         tempUserDetailModal = ArrayList()
-       databaseReference = firebaseDatabase!!.getReference("account")
+        databaseReference = firebaseDatabase!!.getReference("account")
         val btn_account = findViewById<Button>(R.id.btn_account)
 
         btn_account.setOnClickListener {

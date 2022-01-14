@@ -34,12 +34,12 @@ import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
 import android.app.TaskStackBuilder
+import android.content.ClipData.newIntent
 import android.content.Context
 import android.content.res.Resources
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.os.Build
-
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
@@ -51,8 +51,8 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.model.*
 import com.tuwaiq.halfway.BuildConfig
 import com.tuwaiq.halfway.Geofence.Reminder
-import com.tuwaiq.halfway.screens.HalfwayActivity
 import com.tuwaiq.halfway.R
+import com.tuwaiq.halfway.screens.HalfwayActivity
 
 fun EditText.requestFocusWithKeyboard() {
   val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager

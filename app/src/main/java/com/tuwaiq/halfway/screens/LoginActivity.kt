@@ -33,6 +33,10 @@ class LoginActivity : AppCompatActivity() {
         loading?.visibility = View.GONE
     }
 
+    override fun onBackPressed() {
+        onBackPressed()
+    }
+
     private fun initView() {
         mAuth = FirebaseAuth.getInstance()
         loading = findViewById(R.id.idPBLoading)
@@ -125,7 +129,7 @@ class LoginActivity : AppCompatActivity() {
 
                     }
                 }
-                );
+            );
 
             /*
                ChatManager.getInstance().createContactFor(currentUser.getId(), currentUser.getEmail(),
@@ -139,7 +143,6 @@ class LoginActivity : AppCompatActivity() {
                                 }
                             }
                         });
-
              */
 
 

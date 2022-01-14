@@ -26,7 +26,7 @@
         android:layout_below="@+id/iv_top"
         android:layout_marginTop="-30dp"
         android:background="@drawable/view_bg"
-        android:backgroundTint="@color/blue_grey_100"
+        android:backgroundTint="@color/white"
         android:gravity="center_horizontal"
         android:paddingLeft="20dp"
         android:paddingRight="20dp">

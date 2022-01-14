@@ -268,9 +268,3 @@ class ProfileFragment : Fragment() {
     }
 
 }
-
-
-
-
-
-

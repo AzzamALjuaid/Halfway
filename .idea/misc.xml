@@ -6,7 +6,8 @@
         <entry key="..\:/Users/Azzam/AndroidStudioProjects/halfway/app/src/main/res/drawable/bg_rounded_green.xml" value="0.3453125" />
         <entry key="..\:/Users/Azzam/AndroidStudioProjects/halfway/app/src/main/res/drawable/progress.xml" value="0.3453125" />
         <entry key="..\:/Users/Azzam/AndroidStudioProjects/halfway/app/src/main/res/drawable/view_bg.xml" value="0.3453125" />
-        <entry key="..\:/Users/Azzam/AndroidStudioProjects/halfway/app/src/main/res/layout/activity_halfway.xml" value="0.1" />
+        <entry key="..\:/Users/Azzam/AndroidStudioProjects/halfway/app/src/main/res/layout/activity_chat.xml" value="0.17916666666666667" />
+        <entry key="..\:/Users/Azzam/AndroidStudioProjects/halfway/app/src/main/res/layout/activity_halfway.xml" value="0.2330097173675877" />
         <entry key="..\:/Users/Azzam/AndroidStudioProjects/halfway/app/src/main/res/layout/activity_home.xml" value="0.32916666666666666" />
         <entry key="..\:/Users/Azzam/AndroidStudioProjects/halfway/app/src/main/res/layout/activity_login.xml" value="0.32916666666666666" />
         <entry key="..\:/Users/Azzam/AndroidStudioProjects/halfway/app/src/main/res/layout/activity_main.xml" value="0.1" />
@@ -21,6 +22,7 @@
         <entry key="..\:/Users/Azzam/AndroidStudioProjects/halfway/app/src/main/res/layout/item_tabs.xml" value="0.18020833333333333" />
         <entry key="..\:/Users/Azzam/AndroidStudioProjects/halfway/app/src/main/res/layout/item_user.xml" value="0.18020833333333333" />
         <entry key="..\:/Users/Azzam/AndroidStudioProjects/halfway/app/src/main/res/layout/login_fragment.xml" value="0.18020833333333333" />
+        <entry key="..\:/Users/Azzam/AndroidStudioProjects/halfway/app/src/main/res/layout/login_tab_fragment.xml" value="0.1" />
         <entry key="..\:/Users/Azzam/AndroidStudioProjects/halfway/app/src/main/res/layout/registration_fragment.xml" value="0.30757282692521576" />
         <entry key="..\:/Users/Azzam/AndroidStudioProjects/halfway/app/src/main/res/menu/bottom_nav_menu.xml" value="0.18020833333333333" />
         <entry key="..\:/Users/Azzam/AndroidStudioProjects/halfway/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.19635416666666666" />
