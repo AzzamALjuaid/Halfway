@@ -33,7 +33,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
-        android:text="Set Halfway Point" />
+        android:text="@string/set_halfway_point" />
 
     <Button
         android:id="@+id/btnPlaces"
@@ -43,5 +43,5 @@
         android:layout_alignParentTop="true"
         android:layout_marginStart="162dp"
         android:layout_marginTop="9dp"
-        android:text="Places" />
+        android:text="@string/places" />
 </RelativeLayout>

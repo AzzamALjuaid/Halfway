@@ -1,0 +1,100 @@
+<resources>
+    <string name="app_name">A metà</string>
+    <string name="login_text">Login</string>
+    <string name="email">Inserisci il tuo indirizzo email</string>
+    <string name="name">Inserisci il tuo nome</string>
+    <string name="password">Inserisci la tua password</string>
+    <string name="signup">Iscriviti</string>
+    <string name="signup_msg">Non hai un account? Iscriviti ora</string>
+    <string name="login_msg">Già registrato? Accedi ora</string>
+    <string name="user_detail">Dettagli utente</string>
+    <string name="male">Maschio</string>
+    <string name="female">Femmina</string>
+    <string name="enter_your_age">Inserisci la tua età</string>
+    <string name="my_account">Il mio account</string>
+    <string name="save">Salva</string>
+    <string name="get_current_location">Ottieni la posizione corrente</string>
+    <string name="title_activity_maps">MappeAttività</string>
+    <string name="title_activity_place">LuogoAttività</string>
+    <string name="tab_restro">Ristorante</string>
+    <string name="tab_cafe">bar</string>
+    <string name="tab_amusement">Parco divertimenti</string>
+    <string name="movie_theater">Cinema</string>
+
+
+    <!-- Error strings -->
+    <string name="instruction_where_description">Dove vuoi essere ricordato?</string>
+    <string name="instruction_where_subtitle_description">Trascina la mappa per impostare la posizione</string>
+    <string name="instruction_radius_description">Scegli il raggio</string>
+    <string name="instruction_message_description">Inserisci il messaggio</string>
+    <string name="continue_description">Continua</string>
+    <string name="error_required">Necessario</string>
+    <string name="message_hint">Siamo arrivati!</string>
+    <string name="radius_description">%1$s metri</string>
+
+    <string name="reminder_removal_alert">Rimuovere il promemoria?</string>
+    <string name="reminder_removal_alert_positive">OK</string>
+    <string name="reminder_removal_alert_negative">Annulla</string>
+
+    <string name="reminder_added_success">Promemoria aggiunto!</string>
+    <string name="reminder_removed_success">Promemoria rimosso!</string>
+
+    <string name="marker_content_description">Marcatore</string>
+
+    <string name="geofence_unknown_error">
+   Errore sconosciuto: il servizio Geofence non è ora disponibile.
+  </string>
+    <string name="geofence_not_available">
+    Il servizio Geofence non è ora disponibile. Vai su Impostazioni>Posizione>Modalità e scegli Alta precisione.
+  </string>
+    <string name="geofence_too_many_geofences">
+    La tua app ha registrato troppi geofence.
+  </string>
+    <string name="geofence_too_many_pending_intents">
+    Hai fornito troppi PendingIntents alla chiamata addGeofences().
+  </string>
+
+    <string name="title_map">Carta geografica</string>
+    <string name="title_chat">Chiacchierata</string>
+    <string name="title_profile">Profilo</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="Password_not_match">Password e conferma password non corrispondono</string>
+    <string name="error">Errore</string>
+    <string name="success">Successo</string>
+    <string name="reg_success">Registrati con successo</string>
+    <string name="faild_reg">Registrazione non riuscita</string>
+    <string name="successful">Riuscito</string>
+    <string name="login_success">Accedi con successo!</string>
+    <string name="login_failed">Accesso non riuscito</string>
+    <string name="warning">Avvertimento</string>
+    <string name="enter_email">Si prega di inserire l\'e-mail</string>
+    <string name="enter_valid_email">Inserisci una email valida</string>
+    <string name="enter_password">Si prega di inserire la password</string>
+    <string name="user_credentials">Si prega di inserire credenziali utente valide..</string>
+    <string name="password_same">Si prega di controllare che entrambi abbiano la stessa password..</string>
+    <string name="enter_name">Per favore inserisci il tuo nome</string>
+    <string name="open_now">Aperto adesso</string>
+    <string name="hafway_notif">\"Arrivi a metà strada verso il tuo amico\"</string>
+    <string name="location">Posizione</string>
+    <string name="my_location">La mia posizione</string>
+    <string name="no_Items">Nessun oggetto</string>
+    <string name="Failed">fallito</string>
+    <string name="delete_complete">Elimina completata</string>
+    <string name="friend">Amico</string>
+    <string name="user_location">Posizioni degli utenti</string>
+    <string name="reminder_added">Promemoria aggiunto</string>
+    <string name="failed">fallito</string>
+    <string name="login">Login</string>
+    <string name="set_halfway_point">Imposta punto a metà</string>
+    <string name="places">posti</string>
+    <string name="friend_location">Posizione dell\'amico</string>
+    <string name="no_item">Nessun articolo</string>
+    <string name="enter_first_name">Inserisci il nome</string>
+    <string name="enter_last_name">Inserisci il cognome</string>
+    <string name="repeat_the_password">Ripeti la password</string>
+    <string name="register">Registrati</string>
+    <string name="textview">TextView</string>
+
+
+</resources>

@@ -12,8 +12,8 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:maxLines="2"
-        android:text="Friend Location"
-        android:textColor="@android:color/holo_green_dark"
+        android:text="@string/friend_location"
+        android:textColor="@color/blue_400"
         android:textSize="25dp"
         android:textStyle="bold" />
 
@@ -89,7 +89,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:text="No Item"
+        android:text="@string/no_item"
         android:textColor="@android:color/black"
         android:textStyle="bold" />
     <ProgressBar

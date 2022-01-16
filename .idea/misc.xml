@@ -3,11 +3,28 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Azzam/AndroidStudioProjects/Halfway/app/src/main/res/drawable/bg_rounded_green.xml" value="0.221875" />
+        <entry key="..\:/Users/Azzam/AndroidStudioProjects/Halfway/app/src/main/res/layout/activity_add_detail.xml" value="0.20572916666666666" />
         <entry key="..\:/Users/Azzam/AndroidStudioProjects/Halfway/app/src/main/res/layout/activity_chat.xml" value="0.3651041666666667" />
+        <entry key="..\:/Users/Azzam/AndroidStudioProjects/Halfway/app/src/main/res/layout/activity_home.xml" value="0.20572916666666666" />
+        <entry key="..\:/Users/Azzam/AndroidStudioProjects/Halfway/app/src/main/res/layout/activity_login.xml" value="0.20572916666666666" />
+        <entry key="..\:/Users/Azzam/AndroidStudioProjects/Halfway/app/src/main/res/layout/activity_main.xml" value="0.20572916666666666" />
+        <entry key="..\:/Users/Azzam/AndroidStudioProjects/Halfway/app/src/main/res/layout/activity_maps.xml" value="0.20572916666666666" />
+        <entry key="..\:/Users/Azzam/AndroidStudioProjects/Halfway/app/src/main/res/layout/activity_place.xml" value="0.20572916666666666" />
+        <entry key="..\:/Users/Azzam/AndroidStudioProjects/Halfway/app/src/main/res/layout/activity_register.xml" value="0.20572916666666666" />
+        <entry key="..\:/Users/Azzam/AndroidStudioProjects/Halfway/app/src/main/res/layout/activity_splash.xml" value="0.20572916666666666" />
+        <entry key="..\:/Users/Azzam/AndroidStudioProjects/Halfway/app/src/main/res/layout/fragment_login.xml" value="0.20572916666666666" />
+        <entry key="..\:/Users/Azzam/AndroidStudioProjects/Halfway/app/src/main/res/layout/fragment_map.xml" value="0.20572916666666666" />
         <entry key="..\:/Users/Azzam/AndroidStudioProjects/Halfway/app/src/main/res/layout/fragment_notifications.xml" value="0.3651041666666667" />
+        <entry key="..\:/Users/Azzam/AndroidStudioProjects/Halfway/app/src/main/res/layout/fragment_places.xml" value="0.20572916666666666" />
         <entry key="..\:/Users/Azzam/AndroidStudioProjects/Halfway/app/src/main/res/layout/fragment_profile.xml" value="0.3651041666666667" />
+        <entry key="..\:/Users/Azzam/AndroidStudioProjects/Halfway/app/src/main/res/layout/item_mid_location.xml" value="0.20572916666666666" />
+        <entry key="..\:/Users/Azzam/AndroidStudioProjects/Halfway/app/src/main/res/layout/item_tabs.xml" value="0.20572916666666666" />
+        <entry key="..\:/Users/Azzam/AndroidStudioProjects/Halfway/app/src/main/res/layout/item_user.xml" value="0.20572916666666666" />
         <entry key="..\:/Users/Azzam/AndroidStudioProjects/Halfway/app/src/main/res/layout/login_fragment.xml" value="0.3651041666666667" />
         <entry key="..\:/Users/Azzam/AndroidStudioProjects/Halfway/app/src/main/res/layout/login_tab_fragment.xml" value="0.3651041666666667" />
+        <entry key="..\:/Users/Azzam/AndroidStudioProjects/Halfway/app/src/main/res/layout/registration_fragment.xml" value="0.20572916666666666" />
+        <entry key="..\:/Users/Azzam/AndroidStudioProjects/Halfway/app/src/main/res/menu/bottom_nav_menu.xml" value="0.20572916666666666" />
         <entry key="..\:/Users/Azzam/Desktop/bac/halfway/app/src/main/res/layout/activity_home.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Azzam/Desktop/bac/halfway/app/src/main/res/layout/activity_main_nav.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Azzam/Desktop/bac/halfway/app/src/main/res/layout/fragment_map.xml" value="0.20416666666666666" />

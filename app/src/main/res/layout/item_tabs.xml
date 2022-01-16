@@ -13,7 +13,7 @@
         android:paddingBottom="5dp"
         android:paddingTop="5dp"
         android:layout_margin="3dp"
-        android:background="@drawable/button"
+        android:background="@drawable/bg_rounded_green"
         android:gravity="center"
         android:maxLines="2"
         android:capitalize="sentences"
