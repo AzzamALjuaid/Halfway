@@ -87,15 +87,15 @@ class PlacesFragment : Fragment() {
 
             if (it.containsKey("latitude")&&it.containsKey("longitude")){
                 myLocation= LatLng(latitude,longitude)
-                binding.tvFriendName.text = "$userName location"
+                binding.tvFriendName.text = "$userName "+ getString(R.string.location)
 
             }else{
-                binding.tvFriendName.text = "My Location"
+                binding.tvFriendName.text = getString(R.string.my_location)
 
                 checkPermessation();
             }
         }?: run  {
-            binding.tvFriendName.text = "My Location"
+            binding.tvFriendName.text = getString(R.string.my_location)
             checkPermessation();
         }
 
@@ -171,7 +171,7 @@ class PlacesFragment : Fragment() {
                         response.body()?.results.let {
                             if (it.isNullOrEmpty()){
                                 binding.tvEmpty.visibility = View.VISIBLE
-                                binding.tvEmpty.text="No Items"
+                                binding.tvEmpty.text=getString(R.string.no_Items)
                             }else{
                                 binding.tvEmpty.visibility = View.GONE
                             }
@@ -179,17 +179,17 @@ class PlacesFragment : Fragment() {
                         }
 
                     } else {
-                        Toast.makeText(requireContext(), "Failed", Toast.LENGTH_LONG).show()
+                        Toast.makeText(requireContext(), getString(R.string.Failed), Toast.LENGTH_LONG).show()
                         binding.idPBLoading.visibility = View.GONE
                         binding.tvEmpty.visibility = View.VISIBLE
-                        binding.tvEmpty.text="No Items"
+                        binding.tvEmpty.text=getString(R.string.no_Items)
 
                     }
                 }
 
                 override fun onFailure(call: Call<NearByLocation?>?, t: Throwable) {
                     binding.tvEmpty.visibility = View.VISIBLE
-                    binding.tvEmpty.text="No Items"
+                    binding.tvEmpty.text=getString(R.string.no_Items)
 
                     Toast.makeText(requireContext(), t.message, Toast.LENGTH_LONG).show()
                     binding.idPBLoading.visibility = View.GONE

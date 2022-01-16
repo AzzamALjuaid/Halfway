@@ -70,12 +70,11 @@ class LoginFragment : Fragment() {
             FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
-                        progressBar
 
                         val firebaseUser: FirebaseUser = task.result!!.user!!
                         MotionToast.darkColorToast(requireActivity(),
-                            getString(R.string.successful),
-                            getString(R.string.login_success),
+                            "Successful",
+                            "Login successfully!",
                             MotionToastStyle.SUCCESS,
                             MotionToast.GRAVITY_BOTTOM,
                             MotionToast.LONG_DURATION,
@@ -87,8 +86,8 @@ class LoginFragment : Fragment() {
                         startActivity(intent)
                     } else {
                         MotionToast.darkColorToast(requireActivity(),
-                            getString(R.string.error),
-                            getString(R.string.login_failed),
+                            "Error",
+                            "Failed to Login",
                             MotionToastStyle.ERROR,
                             MotionToast.GRAVITY_BOTTOM,
                             MotionToast.LONG_DURATION,

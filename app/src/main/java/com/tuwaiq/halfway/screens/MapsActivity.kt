@@ -1,6 +1,7 @@
 package com.tuwaiq.halfway.screens
 
 import android.Manifest
+import android.app.Activity
 import android.content.Context
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
@@ -63,7 +64,7 @@ open class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     fun getData() {
         binding.idPBLoading.visibility = View.VISIBLE
-        intent.getParcelableExtra<UserDetailModal>("friend")?.let {
+        intent.getParcelableExtra<UserDetailModal>(getString(R.string.friend))?.let {
             userDetailModal=it
         }
 //        binding.tvFriendName.text = userDetailModal?.name + " Location"
@@ -142,7 +143,7 @@ open class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
          MarkerOptions()
              .position(LatLng(locationsMessage.lat,locationsMessage.lon))
              .anchor(0.5f, 0.5f)
-             .title("user locations")
+             .title(getString(R.string.user_location))
              .snippet(locationsMessage.senderName)
              .icon(getBitmapDescriptor(R.drawable.ic_my_location))
      )
@@ -191,8 +192,8 @@ open class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
              println("=========>" + item.formattedAddress!!)
          createMarker(
              UserDetailModal(
-                 "Halfway",
-                 "Halfway",
+                 getString(R.string.app_name),
+                 getString(R.string.app_name),
                  "",
                  mid.latitude.toString(),
                  mid.longitude.toString(),
@@ -306,7 +307,7 @@ open class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             success = {
                 showReminders()
 
-                Snackbar.make(binding.root, "Reminder Added", Snackbar.LENGTH_LONG).show()
+                Snackbar.make(binding.root, getString(R.string.reminder_added), Snackbar.LENGTH_LONG).show()
                 binding.btnSetReminder.isVisible=false
 
                 // setResult(Activity.RESULT_OK)
@@ -371,7 +372,7 @@ fun checkPermessation(){
                         latLng.longitude
                     )
 
-                    addReminder( Reminder(latLng = mid, radius = 100.0, message = "You reach Half way to your friend ${it.senderName} ", userName = it.senderName)
+                    addReminder( Reminder(latLng = mid, radius = 100.0, message = getString(R.string.hafway_notif)+" ${it.senderName} ", userName = it.senderName)
                     )
                     mMap?.moveCamera(CameraUpdateFactory.newLatLngZoom(mid, 15f))
 

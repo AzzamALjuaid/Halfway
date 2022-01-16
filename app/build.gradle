@@ -39,8 +39,6 @@ android {
 }
 
 dependencies {
-    implementation 'com.android.databinding:viewbinding:7.0.4'
-
     implementation project(':chat21')
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.4.0'

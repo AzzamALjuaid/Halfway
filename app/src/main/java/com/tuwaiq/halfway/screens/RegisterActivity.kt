@@ -31,8 +31,6 @@ class RegisterActivity : AppCompatActivity() {
         initView()
     }
 
-
-
     private fun initView() {
         val tv_login = findViewById<TextView>(R.id.tv_login)
 
@@ -59,7 +57,6 @@ class RegisterActivity : AppCompatActivity() {
         val lastName = findViewById<EditText>(R.id.etFirstName).text.toString()
         //here detail enter by the user is validated
         if (!password.equals(cnfPwd)) {
-
             MotionToast.darkColorToast(this,
                 getString(R.string.warning),
                 getString(R.string.password_same),
@@ -68,10 +65,8 @@ class RegisterActivity : AppCompatActivity() {
                 MotionToast.LONG_DURATION,
                 ResourcesCompat.getFont(this,R.font.helvetica_regular))
 
-
         } else if (TextUtils.isEmpty(firstName) || TextUtils.isEmpty(lastName) ) {
             //checking if the text fields are empty or not.
-
             MotionToast.darkColorToast(this,
                 getString(R.string.warning),
                 getString(R.string.enter_name),
@@ -80,14 +75,11 @@ class RegisterActivity : AppCompatActivity() {
                 MotionToast.LONG_DURATION,
                 ResourcesCompat.getFont(this,R.font.helvetica_regular))
 
-
-
         } else if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password) || TextUtils.isEmpty(
                 cnfPwd
             )
         ) {
             //checking if the text fields are empty or not.
-
             MotionToast.darkColorToast(this,
                 getString(R.string.warning),
                 getString(R.string.user_credentials),
@@ -95,8 +87,6 @@ class RegisterActivity : AppCompatActivity() {
                 MotionToast.GRAVITY_BOTTOM,
                 MotionToast.LONG_DURATION,
                 ResourcesCompat.getFont(this,R.font.helvetica_regular))
-
-
 
         } else {//if the details are entered correctly then user is able to register into the application
 
@@ -125,7 +115,6 @@ class RegisterActivity : AppCompatActivity() {
                                 object : OnUserCreatedOnContactsCallback {
                                     override fun onUserCreatedSuccess() {
                                         val firebaseUser: FirebaseUser = FirebaseAuth.getInstance()!!.currentUser!!
-//                                        Toast.makeText(this@RegisterActivity, "Logged in", Toast.LENGTH_LONG).show()
 
                                         MotionToast.darkColorToast(this@RegisterActivity,
                                             getString(R.string.successful),

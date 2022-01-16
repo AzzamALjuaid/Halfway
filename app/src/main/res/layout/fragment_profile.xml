@@ -90,7 +90,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/btn_save"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="25dp"
             android:background="@android:color/transparent"
             android:src="@drawable/logout" />
 
@@ -100,7 +100,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/logout"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="25dp"
             android:background="@android:color/transparent"
             android:src="@drawable/delete_user" />
 

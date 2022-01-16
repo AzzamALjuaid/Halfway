@@ -192,7 +192,7 @@ class AddDetailActivity : AppCompatActivity() {
 
             override fun onCancelled(error: DatabaseError) {
                 //displaying a failure message on below line.
-                Toast.makeText(this@AddDetailActivity, "Fail to add Course..", Toast.LENGTH_SHORT)
+                Toast.makeText(this@AddDetailActivity, "Fail to add Account..", Toast.LENGTH_SHORT)
                     .show()
             }
         })

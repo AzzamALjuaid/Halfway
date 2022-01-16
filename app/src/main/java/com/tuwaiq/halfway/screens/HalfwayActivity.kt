@@ -21,7 +21,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.database.DatabaseError
 
 import androidx.annotation.Nullable
+import androidx.navigation.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 import com.google.firebase.database.DataSnapshot
 
@@ -96,6 +101,7 @@ class HalfwayActivity : AppCompatActivity() {
             ))
 
         }
+        
 
         binding.navView.setOnItemSelectedListener{ it->
 
@@ -114,25 +120,27 @@ class HalfwayActivity : AppCompatActivity() {
 
             }
 
-            false
+           true
         }
+
+
 
 
         rv_user = findViewById(R.id.rv_user)
         loading = findViewById(R.id.idPBLoading)
         fb_logout = findViewById(R.id.fb_logout)
         binding.btnChat.setOnClickListener {
-            ChatUI.getInstance().openConversationsListActivity()
+          ChatUI.getInstance().openConversationsListActivity()
 
         }
         binding.btnPlaces.setOnClickListener {
             Common.startNewActivity(this@HalfwayActivity, PlaceActivity::class.java, false)
         }
-        firebaseDatabase = FirebaseDatabase.getInstance()
+       firebaseDatabase = FirebaseDatabase.getInstance()
         mAuth = FirebaseAuth.getInstance()
         userDetailModal = ArrayList()
         tempUserDetailModal = ArrayList()
-        databaseReference = firebaseDatabase!!.getReference("account")
+       databaseReference = firebaseDatabase!!.getReference("account")
         val btn_account = findViewById<Button>(R.id.btn_account)
 
         btn_account.setOnClickListener {
@@ -145,7 +153,7 @@ class HalfwayActivity : AppCompatActivity() {
             object : UserClickInterface {
                 override fun onClick(position: Int) {
                     var bundle = Bundle()
-                    bundle.putParcelable("friend", userDetailModal?.get(position))
+                    bundle.putParcelable(getString(R.string.friend), userDetailModal?.get(position))
                     Common.startNewActivity(
                         this@HalfwayActivity,
                         PlaceActivity::class.java,

@@ -12,6 +12,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.*
 import com.google.firebase.ktx.Firebase
+import com.tuwaiq.halfway.R
 import com.tuwaiq.halfway.databinding.FragmentProfileBinding
 import com.tuwaiq.halfway.screens.LoginActivity
 import com.tuwaiq.halfway.utility.Constant
@@ -238,10 +239,10 @@ class ProfileFragment : Fragment() {
         binding.deleteAccount.setOnClickListener {
             Firebase.auth.currentUser?.delete()?.addOnCompleteListener {
                 if(it.isSuccessful){
-                    Toast.makeText(context, "delete complete", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, getString(R.string.delete_complete), Toast.LENGTH_SHORT).show()
                     startActivity(Intent(context, LoginActivity::class.java))
                 }else{
-                    Toast.makeText(context, "error", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, getString(R.string.error), Toast.LENGTH_SHORT).show()
 
                 }
                 // Log.d(TAG, "onCreateView: ${it.result}")

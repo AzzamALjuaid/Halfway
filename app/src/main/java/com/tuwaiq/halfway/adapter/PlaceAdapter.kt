@@ -52,11 +52,11 @@ class PlaceAdapter
         }
         val status=  userDetailModalArrayList[position].opening_hours?.let {
            if (it.open_now){
-            "Open Now"
+            context.getString(R.string.open_now)
         }else{
-            "Closed"
+               context.getString(R.string.close)
         }
-        }?:"Closed"
+        }?:context.getString(R.string.close)
 
         holder.tvOpening_hours.text = status
         holder.tvStars.text = "${userDetailModalArrayList[position].rating}"

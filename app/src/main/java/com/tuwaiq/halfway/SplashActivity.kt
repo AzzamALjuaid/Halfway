@@ -10,6 +10,8 @@ import com.airbnb.lottie.LottieAnimationView
 import com.google.firebase.auth.FirebaseAuth
 import com.tuwaiq.halfway.screens.HalfwayActivity
 import com.tuwaiq.halfway.screens.LoginActivity
+import com.tuwaiq.halfway.screens.MainActivity
+import com.tuwaiq.halfway.utility.Constant
 import com.tuwaiq.halfway.utility.Constant.SharedPref.Companion.USER_ID
 import com.tuwaiq.halfway.utility.PreferencesHelper
 
