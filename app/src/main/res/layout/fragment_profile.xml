@@ -55,6 +55,7 @@
             android:hint="@string/name"
             android:inputType="textPersonName|textCapWords"
             android:paddingStart="15dp"
+            android:enabled="false"
             tools:ignore="MissingConstraints" />
 
         <EditText
@@ -68,7 +69,7 @@
             android:clipToOutline="true"
             android:drawableStart="@drawable/ic_baseline_email_24"
             android:drawablePadding="10dp"
-            android:enabled="false"
+            android:enabled="true"
             android:hint="@string/name"
             android:inputType="textPersonName|textCapWords"
             android:paddingStart="15dp"
@@ -82,6 +83,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="30dp"
             android:background="@drawable/bg_rounded_green"
+            android:backgroundTint="#3F51B5"
             android:text="@string/save" />
 
         <ImageButton

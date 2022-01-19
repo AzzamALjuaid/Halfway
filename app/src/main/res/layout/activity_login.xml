@@ -1,16 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:backgroundTint="#000000"
-    tools:context=".screens.LoginActivity">
+    tools:context=".screens.AddDetailActivity">
+
+
+    <ImageView
+        android:id="@+id/iv_top"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/half3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent=".27"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
-        android:padding="15dp">
+        android:layout_below="@+id/iv_top"
+        android:layout_marginTop="-30dp"
+        android:background="@drawable/view_bg"
+        android:backgroundTint="@color/white"
+        android:gravity="center_horizontal"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp">
 
         <TextView
             android:id="@+id/textView"
@@ -60,9 +80,9 @@
 
         <Button
             android:id="@+id/btn_login"
-            android:layout_width="250dp"
-            android:layout_height="60dp"
-            android:layout_below="@+id/etRegisterPass"
+            android:layout_width="160dp"
+            android:layout_height="45dp"
+            android:layout_below="@+id/switch1"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="40dp"
             android:background="@drawable/button"
@@ -77,13 +97,37 @@
             android:layout_marginTop="10dp"
             android:text="@string/signup_msg" />
 
-        <ProgressBar
-            android:id="@+id/idPBLoading"
+        <Switch
+            android:id="@+id/switch1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:indeterminate="true"
-            android:indeterminateDrawable="@drawable/progress" />
+            android:layout_below="@+id/etRegisterPass"
+            android:layout_marginTop="11dp"
+            android:layout_marginLeft="15dp"
+            android:text="Remember Me"
+            tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+<!--        <com.airbnb.lottie.LottieAnimationView-->
+<!--            android:id="@+id/lognProgress"-->
+<!--            android:layout_width="200dp"-->
+<!--            android:layout_height="200dp"-->
+<!--            android:scaleType="fitCenter"-->
+<!--            app:lottie_loop="true"-->
+<!--            app:lottie_autoPlay="true"-->
+<!--            android:layout_below="@id/tv_register"-->
+<!--            app:lottie_rawRes="@raw/loginlottie"-->
+<!--            app:lottie_url="REPLACE_JSON_URL" />-->
+
 
     </RelativeLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+<!--    <ProgressBar-->
+<!--        android:id="@+id/idPBLoading"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_centerInParent="true"-->
+<!--        android:indeterminate="true"-->
+<!--        android:indeterminateDrawable="@drawable/progress"-->
+<!--        android:visibility="gone" />-->
+
+</RelativeLayout>

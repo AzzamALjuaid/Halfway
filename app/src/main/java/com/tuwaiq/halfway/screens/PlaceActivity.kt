@@ -111,7 +111,9 @@ class PlaceActivity : AppCompatActivity() {
                 PlaceType.RESTAURANT.toString(),
                 PlaceType.CAFE.toString(),
                 PlaceType.MOVIE_THEATER.toString(),
-                PlaceType.BANK.toString(),
+                PlaceType.ATM.toString(),
+                PlaceType.MOSQUE.toString(),
+                PlaceType.GAS_STATION.toString(),
                 PlaceType.STORE.toString(),
             ), onItemClicked = {
                 getLocationData("${myLocation?.latitude},${myLocation?.longitude}", it)

@@ -86,7 +86,6 @@ class HalfwayActivity : AppCompatActivity() {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         setContentView(binding.root)
         initView()
-
     }
 
     private fun initFirebaseChat() {

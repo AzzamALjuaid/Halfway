@@ -3,11 +3,14 @@ package com.tuwaiq.halfway.screens.fragments
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.core.content.res.ResourcesCompat
+import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.*
@@ -17,6 +20,9 @@ import com.tuwaiq.halfway.databinding.FragmentProfileBinding
 import com.tuwaiq.halfway.screens.LoginActivity
 import com.tuwaiq.halfway.utility.Constant
 import com.tuwaiq.halfway.utility.PreferencesHelper
+import www.sanju.motiontoast.MotionToast
+import www.sanju.motiontoast.MotionToastStyle
+import kotlin.math.log
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -36,8 +42,12 @@ class ProfileFragment : Fragment() {
     val storageBucket="gs://halfway-7f6ca.appspot.com"
     private lateinit var binding: FragmentProfileBinding
     val currentUser = FirebaseAuth.getInstance().currentUser!!
+    val userId= FirebaseAuth.getInstance().currentUser?.uid
+
+
 
     val userName = currentUser.displayName.toString()
+
     val userEmail = currentUser.email.toString()
 
     private var loading: ProgressBar? = null
@@ -45,19 +55,21 @@ class ProfileFragment : Fragment() {
     private var longitude: String? = null
     private var gender: String? = null
     var firebaseDatabase: FirebaseDatabase? = null
-    var databaseReference: DatabaseReference? = null
+//    var databaseReference: DatabaseReference? = null
+    private lateinit var database : DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        binding= FragmentProfileBinding.inflate(layoutInflater)
 
     }
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        binding= FragmentProfileBinding.inflate(layoutInflater)
 
 
         return binding.root
@@ -79,158 +91,55 @@ class ProfileFragment : Fragment() {
         mView.etEmail.setText(PreferencesHelper(requireContext()).getString(Constant.SharedPref.USER_EMAIL))
         if (!TextUtils.isEmpty(PreferencesHelper(requireContext()).getString(Constant.SharedPref.USER_NAME)))
             mView.etName.setText(PreferencesHelper(requireContext()).getString(Constant.SharedPref.USER_NAME))
-//        if (!TextUtils.isEmpty(PreferencesHelper(requireContext()).getString(Constant.SharedPref.USER_AGE)))
-//            mView.etAge.setText(PreferencesHelper(requireContext()).getString(Constant.SharedPref.USER_AGE))
-//        if (!TextUtils.isEmpty(PreferencesHelper(requireContext()).getString(Constant.SharedPref.USER_GENDER))) {
-//            gender = PreferencesHelper(requireContext()).getString(Constant.SharedPref.USER_GENDER)
-//            if ( gender.equals("male", true)) {
-//                mView.rbMale.isChecked = true
-//            } else {
-//                mView.rbFemale.isChecked = true
-//            }
-//        }
-        if (!TextUtils.isEmpty(PreferencesHelper(requireContext()).getString(Constant.SharedPref.USER_LATITUDE))) {
-            latitude = PreferencesHelper(requireContext()).getString(Constant.SharedPref.USER_LATITUDE)
-            longitude = PreferencesHelper(requireContext()).getString(Constant.SharedPref.USER_LONGITUDE)
-        }
 
         firebaseDatabase = FirebaseDatabase.getInstance();
         //on below line creating our database reference.
-        databaseReference = firebaseDatabase?.getReference("account");
 
-//        mView.rgGender.setOnCheckedChangeListener { group, checkedId ->
-//            println("========>gender")
-//            gender = when (checkedId) {
-//                R.id.rb_male -> "Male"
-//                R.id.rb_female -> "Female"
-//                else -> ""
-//            }
-//        }
-
-//        mView.btnLocation.setOnClickListener {
-//            if (ContextCompat.checkSelfPermission(
-//                    requireContext(),
-//                    Manifest.permission.ACCESS_FINE_LOCATION
-//                )
-//                != PackageManager.PERMISSION_GRANTED
-//            ) {
-//                ActivityCompat.requestPermissions(
-//                    requireActivity(),
-//                    arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
-//                    Constant.SharedPref.PERMISSION_REQUEST_ACCESS_FINE_LOCATION
-//                )
-//            } else {
-//
-//            }
-//        }
 
         mView.btnSave.setOnClickListener {
-//            if (validateData())
+            updateEmail()
             saveData()
         }
     }
 
-    //validation before saving the data
-//    private fun validateData(): Boolean {
-//
-//        if (TextUtils.isEmpty(mView.etName.text.toString())) {
-//            Common.showToast(
-//                requireActivity(),
-//                "Please enter the name"
-//            )
-//            return false
-//        } else if (TextUtils.isEmpty(gender)) {
-//            Common.showToast(
-//                requireActivity(),
-//                "Please select the $gender"
-//            )
-//            return false
-//        } else if (TextUtils.isEmpty(mView.etAge.text.toString())) {
-//            Common.showToast(
-//                requireActivity(),
-//                "Please enter the age"
-//            )
-//            return false
-//        } else if (TextUtils.isEmpty(latitude) && TextUtils.isEmpty(longitude)) {
-//            Common.showToast(
-//                requireActivity(),
-//                "Please select the current location"
-//            )
-//            return false
-//        }
-//        return true
-//    }
-
     //saving the data to the firebase db
     private fun saveData() {
 
-        val editUserName = mView.etName.text.toString()
+        val name = binding.etName.text.toString()
+        updateData(name)
+        
 
+    }
 
-        val userName = currentUser.displayName.toString()
+    private fun updateData(name: String) {
+//        databaseReference = FirebaseDatabase.getInstance().getReference("contacts")
+        val user = mapOf<String,String>(
 
+            "firstname" to name
 
-//        databaseReference = FirebaseDatabase.getInstance().getReference(userName)
+        )
+//        databaseReference!!.child(name).updateChildren(user).addOnSuccessListener {
+//            binding.etName.text.clear()
+//            Toast.makeText(context,"success",Toast.LENGTH_LONG).show()
+//        }.addOnFailureListener {
+//            Toast.makeText(context,"field",Toast.LENGTH_LONG).show()
+//        }
 
-        databaseReference?.child(userName)?.setValue(editUserName)?.addOnSuccessListener {
-
-            Toast.makeText(context,"success",Toast.LENGTH_LONG).show()
-
-        }
-
-
-//        val id = PreferencesHelper(requireContext()).getString(Constant.SharedPref.USER_ID)
-//        val et_name = mView.etName.text.toString()
-////        val et_age = mView.etAge.text.toString()
-//        val et_email = mView.etEmail.text.toString()
-//
-//
-////        val courseRVModal = UserDetailModal(
-////            et_name,
-////            gender,
-////            et_age,
-////            latitude,
-////            longitude,
-////            et_email
-////        )
-//        PreferencesHelper(requireContext()).putString(
-//            Constant.SharedPref.USER_LATITUDE,
-//            latitude!!
-//        )
-//        PreferencesHelper(requireContext()).putString(
-//            Constant.SharedPref.USER_LONGITUDE,
-//            longitude!!
-//        )
-//        PreferencesHelper(requireContext()).putString(Constant.SharedPref.USER_NAME, et_name)
-////        PreferencesHelper(requireContext()).putString(Constant.SharedPref.USER_AGE, et_age)
-//        PreferencesHelper(requireContext()).putString(Constant.SharedPref.USER_GENDER, gender!!)
-//        //on below line we are calling a add value event to pass data to firebase database.
-//        //on below line we are calling a add value event to pass data to firebase database.
-//        databaseReference!!.addValueEventListener(object : ValueEventListener {
-//            override fun onDataChange(snapshot: DataSnapshot) {
-//                //on below line we are setting data in our firebase database.
-////                databaseReference!!.child(id).setValue(courseRVModal)
-//                //displaying a toast message.
-//                Toast.makeText(
-//                    requireContext(),
-//                    "Account Updated Successfully..",
-//                    Toast.LENGTH_SHORT
-//                ).show()
-//                //starting a main activity.
-//            }
-
-//            override fun onCancelled(error: DatabaseError) {
-//                //displaying a failure message on below line.
-//                Toast.makeText(requireContext(), "Fail to add Account..", Toast.LENGTH_SHORT)
-//                    .show()
-//            }
     }
 
     override fun onStart() {
+        readData()
         super.onStart()
         binding.logout.setOnClickListener {
             context?.let { it1 -> PreferencesHelper(it1).clearPreferences() }
             FirebaseAuth.getInstance().signOut()
+            MotionToast.darkColorToast(requireActivity(),
+                getString(R.string.successful),
+                getString(R.string.logout_success),
+                MotionToastStyle.SUCCESS,
+                MotionToast.GRAVITY_BOTTOM,
+                MotionToast.LONG_DURATION,
+                ResourcesCompat.getFont(requireContext(),R.font.helvetica_regular))
             startActivity(Intent(context, LoginActivity::class.java))
 
         }
@@ -239,13 +148,27 @@ class ProfileFragment : Fragment() {
         binding.deleteAccount.setOnClickListener {
             Firebase.auth.currentUser?.delete()?.addOnCompleteListener {
                 if(it.isSuccessful){
-                    Toast.makeText(context, getString(R.string.delete_complete), Toast.LENGTH_SHORT).show()
+
+                    MotionToast.darkColorToast(requireActivity(),
+                        getString(R.string.successful),
+                        getString(R.string.delete_complete),
+                        MotionToastStyle.SUCCESS,
+                        MotionToast.GRAVITY_BOTTOM,
+                        MotionToast.LONG_DURATION,
+                        ResourcesCompat.getFont(requireContext(),R.font.helvetica_regular))
+
                     startActivity(Intent(context, LoginActivity::class.java))
                 }else{
-                    Toast.makeText(context, getString(R.string.error), Toast.LENGTH_SHORT).show()
+
+                    MotionToast.darkColorToast(requireActivity(),
+                        getString(R.string.successful),
+                        getString(R.string.error),
+                        MotionToastStyle.ERROR,
+                        MotionToast.GRAVITY_BOTTOM,
+                        MotionToast.LONG_DURATION,
+                        ResourcesCompat.getFont(requireContext(),R.font.helvetica_regular))
 
                 }
-                // Log.d(TAG, "onCreateView: ${it.result}")
 
             }
         }
@@ -267,5 +190,27 @@ class ProfileFragment : Fragment() {
 
             }
     }
+
+    private fun readData() {
+
+         database = FirebaseDatabase.getInstance().getReference("contacts/$userId").child("firstname")
+        Log.d(TAG, "readData: $database")
+
+    }
+    fun updateEmail(){
+        FirebaseAuth.getInstance().currentUser?.updateEmail("${binding.etEmail.text}")
+            ?.addOnCompleteListener {
+                if (it.isSuccessful){
+                    Snackbar.make(requireView(),"update Email successfully",Snackbar.LENGTH_SHORT).show()
+                }else{
+                    Snackbar.make(requireView(),"update Email not successfully",Snackbar.LENGTH_SHORT).show()
+                }
+
+            }
+    }
+
+
+
+
 
 }

@@ -95,6 +95,7 @@
     <string name="repeat_the_password">Repeat The Password</string>
     <string name="register">Register</string>
     <string name="textview">TextView</string>
+    <string name="logout_success">You have successfully logged out</string>
 
 
 </resources>
