@@ -5,6 +5,8 @@
       <map>
         <entry key="..\:/Users/Azzam/AndroidStudioProjects/Halfway/app/src/main/res/drawable/bg_rounded_green.xml" value="0.221875" />
         <entry key="..\:/Users/Azzam/AndroidStudioProjects/Halfway/app/src/main/res/drawable/button.xml" value="0.22135416666666666" />
+        <entry key="..\:/Users/Azzam/AndroidStudioProjects/Halfway/app/src/main/res/drawable/ic_location_halfway.xml" value="0.38125" />
+        <entry key="..\:/Users/Azzam/AndroidStudioProjects/Halfway/app/src/main/res/drawable/ic_my_location.xml" value="0.38125" />
         <entry key="..\:/Users/Azzam/AndroidStudioProjects/Halfway/app/src/main/res/layout/activity_add_detail.xml" value="0.20572916666666666" />
         <entry key="..\:/Users/Azzam/AndroidStudioProjects/Halfway/app/src/main/res/layout/activity_chat.xml" value="0.3651041666666667" />
         <entry key="..\:/Users/Azzam/AndroidStudioProjects/Halfway/app/src/main/res/layout/activity_halfway.xml" value="1.25" />
@@ -18,9 +20,9 @@
         <entry key="..\:/Users/Azzam/AndroidStudioProjects/Halfway/app/src/main/res/layout/fragment_login.xml" value="0.20572916666666666" />
         <entry key="..\:/Users/Azzam/AndroidStudioProjects/Halfway/app/src/main/res/layout/fragment_map.xml" value="0.20572916666666666" />
         <entry key="..\:/Users/Azzam/AndroidStudioProjects/Halfway/app/src/main/res/layout/fragment_notifications.xml" value="0.3651041666666667" />
-        <entry key="..\:/Users/Azzam/AndroidStudioProjects/Halfway/app/src/main/res/layout/fragment_places.xml" value="0.20572916666666666" />
+        <entry key="..\:/Users/Azzam/AndroidStudioProjects/Halfway/app/src/main/res/layout/fragment_places.xml" value="0.33" />
         <entry key="..\:/Users/Azzam/AndroidStudioProjects/Halfway/app/src/main/res/layout/fragment_profile.xml" value="0.33" />
-        <entry key="..\:/Users/Azzam/AndroidStudioProjects/Halfway/app/src/main/res/layout/item_mid_location.xml" value="0.20572916666666666" />
+        <entry key="..\:/Users/Azzam/AndroidStudioProjects/Halfway/app/src/main/res/layout/item_mid_location.xml" value="0.5" />
         <entry key="..\:/Users/Azzam/AndroidStudioProjects/Halfway/app/src/main/res/layout/item_tabs.xml" value="0.20572916666666666" />
         <entry key="..\:/Users/Azzam/AndroidStudioProjects/Halfway/app/src/main/res/layout/item_user.xml" value="0.20572916666666666" />
         <entry key="..\:/Users/Azzam/AndroidStudioProjects/Halfway/app/src/main/res/layout/login_fragment.xml" value="0.3651041666666667" />

@@ -307,7 +307,7 @@ open class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             success = {
                 showReminders()
 
-                Snackbar.make(binding.root, getString(R.string.reminder_added), Snackbar.LENGTH_LONG).show()
+                Snackbar.make(binding.root, getString(R.string.halfway_point_added), Snackbar.LENGTH_LONG).show()
                 binding.btnSetReminder.isVisible=false
 
                 // setResult(Activity.RESULT_OK)

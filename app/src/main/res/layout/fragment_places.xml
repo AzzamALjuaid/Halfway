@@ -20,8 +20,8 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/tabs"
         android:layout_width="match_parent"
-        android:layout_below="@+id/tv_friendName"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_friendName" />
 
     <LinearLayout
         android:id="@+id/ll_tab"

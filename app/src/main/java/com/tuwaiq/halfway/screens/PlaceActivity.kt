@@ -66,7 +66,7 @@ class PlaceActivity : AppCompatActivity() {
         if (intent.hasExtra("latitude")&&intent.hasExtra("longitude")){
             myLocation= LatLng(latitude,longitude)
 
-            binding.tvFriendName.text = "$userName"+ getString(R.string.location)
+            binding.tvFriendName.text = "$userName "+ getString(R.string.location)
 
         }else{
             binding.tvFriendName.text = getString(R.string.my_location)
@@ -111,7 +111,7 @@ class PlaceActivity : AppCompatActivity() {
                 PlaceType.RESTAURANT.toString(),
                 PlaceType.CAFE.toString(),
                 PlaceType.MOVIE_THEATER.toString(),
-                PlaceType.ATM.toString(),
+                PlaceType.BANK.toString(),
                 PlaceType.MOSQUE.toString(),
                 PlaceType.GAS_STATION.toString(),
                 PlaceType.STORE.toString(),
