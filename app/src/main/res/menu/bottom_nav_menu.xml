@@ -5,18 +5,19 @@
     <item
         android:id="@+id/navigation_map"
         android:icon="@drawable/map"
-
         android:title="@string/title_map"
         app:showAsAction="collapseActionView" />
 
     <item
         android:id="@+id/navigation_chat"
         android:icon="@drawable/chat"
-        android:title="@string/title_chat" />
+        android:title="@string/title_chat"
+        app:showAsAction="collapseActionView"/>
 
     <item
         android:id="@+id/navigation_profile"
         android:icon="@drawable/profile"
-        android:title="@string/title_profile" />
+        android:title="@string/title_profile"
+        app:showAsAction="collapseActionView"/>
 
 </menu>

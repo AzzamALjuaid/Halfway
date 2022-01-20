@@ -1,8 +1,8 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.Halfway" parent="Theme.MaterialComponents.Light.DarkActionBar">
+    <style name="Theme.Halfway" parent="Theme.MaterialComponents.Light">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimary">@color/transparent_black</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
@@ -26,7 +26,9 @@
     <style name="Theme.Halfway.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
     <style name="BottomNavigationTheme" parent="Theme.AppCompat">
-        <item name="colorPrimary">@null</item>
+        <item name="android:navigationBarColor">@android:color/white</item>
+        <item name="android:windowLightNavigationBar">true</item>
+        <item name="colorPrimary">@color/transparent_black</item>
         <item name="android:textColorSecondary">@null</item>
     </style>
 

@@ -96,6 +96,13 @@
     <string name="register">Register</string>
     <string name="textview">TextView</string>
     <string name="logout_success">You have successfully logged out</string>
+    <string name="logout">logout</string>
+    <string name="delete_account">DELETE ACCOUNT!!</string>
+    <string name="email_update">Update Email Successfully</string>
+    <string name="email_not_update">Update Email not Successfully</string>
+    <string name="username_update">User Name updated Successfully</string>
+    <string name="username_not_update">User Name Update not Successfully</string>
+    <string name="user_not_exist">User Not Exist</string>
 
 
 </resources>

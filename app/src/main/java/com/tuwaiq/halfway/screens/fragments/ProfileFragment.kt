@@ -24,17 +24,8 @@ import www.sanju.motiontoast.MotionToast
 import www.sanju.motiontoast.MotionToastStyle
 import kotlin.math.log
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 private const val TAG = "ProfileFragment"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [ProfileFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class ProfileFragment : Fragment() {
 
     val AppId="halfway-7f6ca"
@@ -46,16 +37,13 @@ class ProfileFragment : Fragment() {
 
 
 
+
     val userName = currentUser.displayName.toString()
 
     val userEmail = currentUser.email.toString()
 
-    private var loading: ProgressBar? = null
-    private var latitude: String? = null
-    private var longitude: String? = null
-    private var gender: String? = null
     var firebaseDatabase: FirebaseDatabase? = null
-//    var databaseReference: DatabaseReference? = null
+    //    var databaseReference: DatabaseReference? = null
     private lateinit var database : DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -75,60 +63,53 @@ class ProfileFragment : Fragment() {
         return binding.root
     }
 
-    lateinit var mView:FragmentProfileBinding;
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        mView = FragmentProfileBinding.bind(view);
+
+
+
+        binding = FragmentProfileBinding.bind(view);
         initView()
+        readData()
     }
 
     private fun initView() {
 
-        binding.etName.setText(userName)
-        mView.etEmail.setText(userEmail)
+        binding.emailEdit.setOnClickListener {
+            updateEmail()
+        }
 
-        mView.etEmail.setText(PreferencesHelper(requireContext()).getString(Constant.SharedPref.USER_EMAIL))
-        if (!TextUtils.isEmpty(PreferencesHelper(requireContext()).getString(Constant.SharedPref.USER_NAME)))
-            mView.etName.setText(PreferencesHelper(requireContext()).getString(Constant.SharedPref.USER_NAME))
+        binding.userEdit.setOnClickListener {
+
+            val fullName = binding.etUsername.text.toString()
+            updateFullname(fullName)
+
+        }
+
+
+        binding.etEmail.setText(userEmail)
+
 
         firebaseDatabase = FirebaseDatabase.getInstance();
-        //on below line creating our database reference.
 
 
-        mView.btnSave.setOnClickListener {
-            updateEmail()
-            saveData()
-        }
+
+
     }
 
     //saving the data to the firebase db
     private fun saveData() {
 
-        val name = binding.etName.text.toString()
-        updateData(name)
-        
+        val name = binding.etUsername.text.toString()
+
+
 
     }
 
-    private fun updateData(name: String) {
-//        databaseReference = FirebaseDatabase.getInstance().getReference("contacts")
-        val user = mapOf<String,String>(
-
-            "firstname" to name
-
-        )
-//        databaseReference!!.child(name).updateChildren(user).addOnSuccessListener {
-//            binding.etName.text.clear()
-//            Toast.makeText(context,"success",Toast.LENGTH_LONG).show()
-//        }.addOnFailureListener {
-//            Toast.makeText(context,"field",Toast.LENGTH_LONG).show()
-//        }
-
-    }
 
     override fun onStart() {
-        readData()
+//        readData()
         super.onStart()
         binding.logout.setOnClickListener {
             context?.let { it1 -> PreferencesHelper(it1).clearPreferences() }
@@ -161,7 +142,7 @@ class ProfileFragment : Fragment() {
                 }else{
 
                     MotionToast.darkColorToast(requireActivity(),
-                        getString(R.string.successful),
+                        getString(R.string.failed),
                         getString(R.string.error),
                         MotionToastStyle.ERROR,
                         MotionToast.GRAVITY_BOTTOM,
@@ -175,15 +156,7 @@ class ProfileFragment : Fragment() {
     }
 
     companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment ProfileFragment.
-         */
-        // TODO: Rename and change types and number of parameters
+
         @JvmStatic
         fun newInstance() =
             ProfileFragment().apply {
@@ -191,26 +164,66 @@ class ProfileFragment : Fragment() {
             }
     }
 
-    private fun readData() {
+    fun readData() {
 
-         database = FirebaseDatabase.getInstance().getReference("contacts/$userId").child("firstname")
-        Log.d(TAG, "readData: $database")
+
+
+        database = FirebaseDatabase.getInstance().getReference("apps")
+        database.child("halfway-7f6ca").child("contacts").child(userId.toString()).get().addOnSuccessListener {
+
+
+            val fName = it.child("firstname").value
+            val lName = it.child("lastname").value
+            val fullName = "$fName $lName"
+
+            if (it.exists()){
+
+                binding.etUsername.setText(fullName)
+
+
+            }else{
+                Snackbar.make(requireView(),getString(R.string.user_not_exist),Snackbar.LENGTH_SHORT).show()
+            }
+
+        }.addOnFailureListener {
+            Snackbar.make(requireView(),(R.string.failed),Snackbar.LENGTH_SHORT).show()
+
+        }
+
 
     }
     fun updateEmail(){
         FirebaseAuth.getInstance().currentUser?.updateEmail("${binding.etEmail.text}")
             ?.addOnCompleteListener {
                 if (it.isSuccessful){
-                    Snackbar.make(requireView(),"update Email successfully",Snackbar.LENGTH_SHORT).show()
+                    Snackbar.make(requireView(),getString(R.string.email_update),Snackbar.LENGTH_SHORT).show()
                 }else{
-                    Snackbar.make(requireView(),"update Email not successfully",Snackbar.LENGTH_SHORT).show()
+                    Snackbar.make(requireView(),getString(R.string.email_not_update),Snackbar.LENGTH_SHORT).show()
                 }
 
             }
     }
 
+    fun updateFullname(fullName:String){
+
+        val (firstName , lastname) = fullName.split(" ")
+        database = FirebaseDatabase.getInstance().getReference("apps")
+        val user = mapOf<String,String>(
+            "firstname" to firstName,
+            "lastname" to lastname
+
+        )
+
+        database.child("halfway-7f6ca").child("contacts").child(userId.toString()).updateChildren(user).addOnSuccessListener {
+            Snackbar.make(requireView(),getString(R.string.username_update),Snackbar.LENGTH_SHORT).show()
+
+        }.addOnFailureListener {
+            Snackbar.make(requireView(),getString(R.string.username_not_update),Snackbar.LENGTH_SHORT).show()
+        }
 
 
+
+    }
 
 
 }

@@ -42,29 +42,40 @@
 
 
         <EditText
-            android:id="@+id/et_name"
-            android:layout_width="match_parent"
-            android:layout_height="64dp"
+            android:id="@+id/et_username"
+            android:layout_width="305dp"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/tv_title"
-            android:layout_centerHorizontal="true"
             android:layout_marginTop="15dp"
             android:background="@drawable/input"
             android:clipToOutline="true"
             android:drawableStart="@drawable/ic_person"
             android:drawablePadding="10dp"
+            android:enabled="true"
             android:hint="@string/name"
             android:inputType="textPersonName|textCapWords"
             android:paddingStart="15dp"
-            android:enabled="false"
             tools:ignore="MissingConstraints" />
+
+        <ImageButton
+            android:id="@+id/user_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/et_username"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="-63dp"
+            android:background="@null"
+
+            app:srcCompat="@drawable/userl_edit"
+            tools:ignore="ContentDescription" />
 
         <EditText
             android:id="@+id/et_email"
-            android:layout_width="match_parent"
-            android:layout_height="64dp"
-            android:layout_below="@+id/et_name"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="15dp"
+            android:layout_width="305dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/et_username"
+            android:layout_marginTop="12dp"
             android:background="@drawable/input"
             android:clipToOutline="true"
             android:drawableStart="@drawable/ic_baseline_email_24"
@@ -75,39 +86,47 @@
             android:paddingStart="15dp"
             tools:ignore="MissingConstraints" />
 
+        <ImageButton
+            android:id="@+id/email_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/et_email"
+            android:layout_alignParentRight="true"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="-63dp"
+            android:background="@null"
+
+            app:srcCompat="@drawable/email_edit" />
+
         <Button
-            android:id="@+id/btn_save"
+            android:id="@+id/logout"
             android:layout_width="200dp"
             android:layout_height="50dp"
             android:layout_below="@+id/et_email"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="45dp"
             android:background="@drawable/bg_rounded_green"
             android:backgroundTint="#3F51B5"
-            android:text="@string/save" />
+            android:text="@string/logout" />
 
-        <ImageButton
-            android:id="@+id/logout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/btn_save"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="25dp"
-            android:background="@android:color/transparent"
-            android:src="@drawable/logout" />
-
-        <ImageButton
+        <Button
             android:id="@+id/delete_account"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/logout"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/logout"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="25dp"
-            android:background="@android:color/transparent"
-            android:src="@drawable/delete_user" />
+            android:layout_marginTop="45dp"
+            android:background="@drawable/bg_rounded_green"
+            android:backgroundTint="#3F51B5"
+            android:text="@string/delete_account" />
+
 
 
     </RelativeLayout>
+
+
+
+
 
     <ProgressBar
         android:id="@+id/idPBLoading"
@@ -117,5 +136,7 @@
         android:indeterminate="true"
         android:indeterminateDrawable="@drawable/progress"
         android:visibility="gone" />
+
+
 
 </RelativeLayout>

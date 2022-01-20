@@ -24,9 +24,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Halfway"
         tools:replace="android:theme,android:label, android:icon">
-        <activity
-            android:name=".screens.MainActivity"
-            android:exported="false" />
+<!--        <activity-->
+<!--            android:name=".screens.MainActivity"-->
+<!--            android:exported="false" />-->
 <!--        <activity-->
 <!--            android:name=".screens.ChatActivity"-->
 <!--            android:exported="false"-->

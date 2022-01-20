@@ -95,6 +95,14 @@
     <string name="repeat_the_password">Ripeti la password</string>
     <string name="register">Registrati</string>
     <string name="textview">TextView</string>
+    <string name="logout_success">Ti sei disconnesso con successo</string>
+    <string name="logout">disconnettersi</string>
+    <string name="delete_account">ELIMINARE L\'ACCOUNT!!</string>
+    <string name="email_update">Aggiorna l\'e-mail con successo</string>
+    <string name="email_not_update">Aggiorna e-mail non riuscito</string>
+    <string name="username_update">Nome utente aggiornato con successo</string>
+    <string name="username_not_update">Aggiornamento del nome utente non riuscito</string>
+    <string name="user_not_exist">L `utente non esiste</string>
 
 
 </resources>
