@@ -28,6 +28,44 @@
         <entry key="..\:/Users/Azzam/AndroidStudioProjects/Halfway/app/src/main/res/layout/pro.xml" value="0.3651041666666667" />
         <entry key="..\:/Users/Azzam/AndroidStudioProjects/Halfway/app/src/main/res/layout/registration_fragment.xml" value="0.20572916666666666" />
         <entry key="..\:/Users/Azzam/AndroidStudioProjects/Halfway/app/src/main/res/menu/bottom_nav_menu.xml" value="0.20572916666666666" />
+        <entry key="..\:/Users/Azzam/AndroidStudioProjects/Halfway/chat21/src/main/res/drawable/activity_message_list_background_rounded_error_view.xml" value="0.38125" />
+        <entry key="..\:/Users/Azzam/AndroidStudioProjects/Halfway/chat21/src/main/res/drawable/circle_shape.xml" value="0.38125" />
+        <entry key="..\:/Users/Azzam/AndroidStudioProjects/Halfway/chat21/src/main/res/drawable/circle_shape_green.xml" value="0.38125" />
+        <entry key="..\:/Users/Azzam/AndroidStudioProjects/Halfway/chat21/src/main/res/drawable/decorator_activity_add_members_to_groups.xml" value="0.38125" />
+        <entry key="..\:/Users/Azzam/AndroidStudioProjects/Halfway/chat21/src/main/res/drawable/decorator_activity_contact_list.xml" value="0.38125" />
+        <entry key="..\:/Users/Azzam/AndroidStudioProjects/Halfway/chat21/src/main/res/drawable/decorator_activity_group_admin_panel_members_list.xml" value="0.38125" />
+        <entry key="..\:/Users/Azzam/AndroidStudioProjects/Halfway/chat21/src/main/res/drawable/decorator_activity_my_groups_list.xml" value="0.38125" />
+        <entry key="..\:/Users/Azzam/AndroidStudioProjects/Halfway/chat21/src/main/res/drawable/decorator_add_filtered_member.xml" value="0.38125" />
+        <entry key="..\:/Users/Azzam/AndroidStudioProjects/Halfway/chat21/src/main/res/drawable/decorator_fragment_archived_conversation_list.xml" value="0.38125" />
+        <entry key="..\:/Users/Azzam/AndroidStudioProjects/Halfway/chat21/src/main/res/drawable/decorator_fragment_conversation_list.xml" value="0.38125" />
+        <entry key="..\:/Users/Azzam/AndroidStudioProjects/Halfway/chat21/src/main/res/layout/acticvity_public_profile.xml" value="0.3651041666666667" />
+        <entry key="..\:/Users/Azzam/AndroidStudioProjects/Halfway/chat21/src/main/res/layout/activity_add_member_to_chat_group.xml" value="0.35" />
+        <entry key="..\:/Users/Azzam/AndroidStudioProjects/Halfway/chat21/src/main/res/layout/activity_archived_conversation_list.xml" value="0.3651041666666667" />
+        <entry key="..\:/Users/Azzam/AndroidStudioProjects/Halfway/chat21/src/main/res/layout/activity_chat_groups_list.xml" value="0.3651041666666667" />
+        <entry key="..\:/Users/Azzam/AndroidStudioProjects/Halfway/chat21/src/main/res/layout/activity_chat_login.xml" value="0.35" />
+        <entry key="..\:/Users/Azzam/AndroidStudioProjects/Halfway/chat21/src/main/res/layout/activity_chat_signup.xml" value="0.3651041666666667" />
+        <entry key="..\:/Users/Azzam/AndroidStudioProjects/Halfway/chat21/src/main/res/layout/activity_chat_splash.xml" value="0.3651041666666667" />
+        <entry key="..\:/Users/Azzam/AndroidStudioProjects/Halfway/chat21/src/main/res/layout/activity_contact_list.xml" value="0.35" />
+        <entry key="..\:/Users/Azzam/AndroidStudioProjects/Halfway/chat21/src/main/res/layout/activity_conversation_list.xml" value="0.3651041666666667" />
+        <entry key="..\:/Users/Azzam/AndroidStudioProjects/Halfway/chat21/src/main/res/layout/activity_group_admin_panel.xml" value="0.35" />
+        <entry key="..\:/Users/Azzam/AndroidStudioProjects/Halfway/chat21/src/main/res/layout/activity_image_details.xml" value="0.3651041666666667" />
+        <entry key="..\:/Users/Azzam/AndroidStudioProjects/Halfway/chat21/src/main/res/layout/activity_message_list.xml" value="0.35" />
+        <entry key="..\:/Users/Azzam/AndroidStudioProjects/Halfway/chat21/src/main/res/layout/activity_my_groups_list.xml" value="0.3651041666666667" />
+        <entry key="..\:/Users/Azzam/AndroidStudioProjects/Halfway/chat21/src/main/res/layout/activity_new_group.xml" value="0.35" />
+        <entry key="..\:/Users/Azzam/AndroidStudioProjects/Halfway/chat21/src/main/res/layout/bak_row_conversation.xml" value="0.3651041666666667" />
+        <entry key="..\:/Users/Azzam/AndroidStudioProjects/Halfway/chat21/src/main/res/layout/fragment_archived_conversation_list.xml" value="0.3651041666666667" />
+        <entry key="..\:/Users/Azzam/AndroidStudioProjects/Halfway/chat21/src/main/res/layout/fragment_bottom_sheet_archived_conversation_list_long_press.xml" value="0.3651041666666667" />
+        <entry key="..\:/Users/Azzam/AndroidStudioProjects/Halfway/chat21/src/main/res/layout/fragment_bottom_sheet_attach.xml" value="0.3651041666666667" />
+        <entry key="..\:/Users/Azzam/AndroidStudioProjects/Halfway/chat21/src/main/res/layout/fragment_bottom_sheet_conversation_list_long_press.xml" value="0.3651041666666667" />
+        <entry key="..\:/Users/Azzam/AndroidStudioProjects/Halfway/chat21/src/main/res/layout/fragment_bottom_sheet_group_admin_panel_member.xml" value="0.3651041666666667" />
+        <entry key="..\:/Users/Azzam/AndroidStudioProjects/Halfway/chat21/src/main/res/layout/row_contact_list.xml" value="0.3651041666666667" />
+        <entry key="..\:/Users/Azzam/AndroidStudioProjects/Halfway/chat21/src/main/res/layout/row_conversation.xml" value="0.35" />
+        <entry key="..\:/Users/Azzam/AndroidStudioProjects/Halfway/chat21/src/main/res/layout/row_sender.xml" value="0.3651041666666667" />
+        <entry key="..\:/Users/Azzam/AndroidStudioProjects/Halfway/chat21/src/main/res/layout/row_system.xml" value="0.3651041666666667" />
+        <entry key="..\:/Users/Azzam/AndroidStudioProjects/Halfway/chat21/src/main/res/menu/menu_activity_add_members.xml" value="0.3651041666666667" />
+        <entry key="..\:/Users/Azzam/AndroidStudioProjects/Halfway/chat21/src/main/res/menu/menu_activity_contacts_list.xml" value="0.3651041666666667" />
+        <entry key="..\:/Users/Azzam/AndroidStudioProjects/Halfway/chat21/src/main/res/menu/menu_activity_new_group.xml" value="0.3651041666666667" />
+        <entry key="..\:/Users/Azzam/AndroidStudioProjects/Halfway/chat21/src/main/res/menu/menu_fragment_conversations_list.xml" value="0.3651041666666667" />
         <entry key="..\:/Users/Azzam/Desktop/bac/halfway/app/src/main/res/layout/activity_home.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Azzam/Desktop/bac/halfway/app/src/main/res/layout/activity_main_nav.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Azzam/Desktop/bac/halfway/app/src/main/res/layout/fragment_map.xml" value="0.20416666666666666" />

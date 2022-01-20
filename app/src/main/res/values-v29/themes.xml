@@ -5,7 +5,7 @@
         <!-- Primary brand color. -->
         <item name="android:forceDarkAllowed">false</item>
         <item name="colorPrimary">#0077B6</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorPrimaryVariant">#0077B6</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>

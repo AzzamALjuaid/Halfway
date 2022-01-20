@@ -137,8 +137,11 @@ class PlacesFragment : Fragment() {
                 PlaceType.RESTAURANT.toString(),
                 PlaceType.CAFE.toString(),
                 PlaceType.MOVIE_THEATER.toString(),
-                PlaceType.BANK.toString(),
+                PlaceType.ATM.toString(),
                 PlaceType.STORE.toString(),
+                PlaceType.AMUSEMENT_PARK.toString(),
+                PlaceType.SHOPPING_MALL.toString(),
+                PlaceType.GAS_STATION.toString(),
             ), onItemClicked = {
 
                 getLocationData("${myLocation?.latitude},${myLocation?.longitude}", it)

@@ -206,7 +206,7 @@ class ProfileFragment : Fragment() {
 
     fun updateFullname(fullName:String){
 
-        val (firstName , lastname) = fullName.split(" ")
+        val (lastname , firstName) = fullName.split(" ")
         database = FirebaseDatabase.getInstance().getReference("apps")
         val user = mapOf<String,String>(
             "firstname" to firstName,
