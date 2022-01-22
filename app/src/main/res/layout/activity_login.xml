@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".screens.AddDetailActivity">
+    android:layout_height="match_parent">
 
 
     <ImageView
@@ -49,7 +48,7 @@
             android:text="@string/login_text" />
 
         <EditText
-            android:id="@+id/etRegisterEmail"
+            android:id="@+id/etLoginEmail"
             android:layout_width="match_parent"
             android:layout_height="64dp"
             android:layout_below="@+id/textView2"
@@ -64,10 +63,10 @@
             tools:ignore="MissingConstraints" />
 
         <EditText
-            android:id="@+id/etRegisterPass"
+            android:id="@+id/etLoginPass"
             android:layout_width="match_parent"
             android:layout_height="64dp"
-            android:layout_below="@+id/etRegisterEmail"
+            android:layout_below="@+id/etLoginEmail"
             android:layout_marginTop="12dp"
             android:background="@drawable/input"
             android:clipToOutline="true"
@@ -77,6 +76,20 @@
             android:inputType="textPassword"
             android:paddingStart="15dp"
             tools:ignore="MissingConstraints" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/loginProgress"
+            android:layout_width="150dp"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="100dp"
+            android:layout_height="150dp"
+            android:layout_below="@+id/textView2"
+            android:scaleType="fitCenter"
+            android:visibility="invisible"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/login"
+            app:lottie_url="REPLACE_JSON_URL" />
 
         <Button
             android:id="@+id/btn_login"
@@ -101,33 +114,22 @@
             android:id="@+id/switch1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/etRegisterPass"
-            android:layout_marginTop="11dp"
+            android:layout_below="@+id/etLoginPass"
             android:layout_marginLeft="15dp"
+            android:layout_marginTop="11dp"
             android:text="Remember Me"
             tools:ignore="UseSwitchCompatOrMaterialXml" />
-
-<!--        <com.airbnb.lottie.LottieAnimationView-->
-<!--            android:id="@+id/lognProgress"-->
-<!--            android:layout_width="200dp"-->
-<!--            android:layout_height="200dp"-->
-<!--            android:scaleType="fitCenter"-->
-<!--            app:lottie_loop="true"-->
-<!--            app:lottie_autoPlay="true"-->
-<!--            android:layout_below="@id/tv_register"-->
-<!--            app:lottie_rawRes="@raw/loginlottie"-->
-<!--            app:lottie_url="REPLACE_JSON_URL" />-->
 
 
     </RelativeLayout>
 
-<!--    <ProgressBar-->
-<!--        android:id="@+id/idPBLoading"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_centerInParent="true"-->
-<!--        android:indeterminate="true"-->
-<!--        android:indeterminateDrawable="@drawable/progress"-->
-<!--        android:visibility="gone" />-->
+    <!--    <ProgressBar-->
+    <!--        android:id="@+id/idPBLoading"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_centerInParent="true"-->
+    <!--        android:indeterminate="true"-->
+    <!--        android:indeterminateDrawable="@drawable/progress"-->
+    <!--        android:visibility="gone" />-->
 
 </RelativeLayout>

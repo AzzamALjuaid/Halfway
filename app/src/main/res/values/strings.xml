@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Halfway</string>
+    <string name="app_name" translatable="false">Halfway</string>
     <string name="login_text">Login</string>
     <string name="email">Enter Your Email</string>
     <string name="name">Enter Your Name</string>

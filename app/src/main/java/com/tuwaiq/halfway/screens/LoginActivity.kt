@@ -29,59 +29,47 @@ import java.lang.Exception
 
 class LoginActivity : AppCompatActivity() {
     private var mAuth: FirebaseAuth? = null
-//    private var loading: ProgressBar? = null
-//    private var lognProgress : LottieAnimationView? = null
-
-
-
+    private lateinit var loginProgress: LottieAnimationView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-
-//        lognProgress = findViewById(R.id.lognProgress)
-
-
-
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-//        lognProgress?.visibility = View.INVISIBLE
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+
+        loginProgress = findViewById(R.id.loginProgress)
+
+        loginProgress.visibility= View.GONE
         initView()
 
-
     }
-
 
     override fun onBackPressed() {
         onBackPressed()
     }
 
     private fun initView() {
+
         mAuth = FirebaseAuth.getInstance()
-//        loading = findViewById(R.id.idPBLoading)
+
         val tv_register = findViewById<TextView>(R.id.tv_register)
 
         val btn_login = findViewById<Button>(R.id.btn_login)
+
         btn_login.setOnClickListener {
-//            lognProgress?.visibility = View.VISIBLE
+            loginProgress.visibility = View.VISIBLE
             loginUser()
         }
-
-
-
-
 
         tv_register.setOnClickListener {
             startActivity(Intent(this@LoginActivity, RegisterActivity::class.java))
         }
     }
     private  val TAG = "LoginActivity"
-    //login into the firebase database for the access
 
     private fun loginUser() {
-
-        val email = findViewById<EditText>(R.id.etRegisterEmail).text.toString()
-        val password = findViewById<EditText>(R.id.etRegisterPass).text.toString()
+        val email = findViewById<EditText>(R.id.etLoginEmail).text.toString()
+        val password = findViewById<EditText>(R.id.etLoginPass).text.toString()
         //below is the validation of the credential enter by the uer
         if (TextUtils.isEmpty(email)) {
             MotionToast.darkColorToast(this,
@@ -91,6 +79,7 @@ class LoginActivity : AppCompatActivity() {
                 MotionToast.GRAVITY_BOTTOM,
                 MotionToast.LONG_DURATION,
                 ResourcesCompat.getFont(this,R.font.helvetica_regular))
+            loginProgress.visibility= View.GONE
 
         } else if (!Common.isValidEmail(email)) {
             MotionToast.darkColorToast(this,
@@ -100,6 +89,7 @@ class LoginActivity : AppCompatActivity() {
                 MotionToast.GRAVITY_BOTTOM,
                 MotionToast.LONG_DURATION,
                 ResourcesCompat.getFont(this,R.font.helvetica_regular))
+            loginProgress.visibility= View.GONE
 
         } else if (TextUtils.isEmpty(password)) {
 
@@ -110,6 +100,7 @@ class LoginActivity : AppCompatActivity() {
                 MotionToast.GRAVITY_BOTTOM,
                 MotionToast.LONG_DURATION,
                 ResourcesCompat.getFont(this,R.font.helvetica_regular))
+            loginProgress.visibility= View.GONE
 
         } else {//it goes here when all the require condition matches
 
@@ -160,6 +151,7 @@ class LoginActivity : AppCompatActivity() {
                             MotionToast.GRAVITY_BOTTOM,
                             MotionToast.LONG_DURATION,
                             ResourcesCompat.getFont(this@LoginActivity,R.font.helvetica_regular))
+                        loginProgress.visibility= View.GONE
 
                     }
                 }

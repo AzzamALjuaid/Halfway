@@ -48,7 +48,6 @@ class RegisterActivity : AppCompatActivity() {
         }
     }
 
-    //register the user process is done below
     private fun registerUser() {
 
 
@@ -57,7 +56,7 @@ class RegisterActivity : AppCompatActivity() {
         val cnfPwd = findViewById<EditText>(R.id.etRegisterCnfPass).text.toString()
         val firstName = findViewById<EditText>(R.id.etLastName).text.toString()
         val lastName = findViewById<EditText>(R.id.etFirstName).text.toString()
-        //here detail enter by the user is validated
+
         if (!password.equals(cnfPwd)) {
             MotionToast.darkColorToast(this,
                 getString(R.string.warning),
@@ -81,7 +80,7 @@ class RegisterActivity : AppCompatActivity() {
                 cnfPwd
             )
         ) {
-            //checking if the text fields are empty or not.
+
             MotionToast.darkColorToast(this,
                 getString(R.string.warning),
                 getString(R.string.user_credentials),
@@ -90,7 +89,7 @@ class RegisterActivity : AppCompatActivity() {
                 MotionToast.LONG_DURATION,
                 ResourcesCompat.getFont(this,R.font.helvetica_regular))
 
-        } else {//if the details are entered correctly then user is able to register into the application
+        } else {
 
 
                 ChatAuthentication.getInstance().createUserOnFirebaseAuthentication(

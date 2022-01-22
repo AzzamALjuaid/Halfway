@@ -133,7 +133,7 @@ class ProfileFragment : Fragment() {
                     MotionToast.darkColorToast(requireActivity(),
                         getString(R.string.successful),
                         getString(R.string.delete_complete),
-                        MotionToastStyle.SUCCESS,
+                        MotionToastStyle.DELETE,
                         MotionToast.GRAVITY_BOTTOM,
                         MotionToast.LONG_DURATION,
                         ResourcesCompat.getFont(requireContext(),R.font.helvetica_regular))

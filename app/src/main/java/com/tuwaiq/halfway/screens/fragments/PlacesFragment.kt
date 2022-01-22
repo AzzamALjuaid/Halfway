@@ -17,6 +17,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.ContextCompat.getSystemService
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.airbnb.lottie.LottieAnimationView
 import com.google.android.gms.maps.model.LatLng
 import com.google.maps.model.PlaceType
 import com.tuwaiq.halfway.R
@@ -48,7 +49,7 @@ class PlacesFragment : Fragment() {
     private lateinit var binding: FragmentPlacesBinding
     private var adapter: PlaceAdapter? = null
     private var locationList = ArrayList<Result>()
-
+    private lateinit var mapProgress : LottieAnimationView
 
 
     private var param1: String? = null
@@ -63,6 +64,7 @@ class PlacesFragment : Fragment() {
     }
 
     override fun onCreateView(
+
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
@@ -74,6 +76,7 @@ class PlacesFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding=FragmentPlacesBinding.bind(view)
         getData()
+        mapProgress = view.findViewById(R.id.mapProgress)
     }
 
     //setting up the data to show details of the nearby places
@@ -100,7 +103,7 @@ class PlacesFragment : Fragment() {
         }
 
 
-        binding.idPBLoading.visibility = View.VISIBLE
+        binding.mapProgress.visibility = View.VISIBLE
 
         adapter = PlaceAdapter(requireContext(), locationList, onItemClicked = {
 
@@ -153,7 +156,7 @@ class PlacesFragment : Fragment() {
 
     //fetching the data from the server with the help of the api call of nearBySearch of google
     private fun getLocationData(location: String, type: String) {
-        binding.idPBLoading.visibility = View.VISIBLE
+        binding.mapProgress.visibility = View.VISIBLE
         locationList.clear()
         val key = getText(R.string.google_maps_key).toString()
         val radius = 2000
@@ -168,7 +171,7 @@ class PlacesFragment : Fragment() {
                         println("===========>" + response.body()?.results.toString())
                         locationList.addAll(response.body()?.results as ArrayList<Result>)
                         adapter?.notifyDataSetChanged()
-                        binding.idPBLoading.visibility = View.GONE
+                        binding.mapProgress.visibility = View.GONE
                         binding.tvEmpty.visibility = View.GONE
                         println("===========>" + locationList.size)
                         response.body()?.results.let {
@@ -183,7 +186,7 @@ class PlacesFragment : Fragment() {
 
                     } else {
                         Toast.makeText(requireContext(), getString(R.string.Failed), Toast.LENGTH_LONG).show()
-                        binding.idPBLoading.visibility = View.GONE
+                        binding.mapProgress.visibility = View.GONE
                         binding.tvEmpty.visibility = View.VISIBLE
                         binding.tvEmpty.text=getString(R.string.no_Items)
 
@@ -195,7 +198,7 @@ class PlacesFragment : Fragment() {
                     binding.tvEmpty.text=getString(R.string.no_Items)
 
                     Toast.makeText(requireContext(), t.message, Toast.LENGTH_LONG).show()
-                    binding.idPBLoading.visibility = View.GONE
+                    binding.mapProgress.visibility = View.GONE
                 }
             })
     }

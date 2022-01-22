@@ -144,11 +144,11 @@ class HalfwayActivity : AppCompatActivity() {
        databaseReference = firebaseDatabase!!.getReference("account")
         val btn_account = findViewById<Button>(R.id.btn_account)
 
-        btn_account.setOnClickListener {
-
-            Common.startNewActivity(this@HalfwayActivity, AddDetailActivity::class.java, false)
-//            startActivity(Intent(this@HomeActivity, AddDetailActivity::class.java))
-        }
+//        btn_account.setOnClickListener {
+//
+//            Common.startNewActivity(this@HalfwayActivity, AddDetailActivity::class.java, false)
+////            startActivity(Intent(this@HomeActivity, AddDetailActivity::class.java))
+//        }
         usersAdapter = UsersAdapter(
             userDetailModal!!, this,
             object : UserClickInterface {
@@ -176,91 +176,91 @@ class HalfwayActivity : AppCompatActivity() {
     }
 
     //getting the list of the user from firebase database
-    private fun getUserList() {
-        userDetailModal?.clear()
-        tempUserDetailModal?.clear()
-
-        //on below line we are calling add child event listener method to read the data.
-        //on below line we are calling add child event listener method to read the data.
-        databaseReference!!.addChildEventListener(object : ChildEventListener {
-            override fun onChildAdded(
-                snapshot: DataSnapshot,
-                @Nullable previousChildName: String?
-            ) {
-                //on below line we are hiding our progress bar.
-
-                //adding snapshot to our array list on below line.
-                tempUserDetailModal?.add(snapshot.getValue(UserDetailModal::class.java)!!)
-                for (item in tempUserDetailModal!!) {
-                    if (!item.email.equals(
-                            PreferencesHelper(this@HalfwayActivity).getString(USER_EMAIL),
-                            true
-                        )//filtering the data from duplicate
-                        && userDetailModal?.contains(item) == false
-                    )
-                        userDetailModal?.add(item)
-                    if (item.email.equals(
-                            PreferencesHelper(this@HalfwayActivity).getString(USER_EMAIL),
-                            true
-                        )//avoiding the self name from getting reflected into the user list for confusion
-                    ) {
-                        println("=========>else")
-                        isMyAccountUpdated = true
-                        PreferencesHelper(this@HalfwayActivity).putString(USER_LATITUDE, item.latitude)
-                        PreferencesHelper(this@HalfwayActivity).putString(USER_NAME, item.name)
-                        PreferencesHelper(this@HalfwayActivity).putString(USER_GENDER, item.gender)
-                        PreferencesHelper(this@HalfwayActivity).putString(USER_AGE, item.age)
-                        PreferencesHelper(this@HalfwayActivity).putString(
-                            USER_LONGITUDE,
-                            item.longitude
-                        )
-                    }
-                }
-                //notifying our adapter that data has changed.
-                usersAdapter?.notifyDataSetChanged()
-                loading?.setVisibility(View.GONE)
-
-//                if (!isMyAccountUpdated){
-//                    Common(this@HomeActivity).showToast(this@HomeActivity, "Please update the account to view the list")
-//                    Common(this@HomeActivity).startNewActivity(this@HomeActivity, AddDetailActivity::class.java, true)
+//    private fun getUserList() {
+//        userDetailModal?.clear()
+//        tempUserDetailModal?.clear()
+//
+//        //on below line we are calling add child event listener method to read the data.
+//        //on below line we are calling add child event listener method to read the data.
+//        databaseReference!!.addChildEventListener(object : ChildEventListener {
+//            override fun onChildAdded(
+//                snapshot: DataSnapshot,
+//                @Nullable previousChildName: String?
+//            ) {
+//                //on below line we are hiding our progress bar.
+//
+//                //adding snapshot to our array list on below line.
+//                tempUserDetailModal?.add(snapshot.getValue(UserDetailModal::class.java)!!)
+//                for (item in tempUserDetailModal!!) {
+//                    if (!item.email.equals(
+//                            PreferencesHelper(this@HalfwayActivity).getString(USER_EMAIL),
+//                            true
+//                        )//filtering the data from duplicate
+//                        && userDetailModal?.contains(item) == false
+//                    )
+//                        userDetailModal?.add(item)
+//                    if (item.email.equals(
+//                            PreferencesHelper(this@HalfwayActivity).getString(USER_EMAIL),
+//                            true
+//                        )//avoiding the self name from getting reflected into the user list for confusion
+//                    ) {
+//                        println("=========>else")
+//                        isMyAccountUpdated = true
+//                        PreferencesHelper(this@HalfwayActivity).putString(USER_LATITUDE, item.latitude)
+//                        PreferencesHelper(this@HalfwayActivity).putString(USER_NAME, item.name)
+//                        PreferencesHelper(this@HalfwayActivity).putString(USER_GENDER, item.gender)
+//                        PreferencesHelper(this@HalfwayActivity).putString(USER_AGE, item.age)
+//                        PreferencesHelper(this@HalfwayActivity).putString(
+//                            USER_LONGITUDE,
+//                            item.longitude
+//                        )
+//                    }
 //                }
-            }
-
-            override fun onChildChanged(
-                snapshot: DataSnapshot,
-                @Nullable previousChildName: String?
-            ) {
-                //this method is called when new child is added we are notifying our adapter and making progress bar visibility as gone.
-                loading?.setVisibility(View.GONE)
-                usersAdapter?.notifyDataSetChanged()
-            }
-
-            override fun onChildRemoved(snapshot: DataSnapshot) {
-                //notifying our adapter when child is removed.
-                usersAdapter?.notifyDataSetChanged()
-                loading?.setVisibility(View.GONE)
-            }
-
-            override fun onChildMoved(
-                snapshot: DataSnapshot,
-                @Nullable previousChildName: String?
-            ) {
-                //notifying our adapter when child is moved.
-                usersAdapter?.notifyDataSetChanged()
-                loading?.setVisibility(View.GONE)
-            }
-
-            override fun onCancelled(error: DatabaseError) {
-                loading?.setVisibility(View.GONE)
-                Common.showToast(this@HalfwayActivity, error.message)
-            }
-        })
-    }
+//                //notifying our adapter that data has changed.
+//                usersAdapter?.notifyDataSetChanged()
+//                loading?.setVisibility(View.GONE)
+//
+////                if (!isMyAccountUpdated){
+////                    Common(this@HomeActivity).showToast(this@HomeActivity, "Please update the account to view the list")
+////                    Common(this@HomeActivity).startNewActivity(this@HomeActivity, AddDetailActivity::class.java, true)
+////                }
+//            }
+//
+//            override fun onChildChanged(
+//                snapshot: DataSnapshot,
+//                @Nullable previousChildName: String?
+//            ) {
+//                //this method is called when new child is added we are notifying our adapter and making progress bar visibility as gone.
+//                loading?.setVisibility(View.GONE)
+//                usersAdapter?.notifyDataSetChanged()
+//            }
+//
+//            override fun onChildRemoved(snapshot: DataSnapshot) {
+//                //notifying our adapter when child is removed.
+//                usersAdapter?.notifyDataSetChanged()
+//                loading?.setVisibility(View.GONE)
+//            }
+//
+//            override fun onChildMoved(
+//                snapshot: DataSnapshot,
+//                @Nullable previousChildName: String?
+//            ) {
+//                //notifying our adapter when child is moved.
+//                usersAdapter?.notifyDataSetChanged()
+//                loading?.setVisibility(View.GONE)
+//            }
+//
+//            override fun onCancelled(error: DatabaseError) {
+//                loading?.setVisibility(View.GONE)
+//                Common.showToast(this@HalfwayActivity, error.message)
+//            }
+//        })
+//    }
 
     //feature to sign out or log out from the appication
-    fun onSignOut(v: View) {
-        PreferencesHelper(this).clearPreferences()
-        FirebaseAuth.getInstance().signOut()
-        startActivity(Intent(this@HalfwayActivity, LoginActivity::class.java))
-    }
+//    fun onSignOut(v: View) {
+//        PreferencesHelper(this).clearPreferences()
+//        FirebaseAuth.getInstance().signOut()
+//        startActivity(Intent(this@HalfwayActivity, LoginActivity::class.java))
+//    }
 }
