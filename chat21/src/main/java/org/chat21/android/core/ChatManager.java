@@ -271,6 +271,7 @@ public class ChatManager {
         // create a new chat
         ChatManager chat = new ChatManager(); // create the instance of the chat
 
+
         chat.setContext(context);
 
         mInstance = chat;

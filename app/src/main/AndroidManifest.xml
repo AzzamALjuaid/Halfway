@@ -131,6 +131,9 @@
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_color"
             android:resource="@color/blue_500" />
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
         <!--
 A service that extends FirebaseInstanceIdService to handle the creation, rotation,
         and updating of registration tokens.
@@ -144,6 +147,22 @@ A service that extends FirebaseInstanceIdService to handle the creation, rotatio
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
         </service>
+
+        <receiver android:exported="true"  android:name="org.chat21.android.connectivity.NetworkReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+
+        <receiver android:exported="true"  android:name="org.chat21.android.core.receivers.ShutdownReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_SHUTDOWN" />
+                <action android:name="android.intent.action.QUICKBOOT_POWEROFF" />
+            </intent-filter>
+        </receiver>
+
+
+
     </application>
 
 </manifest>

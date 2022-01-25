@@ -7,13 +7,25 @@ import android.content.Context;
 import android.content.Intent;
 import android.media.RingtoneManager;
 import android.net.Uri;
+
+import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
 import android.util.Log;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.GetTokenResult;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.chat21.android.R;
 import org.chat21.android.core.ChatManager;
@@ -21,9 +33,11 @@ import org.chat21.android.core.messages.models.Message;
 import org.chat21.android.core.users.models.ChatUser;
 import org.chat21.android.ui.ChatUI;
 import org.chat21.android.ui.messages.activities.MessageListActivity;
+import org.chat21.android.utils.ChatUtils;
 import org.chat21.android.utils.StringUtils;
 
 import static org.chat21.android.ui.ChatUI.BUNDLE_CHANNEL_TYPE;
+import static org.chat21.android.utils.DebugConstants.DEBUG_LOGIN;
 import static org.chat21.android.utils.DebugConstants.DEBUG_NOTIFICATION;
 
 /**
@@ -31,6 +45,56 @@ import static org.chat21.android.utils.DebugConstants.DEBUG_NOTIFICATION;
  */
 
 public class ChatFirebaseMessagingService extends FirebaseMessagingService {
+
+    @Override
+    public void onNewToken(@NonNull String TAG_TOKEN) {
+        super.onNewToken(TAG_TOKEN);
+
+
+        Log.d(DEBUG_LOGIN, "SaveFirebaseInstanceIdService.onTokenRefresh");
+
+        String token = FirebaseInstanceId.getInstance().getToken();
+        Log.d(DEBUG_LOGIN, "SaveFirebaseInstanceIdService.onTokenRefresh:" +
+                " called with instanceId: " + token);
+        Log.i(TAG_TOKEN, "SaveFirebaseInstanceIdService: token == " + token);
+
+        FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+
+
+        String appId = ChatManager.Configuration.appId;
+
+        if (firebaseUser != null && StringUtils.isValid(appId)) {
+
+            DatabaseReference root;
+            if (StringUtils.isValid(ChatManager.Configuration.firebaseUrl)) {
+                root = FirebaseDatabase.getInstance()
+                        .getReferenceFromUrl(ChatManager.Configuration.firebaseUrl);
+            } else {
+                root = FirebaseDatabase.getInstance().getReference();
+            }
+
+            DatabaseReference firebaseUsersPath = root
+                    .child("apps/" + ChatManager.Configuration.appId +
+                            "/users/" + firebaseUser.getUid() + "/instances/" + token);
+
+            Map<String, Object> device = new HashMap<>();
+            device.put("device_model", ChatUtils.getDeviceModel());
+            device.put("platform", "Android");
+            device.put("platform_version", ChatUtils.getSystemVersion());
+            device.put("language", ChatUtils.getSystemLanguage(getResources()));
+
+            firebaseUsersPath.setValue(device); // placeholder value
+
+            Log.i(DEBUG_LOGIN, "SaveFirebaseInstanceIdService.onTokenRefresh: " +
+                    "saved with token: " + token +
+                    ", appId: " + appId + ", firebaseUsersPath: " + firebaseUsersPath);
+        } else {
+            Log.i(DEBUG_LOGIN, "SaveFirebaseInstanceIdService.onTokenRefresh:" +
+                    "user is null. token == " + token + ", appId == " + appId);
+        }
+
+
+    }
 
     // There are two types of messages data messages and notification messages. Data messages are handled
     // here in onMessageReceived whether the app is in the foreground or background. Data messages are the type
@@ -81,9 +145,51 @@ public class ChatFirebaseMessagingService extends FirebaseMessagingService {
 //                collapse_key=chat21.android.demo
 //            }
 
+            String channelType = remoteMessage.getData().get("channel_type");
+
+            if (channelType!=null&& channelType.equals("near")){
+
+                String body = remoteMessage.getData().get("body");
+                String title = remoteMessage.getData().get("title");
+
+                Intent intent = new Intent(this, MessageListActivity.class);
+                intent.setAction(Intent.ACTION_MAIN);
+                PendingIntent pendingIntent = PendingIntent.getActivity(this, 0 , intent,
+                        PendingIntent.FLAG_ONE_SHOT);
+
+                Uri defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+                NotificationCompat.Builder notificationBuilder =
+                        new NotificationCompat.Builder(this, title)
+                                .setSmallIcon(R.drawable.ic_notification_small)
+                                .setContentTitle(title)
+                                .setContentText(body)
+                                .setAutoCancel(true)
+                                .setSound(defaultSoundUri)
+                                .setContentIntent(pendingIntent);
+
+                NotificationManager notificationManager =
+                        (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+
+                // Oreo fix
+                String channelId = title;
+                String channelName = title;
+                int importance = NotificationManager.IMPORTANCE_HIGH;
+
+                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+                    NotificationChannel mChannel = new NotificationChannel(
+                            channelId, channelName, importance);
+                    notificationManager.createNotificationChannel(mChannel);
+                }
+
+                int notificationId = (int) new Date().getTime();
+                notificationManager.notify(notificationId, notificationBuilder.build());
+
+                return;
+            }
+
             String sender = remoteMessage.getData().get("sender");
             String senderFullName = remoteMessage.getData().get("sender_fullname");
-            String channelType = remoteMessage.getData().get("channel_type");
+
             String text = remoteMessage.getData().get("text");
             String timestamp = remoteMessage.getData().get("timestamp");
             String recipientFullName = remoteMessage.getData().get("recipient_fullname");

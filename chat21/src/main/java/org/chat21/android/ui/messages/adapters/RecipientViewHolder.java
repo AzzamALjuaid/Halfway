@@ -83,7 +83,9 @@ class RecipientViewHolder extends RecyclerView.ViewHolder {
                                 new LocationMessage(
                                         Double.parseDouble(split[0])
                                         ,Double.parseDouble(split[1])
+                                        ,message.getSender()
                                         ,message.getSenderFullname()
+
 
                                 )
                         );

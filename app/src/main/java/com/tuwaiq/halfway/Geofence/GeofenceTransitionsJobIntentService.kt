@@ -7,6 +7,7 @@ import androidx.core.app.JobIntentService
 import com.google.android.gms.location.Geofence
 import com.google.android.gms.location.GeofencingEvent
 import com.tuwaiq.halfway.App
+import com.tuwaiq.halfway.utility.Chat21Manager
 import com.tuwaiq.halfway.utility.sendNotification
 
 class GeofenceTransitionsJobIntentService : JobIntentService() {
@@ -18,9 +19,9 @@ class GeofenceTransitionsJobIntentService : JobIntentService() {
 
     fun enqueueWork(context: Context, intent: Intent) {
       enqueueWork(
-          context,
-          GeofenceTransitionsJobIntentService::class.java, JOB_ID,
-          intent)
+        context,
+        GeofenceTransitionsJobIntentService::class.java, JOB_ID,
+        intent)
     }
   }
 
@@ -44,6 +45,7 @@ class GeofenceTransitionsJobIntentService : JobIntentService() {
       val message = reminder?.message
       val latLng = reminder?.latLng
       if (message != null && latLng != null) {
+        Chat21Manager.sendNotification(reminder);
         sendNotification(this, message, latLng)
       }
     }

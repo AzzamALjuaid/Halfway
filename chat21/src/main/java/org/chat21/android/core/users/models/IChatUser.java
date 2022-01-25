@@ -10,6 +10,7 @@ public interface IChatUser extends Serializable {
 
     String getId();
 
+
     void setFullName(String fullName);
 
     String getFullName();
@@ -34,4 +35,5 @@ public interface IChatUser extends Serializable {
     String toString();
 
     int compareTo(IChatUser another);
+
 }

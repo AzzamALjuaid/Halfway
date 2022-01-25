@@ -11,10 +11,11 @@
         android:id="@+id/tv_friendName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
         android:gravity="center"
         android:maxLines="2"
         android:text="@string/friend_location"
-        android:textColor="@color/blue_300"
+        android:textColor="#E83C35"
         android:textSize="25dp"
         android:textStyle="bold" />
 

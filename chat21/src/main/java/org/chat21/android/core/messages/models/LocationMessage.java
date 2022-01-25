@@ -8,17 +8,20 @@ public class LocationMessage implements Parcelable {
     double lat;
      double  lon;
      String senderName;
+     String senderFullName;
 
-    public LocationMessage(double lat, double lon, String senderName) {
+    public LocationMessage(double lat, double lon, String senderName, String senderFullName) {
         this.lat = lat;
         this.lon = lon;
         this.senderName = senderName;
+        this.senderFullName = senderFullName;
     }
 
     protected LocationMessage(Parcel in) {
         lat = in.readDouble();
         lon = in.readDouble();
         senderName = in.readString();
+        senderFullName = in.readString();
     }
 
     public static final Creator<LocationMessage> CREATOR = new Creator<LocationMessage>() {
@@ -57,6 +60,14 @@ public class LocationMessage implements Parcelable {
         this.senderName = senderName;
     }
 
+    public String getSenderFullName() {
+        return senderFullName;
+    }
+
+    public void setSenderFullName(String senderFullName) {
+        this.senderFullName = senderFullName;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -67,5 +78,6 @@ public class LocationMessage implements Parcelable {
         dest.writeDouble(lat);
         dest.writeDouble(lon);
         dest.writeString(senderName);
+        dest.writeString(senderFullName);
     }
 }

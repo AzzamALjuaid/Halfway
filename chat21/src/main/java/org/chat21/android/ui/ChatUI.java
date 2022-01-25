@@ -4,11 +4,17 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.annotation.IdRes;
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
 import android.util.Log;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.vanniktech.emoji.EmojiManager;
 import com.vanniktech.emoji.ios.IosEmojiProvider;
 
@@ -303,11 +309,39 @@ public class ChatUI implements Serializable {
         }
     }
 
+
     private void startMessageListActivity(IChatUser contact, String channel) {
         Intent intent = new Intent(mContext, MessageListActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.putExtra(ChatUI.BUNDLE_RECIPIENT, contact);
         intent.putExtra(BUNDLE_CHANNEL_TYPE, channel);
         mContext.startActivity(intent);
+    }
+
+    public void sendNotficationToUser(String userToken) {
+
+        Log.d(TAG, "sendNotficationToUser: "+userToken);
+
+
+
+
+        DatabaseReference firebaseUsersPath = FirebaseDatabase.getInstance().getReference()
+                .child("apps/" + ChatManager.Configuration.appId +
+                        "/users/" + userToken + "/instances");
+
+        firebaseUsersPath.get().addOnCompleteListener(task -> {
+            if (task.isSuccessful()){
+
+
+                Log.d(TAG, "onComplete:user _token "+ task.getResult().getKey());
+                Log.d(TAG, "onComplete:user _token "+ task.getResult().getValue());
+            }else{
+                Log.d(TAG, "onComplete:user _token "+ task.getException().getMessage());
+
+            }
+
+        });
+
+
     }
 }

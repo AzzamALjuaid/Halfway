@@ -88,6 +88,7 @@ class HalfwayActivity : AppCompatActivity() {
         initView()
     }
 
+
     private fun initFirebaseChat() {
         Chat21Manager.start(this)
     }

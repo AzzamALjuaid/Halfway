@@ -33,6 +33,7 @@ import com.google.android.gms.maps.CameraUpdateFactory
 import org.chat21.android.core.messages.models.LocationMessage
 import com.google.android.gms.maps.model.BitmapDescriptor
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.auth.FirebaseAuth
 import com.tuwaiq.halfway.App
 import com.tuwaiq.halfway.Geofence.Reminder
 import com.tuwaiq.halfway.Geofence.ReminderRepository
@@ -64,7 +65,7 @@ open class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     fun getData() {
         binding.idPBLoading.visibility = View.VISIBLE
-        intent.getParcelableExtra<UserDetailModal>(getString(R.string.friend))?.let {
+        intent.getParcelableExtra<UserDetailModal>("friend")?.let {
             userDetailModal=it
         }
 //        binding.tvFriendName.text = userDetailModal?.name + " Location"
@@ -126,28 +127,28 @@ open class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
             return
         }
- intent.getParcelableExtra<LocationMessage>("locationMessage")?.let { locationsMessage ->
+        intent.getParcelableExtra<LocationMessage>("locationMessage")?.let { locationsMessage ->
 
 
-     binding.idPBLoading.isVisible = false
+            binding.idPBLoading.isVisible = false
 
-     binding.btnSetReminder.isVisible = mRepository?.getAll()?.filter {
-             locationsMessage.lat == it.latLng?.latitude && locationsMessage.lon == it.latLng?.longitude
-     }.isNullOrEmpty();
-     showReminders()
-     binding.btnSetReminder.setOnClickListener {
-         checkPermessation()
-     }
+            binding.btnSetReminder.isVisible = mRepository?.getAll()?.filter {
+                locationsMessage.lat == it.latLng?.latitude && locationsMessage.lon == it.latLng?.longitude
+            }.isNullOrEmpty();
+            showReminders()
+            binding.btnSetReminder.setOnClickListener {
+                checkPermessation()
+            }
 
-     mMap?.addMarker(
-         MarkerOptions()
-             .position(LatLng(locationsMessage.lat,locationsMessage.lon))
-             .anchor(0.5f, 0.5f)
-             .title(getString(R.string.user_location))
-             .snippet(locationsMessage.senderName)
-             .icon(getBitmapDescriptor(R.drawable.ic_my_location))
-     )
-     mMap?.animateCamera(CameraUpdateFactory.newLatLngZoom(LatLng(locationsMessage.lat,locationsMessage.lon),17f))
+            mMap?.addMarker(
+                MarkerOptions()
+                    .position(LatLng(locationsMessage.lat,locationsMessage.lon))
+                    .anchor(0.5f, 0.5f)
+                    .title("user locations")
+                    .snippet(locationsMessage.senderName)
+                    .icon(getBitmapDescriptor(R.drawable.ic_my_location))
+            )
+            mMap?.animateCamera(CameraUpdateFactory.newLatLngZoom(LatLng(locationsMessage.lat,locationsMessage.lon),17f))
 
 /*
      mMap.addMarker(
@@ -160,64 +161,64 @@ open class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
      )
      mMap?.animateCamera(CameraUpdateFactory.newLatLngZoom(LatLng(it.lat,it.lon),17f))*/
 
- }?: run {
+        }?: run {
 
 
-     val latlng: ArrayList<LatLng> = ArrayList()
-     val name = PreferencesHelper(this).getString(USER_NAME)
-     val gender = PreferencesHelper(this).getString(USER_GENDER)
-     val lat = PreferencesHelper(this).getString(USER_LATITUDE)
-     val lng = PreferencesHelper(this).getString(USER_LONGITUDE)
-     if(!(lat.isNullOrBlank()||lng.isNullOrBlank())){
-         latlng.add(LatLng(lat.toDouble(), lng.toDouble()))
-     }
+            val latlng: ArrayList<LatLng> = ArrayList()
+            val name = PreferencesHelper(this).getString(USER_NAME)
+            val gender = PreferencesHelper(this).getString(USER_GENDER)
+            val lat = PreferencesHelper(this).getString(USER_LATITUDE)
+            val lng = PreferencesHelper(this).getString(USER_LONGITUDE)
+            if(!(lat.isNullOrBlank()||lng.isNullOrBlank())){
+                latlng.add(LatLng(lat.toDouble(), lng.toDouble()))
+            }
 
-     userDetailModal?.let {
-         latlng.add(
-             LatLng(
-                 it.latitude.toDouble(),
-                 it.longitude.toDouble()
-             )
-         )
-         val mid = midPoint(
-             lat.toDouble(), lng.toDouble(), it.latitude.toDouble(),
-             it.longitude.toDouble()
-         )
-         latlng.add(mid)
+            userDetailModal?.let {
+                latlng.add(
+                    LatLng(
+                        it.latitude.toDouble(),
+                        it.longitude.toDouble()
+                    )
+                )
+                val mid = midPoint(
+                    lat.toDouble(), lng.toDouble(), it.latitude.toDouble(),
+                    it.longitude.toDouble()
+                )
+                latlng.add(mid)
 
-         createMarker(it, getBitmap(R.drawable.ic_other_location)!!)
+                createMarker(it, getBitmap(R.drawable.ic_other_location)!!)
 
-         //        val placesSearchResults = NearbySearch().run(mid)!!.results
-         for (item in NearbySearch().run(mid)!!.results)
-             println("=========>" + item.formattedAddress!!)
-         createMarker(
-             UserDetailModal(
-                 getString(R.string.app_name),
-                 getString(R.string.app_name),
-                 "",
-                 mid.latitude.toString(),
-                 mid.longitude.toString(),
-                 ""
-             ),
-             getBitmap(R.drawable.ic_location_halfway)!!
-         )
-     }
+                //        val placesSearchResults = NearbySearch().run(mid)!!.results
+                for (item in NearbySearch().run(mid)!!.results)
+                    println("=========>" + item.formattedAddress!!)
+                createMarker(
+                    UserDetailModal(
+                        "Halfway",
+                        "Halfway",
+                        "",
+                        mid.latitude.toString(),
+                        mid.longitude.toString(),
+                        ""
+                    ),
+                    getBitmap(R.drawable.ic_location_halfway)!!
+                )
+            }
 
-     createMarker(
-         UserDetailModal(
-             name,
-             gender,
-             "",
-             lat,
-             lng,
-             ""
-         ),
-         getBitmap(R.drawable.ic_my_location)!!
-     )
+            createMarker(
+                UserDetailModal(
+                    name,
+                    gender,
+                    "",
+                    lat,
+                    lng,
+                    ""
+                ),
+                getBitmap(R.drawable.ic_my_location)!!
+            )
 
-     zoomInToAllMarker(latlng)
+            zoomInToAllMarker(latlng)
 
- }
+        }
 
 
     }
@@ -307,11 +308,11 @@ open class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             success = {
                 showReminders()
 
-                Snackbar.make(binding.root, getString(R.string.halfway_point_added), Snackbar.LENGTH_LONG).show()
+                Snackbar.make(binding.root, "Reminder Added", Snackbar.LENGTH_LONG).show()
                 binding.btnSetReminder.isVisible=false
 
                 // setResult(Activity.RESULT_OK)
-              //  finish()
+                //  finish()
             },
             failure = {
                 Snackbar.make(binding.root, it, Snackbar.LENGTH_LONG).show()
@@ -320,27 +321,27 @@ open class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var locationManager: LocationManager
     private  val MY_LOCATION_REQUEST_CODE = 329
 
-fun checkPermessation(){
-    locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
+    fun checkPermessation(){
+        locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
 
-    if (ContextCompat.checkSelfPermission(
-            this,
-            Manifest.permission.ACCESS_FINE_LOCATION)
-        != PackageManager.PERMISSION_GRANTED||ContextCompat.checkSelfPermission(
-            this,
-            Manifest.permission.ACCESS_COARSE_LOCATION)
-        != PackageManager.PERMISSION_GRANTED||ContextCompat.checkSelfPermission(
-            this,
-            Manifest.permission.ACCESS_BACKGROUND_LOCATION)
-        != PackageManager.PERMISSION_GRANTED) {
-        ActivityCompat.requestPermissions(
-            this,
-            arrayOf(Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.ACCESS_BACKGROUND_LOCATION,Manifest.permission.ACCESS_COARSE_LOCATION),
-            MY_LOCATION_REQUEST_CODE)
-    }else{
-        onMapAndPermissionReady()
+        if (ContextCompat.checkSelfPermission(
+                this,
+                Manifest.permission.ACCESS_FINE_LOCATION)
+            != PackageManager.PERMISSION_GRANTED||ContextCompat.checkSelfPermission(
+                this,
+                Manifest.permission.ACCESS_COARSE_LOCATION)
+            != PackageManager.PERMISSION_GRANTED||ContextCompat.checkSelfPermission(
+                this,
+                Manifest.permission.ACCESS_BACKGROUND_LOCATION)
+            != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(
+                this,
+                arrayOf(Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.ACCESS_BACKGROUND_LOCATION,Manifest.permission.ACCESS_COARSE_LOCATION),
+                MY_LOCATION_REQUEST_CODE)
+        }else{
+            onMapAndPermissionReady()
+        }
     }
-}
 
     override fun onRequestPermissionsResult(requestCode: Int,
                                             permissions: Array<out String>,
@@ -355,7 +356,7 @@ fun checkPermessation(){
         if (ContextCompat.checkSelfPermission(
                 this,
                 Manifest.permission.ACCESS_FINE_LOCATION)
-        == PackageManager.PERMISSION_GRANTED
+            == PackageManager.PERMISSION_GRANTED
         ) {
             mMap?.isMyLocationEnabled = true
             val bestProvider = locationManager.getBestProvider(Criteria(), false)
@@ -372,7 +373,8 @@ fun checkPermessation(){
                         latLng.longitude
                     )
 
-                    addReminder( Reminder(latLng = mid, radius = 100.0, message = getString(R.string.hafway_notif)+" ${it.senderName} ", userName = it.senderName)
+                    addReminder( Reminder(latLng = mid, radius = 100.0, message = "You reach Half way to your friend ${it.senderFullName} ",
+                        userName = it.senderFullName, userToken =it.senderName, currentUserName = FirebaseAuth.getInstance().currentUser?.displayName)
                     )
                     mMap?.moveCamera(CameraUpdateFactory.newLatLngZoom(mid, 15f))
 
@@ -392,13 +394,13 @@ fun checkPermessation(){
         mMap?.run {
             clear()
 
-         /*   for (reminder in (application as App).getRepository().getAll()) {
-                showReminderInMap(this@MapsActivity, this, reminder)
-            }*/
+            /*   for (reminder in (application as App).getRepository().getAll()) {
+                   showReminderInMap(this@MapsActivity, this, reminder)
+               }*/
 
 
             (application as App).getRepository().getLast()?.let {
-             showReminderInMap(this@MapsActivity, this, it)
+                showReminderInMap(this@MapsActivity, this, it)
             }
 
         }
