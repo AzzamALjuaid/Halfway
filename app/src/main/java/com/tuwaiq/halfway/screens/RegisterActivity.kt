@@ -58,7 +58,7 @@ class RegisterActivity : AppCompatActivity() {
         val lastName = findViewById<EditText>(R.id.etFirstName).text.toString()
 
         if (!password.equals(cnfPwd)) {
-            MotionToast.darkColorToast(this,
+            MotionToast.createToast(this,
                 getString(R.string.warning),
                 getString(R.string.password_same),
                 MotionToastStyle.WARNING,
@@ -68,7 +68,7 @@ class RegisterActivity : AppCompatActivity() {
 
         } else if (TextUtils.isEmpty(firstName) || TextUtils.isEmpty(lastName) ) {
             //checking if the text fields are empty or not.
-            MotionToast.darkColorToast(this,
+            MotionToast.createToast(this,
                 getString(R.string.warning),
                 getString(R.string.enter_name),
                 MotionToastStyle.WARNING,
@@ -81,7 +81,7 @@ class RegisterActivity : AppCompatActivity() {
             )
         ) {
 
-            MotionToast.darkColorToast(this,
+            MotionToast.createToast(this,
                 getString(R.string.warning),
                 getString(R.string.user_credentials),
                 MotionToastStyle.WARNING,
@@ -117,7 +117,7 @@ class RegisterActivity : AppCompatActivity() {
                                     override fun onUserCreatedSuccess() {
                                         val firebaseUser: FirebaseUser = FirebaseAuth.getInstance()!!.currentUser!!
 
-                                        MotionToast.darkColorToast(this@RegisterActivity,
+                                        MotionToast.createToast(this@RegisterActivity,
                                             getString(R.string.successful),
                                             getString(R.string.reg_success),
                                             MotionToastStyle.SUCCESS,

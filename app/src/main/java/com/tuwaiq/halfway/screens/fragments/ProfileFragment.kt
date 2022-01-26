@@ -114,7 +114,7 @@ class ProfileFragment : Fragment() {
         binding.logout.setOnClickListener {
             context?.let { it1 -> PreferencesHelper(it1).clearPreferences() }
             FirebaseAuth.getInstance().signOut()
-            MotionToast.darkColorToast(requireActivity(),
+            MotionToast.createToast(requireActivity(),
                 getString(R.string.successful),
                 getString(R.string.logout_success),
                 MotionToastStyle.SUCCESS,
@@ -130,7 +130,7 @@ class ProfileFragment : Fragment() {
             Firebase.auth.currentUser?.delete()?.addOnCompleteListener {
                 if(it.isSuccessful){
 
-                    MotionToast.darkColorToast(requireActivity(),
+                    MotionToast.createToast(requireActivity(),
                         getString(R.string.successful),
                         getString(R.string.delete_complete),
                         MotionToastStyle.DELETE,
@@ -141,7 +141,7 @@ class ProfileFragment : Fragment() {
                     startActivity(Intent(context, LoginActivity::class.java))
                 }else{
 
-                    MotionToast.darkColorToast(requireActivity(),
+                    MotionToast.createToast(requireActivity(),
                         getString(R.string.failed),
                         getString(R.string.error),
                         MotionToastStyle.ERROR,

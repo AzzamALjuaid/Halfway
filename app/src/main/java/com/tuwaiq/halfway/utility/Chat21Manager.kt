@@ -105,7 +105,7 @@ object Chat21Manager {
                             val client = OkHttpClient()
                             val json = JSONObject()
                             val dataJson = JSONObject()
-                            dataJson.put("body", "You reach Half way to your friend ${reminder?.currentUserName}")
+                            dataJson.put("body", "You friend ${reminder?.currentUserName} reach the halfway point")
                             dataJson.put("title","Half Way")
                             dataJson.put("channel_type","near")
                             json.put("notification", dataJson)

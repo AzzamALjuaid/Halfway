@@ -72,7 +72,7 @@ class LoginActivity : AppCompatActivity() {
         val password = findViewById<EditText>(R.id.etLoginPass).text.toString()
         //below is the validation of the credential enter by the uer
         if (TextUtils.isEmpty(email)) {
-            MotionToast.darkColorToast(this,
+            MotionToast.createToast(this,
                 getString(R.string.warning),
                 getString(R.string.enter_email),
                 MotionToastStyle.WARNING,
@@ -82,7 +82,7 @@ class LoginActivity : AppCompatActivity() {
             loginProgress.visibility= View.GONE
 
         } else if (!Common.isValidEmail(email)) {
-            MotionToast.darkColorToast(this,
+            MotionToast.createToast(this,
                 getString(R.string.warning),
                 getString(R.string.enter_valid_email),
                 MotionToastStyle.WARNING,
@@ -93,7 +93,7 @@ class LoginActivity : AppCompatActivity() {
 
         } else if (TextUtils.isEmpty(password)) {
 
-            MotionToast.darkColorToast(this,
+            MotionToast.createToast(this,
                 getString(R.string.warning),
                 getString(R.string.enter_password),
                 MotionToastStyle.WARNING,
@@ -119,7 +119,7 @@ class LoginActivity : AppCompatActivity() {
                         }
 
 
-                        MotionToast.darkColorToast(this@LoginActivity,
+                        MotionToast.createToast(this@LoginActivity,
                             getString(R.string.successful),
                             getString(R.string.login_success),
                             MotionToastStyle.SUCCESS,
@@ -144,7 +144,7 @@ class LoginActivity : AppCompatActivity() {
                         //hiding our progress bar and displaying a toast message.
                         Log.d(TAG, "loginUser: ${e?.message}")
 
-                        MotionToast.darkColorToast(this@LoginActivity,
+                        MotionToast.createToast(this@LoginActivity,
                             getString(R.string.warning),
                             getString(R.string.user_credentials),
                             MotionToastStyle.WARNING,

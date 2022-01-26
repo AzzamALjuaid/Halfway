@@ -373,7 +373,7 @@ open class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                         latLng.longitude
                     )
 
-                    addReminder( Reminder(latLng = mid, radius = 100.0, message = "You reach Half way to your friend ${it.senderFullName} ",
+                    addReminder( Reminder(latLng = mid, radius = 100.0, message = "You reach halfway point to your friend ${it.senderFullName} ",
                         userName = it.senderFullName, userToken =it.senderName, currentUserName = FirebaseAuth.getInstance().currentUser?.displayName)
                     )
                     mMap?.moveCamera(CameraUpdateFactory.newLatLngZoom(mid, 15f))
