@@ -6,7 +6,7 @@ Whether you are meeting a faraway friend, connecting with a client for lunch, Ha
 - API
 - Realtime Database Firebase with FULL CRUD
 - Firebase Authentication
-- SharedPreferences
+
 # SpalshScreen:
 
 
